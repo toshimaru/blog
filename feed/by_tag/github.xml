@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/github.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/github.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Publish Jekyll site without gh-pages branch</title><link href="https://blog.toshima.ru/2016/08/24/publish-jekyll-without-gh-pages.html" rel="alternate" type="text/html" title="Publish Jekyll site without gh-pages branch" /><published>2016-08-24T00:00:00+00:00</published><updated>2016-08-24T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/08/24/publish-jekyll-without-gh-pages</id><content type="html" xml:base="https://blog.toshima.ru/2016/08/24/publish-jekyll-without-gh-pages.html">&lt;p&gt;Github announced &lt;a href=&quot;https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/&quot;&gt;variety of sources of Github Pages&lt;/a&gt; is supported in &lt;a href=&quot;https://github.com/blog/2233-publish-your-project-documentation-with-github-pages&quot;&gt;their official blog&lt;/a&gt;. It allows developers to publish Github Pages with master branch instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch. Since this feature, you can publish your Jekyll site without using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch and Github Pages deployment now can be much simpler.&lt;/p&gt;
+
+&lt;h2 id=&quot;build-page-on-docs-directory&quot;&gt;Build page on docs directory&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;First step&lt;/strong&gt;: Configure build destination.&lt;/p&gt;
+
+&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# _config.yml&lt;/span&gt;
+&lt;span class=&quot;na&quot;&gt;destination&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;./docs&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now Jekyll pages are built on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;./docs&lt;/code&gt; directory.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ jekyll build
+Configuration file: /Users/toshimaru/blog.toshima.ru/_config.yml
+            Source: /Users/toshimaru/blog.toshima.ru
+       Destination: ./docs
+ Incremental build: disabled. Enable with --incremental
+      Generating...
+                    done in 4.078 seconds.
+ Auto-regeneration: disabled. Use --watch to enable.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Yay, you are almost ready to publish the pages.&lt;/p&gt;
+
+&lt;h2 id=&quot;use-docs-instead-of-gh-pages-branch&quot;&gt;Use docs instead of gh-pages branch&lt;/h2&gt;
+
+&lt;p&gt;&lt;strong&gt;Last step&lt;/strong&gt;: Change Github Pages source in your repository setting.&lt;/p&gt;
+
+&lt;p&gt;&lt;amp-img src=&quot;/images/doc-gh-pages.png&quot; alt=&quot;change Github Pages source&quot; width='745' height='436' layout='responsive'&gt;&lt;/amp-img&gt;&lt;/p&gt;
+
+&lt;p&gt;You will see your Github Pages on your own published pages. Happy Jekylling &amp;lt;3&lt;/p&gt;
+
+&lt;h2 id=&quot;pro-tip&quot;&gt;Pro Tip&lt;/h2&gt;
+
+&lt;p&gt;By using &lt;a href=&quot;https://github.com/ruby/rake&quot;&gt;rake&lt;/a&gt;, you can deploy your Jekyll site with one command, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rake deploy&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Rakefile&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'deploy Jekyll site to Github Pages'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:deploy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bundle exec jekyll clean'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bundle exec jekyll build'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git add ./docs'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git commit -m \'Update\''&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git push origin master'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this task, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rake deploy&lt;/code&gt; builds Jekyll site and push it to Github for you. This is useful if you’d like to release your site on CI such as TravisCI, CircleCi.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jekyllrb.com/docs/configuration/&quot;&gt;Configuration - Jekyll • Simple, blog-aware, static sites&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="jekyll" /><category term="github" /><summary type="html">Github announced variety of sources of Github Pages is supported in their official blog. It allows developers to publish Github Pages with master branch instead of gh-pages branch. Since this feature, you can publish your Jekyll site without using gh-pages branch and Github Pages deployment now can be much simpler.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

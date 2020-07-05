@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ssh.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/ssh.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to specify Git SSH key for different hosts</title><link href="https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key.html" rel="alternate" type="text/html" title="How to specify Git SSH key for different hosts" /><published>2019-09-04T00:00:00+00:00</published><updated>2019-09-04T00:00:00+00:00</updated><id>https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key</id><content type="html" xml:base="https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key.html">&lt;p&gt;When you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt;, you might specify which SSH key to use. It’s not possible to add option to specify which SSH key to use, but it’s possible to tell git which SSH key to use with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ssh/config&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is the example:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# .ssh/config
+Host github.com
+  Hostname github.com
+  User git
+  IdentityFile ~/.ssh/your_private_key
+
+Host github.yourcompany.com
+  Hostname github.yourcompany.com
+  User git
+  IdentityFile ~/.ssh/your_another_private_key
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This means that &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt; uses &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/your_private_key&lt;/code&gt; SSH key for host &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github.com&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/your_another_private_key&lt;/code&gt; SSH key for host &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;github.yourcompany.com&lt;/code&gt;.&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="git" /><category term="ssh" /><summary type="html">When you run git push, you might specify which SSH key to use. It’s not possible to add option to specify which SSH key to use, but it’s possible to tell git which SSH key to use with .ssh/config.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Generate Ed25519 SSH key</title><link href="https://blog.toshima.ru/2016/10/10/generate-ed25519-ssh-key.html" rel="alternate" type="text/html" title="Generate Ed25519 SSH key" /><published>2016-10-10T00:00:00+00:00</published><updated>2016-10-10T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/10/10/generate-ed25519-ssh-key</id><content type="html" xml:base="https://blog.toshima.ru/2016/10/10/generate-ed25519-ssh-key.html">&lt;p&gt;Using Ed25519 as SSH key is recommended because it has:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;High security level. This system has a 2^128 security target; breaking it has similar difficulty to breaking NIST P-256, RSA with ~3000-bit keys, strong 128-bit block ciphers, etc.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;via. &lt;a href=&quot;http://ed25519.cr.yp.to/&quot;&gt;Ed25519: high-speed high-security signatures&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
+
+&lt;p&gt;Mac OS X El Capitan&lt;/p&gt;
+
+&lt;h2 id=&quot;ssh-version&quot;&gt;SSH version&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh -V
+OpenSSH_6.9p1, LibreSSL 2.1.8
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;generate-ed25519-ssh&quot;&gt;Generate Ed25519 SSH&lt;/h2&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-keygen -t ed25519
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ssh-keygen -t ed25519
+Generating public/private ed25519 key pair.
+Enter file in which to save the key (/Users/toshi/.ssh/id_ed25519):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /Users/toshi/.ssh/id_ed25519.
+Your public key has been saved in /Users/toshi/.ssh/id_ed25519.pub.
+The key fingerprint is:
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+The key's randomart image is:
++--[ED25519 256]--+
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
+| xxx xxx xxx xxx |
++----[SHA256]-----+
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, your private key should be at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/id_ed25519&lt;/code&gt; and your public key should be at &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.ssh/id_ed25519.pub&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/EdDSA&quot;&gt;EdDSA - Wikipedia, the free encyclopedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="ssh" /><category term="security" /><summary type="html">Using Ed25519 as SSH key is recommended because it has:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

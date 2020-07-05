@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/linux.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/linux.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Linux man Section Numbers</title><link href="https://blog.toshima.ru/2020/06/10/man-section-numbers.html" rel="alternate" type="text/html" title="Linux man Section Numbers" /><published>2020-06-10T00:00:00+00:00</published><updated>2020-06-10T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/06/10/man-section-numbers</id><content type="html" xml:base="https://blog.toshima.ru/2020/06/10/man-section-numbers.html">&lt;p&gt;When you use *nux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command, you’ll see number after commands or system calls. e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LS(1)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FORK(2)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;What’s this number? It’s called &lt;strong&gt;section number&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The next question is, what does the section number actually mean?&lt;/p&gt;
+
+&lt;h2 id=&quot;section-numbers&quot;&gt;Section numbers&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;section number&lt;/th&gt;
+      &lt;th&gt;description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Executable programs or shell commands&lt;/strong&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;System calls&lt;/strong&gt;. This functions are provided by the kernel.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Library calls&lt;/strong&gt;. This functions are used as program libraries.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Special files&lt;/strong&gt;. This is usually found in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev&lt;/code&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;File formats and conventions&lt;/strong&gt;, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passwd&lt;/code&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Games&lt;/strong&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Miscellaneous&lt;/strong&gt; (including macro packages and conventions), e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man(7)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;groff(7)&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;System administration commands&lt;/strong&gt;. This is usually only for root.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Kernel routines&lt;/strong&gt; [Non standard]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;This list is based on Linux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command (You can see it by runnning &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man man&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Man_page#Manual_sections&quot;&gt;man page - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="linux" /><category term="unix" /><category term="mac" /><category term="bash" /><summary type="html">When you use *nux man command, you’ll see number after commands or system calls. e.g. LS(1), FORK(2).</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Using less without word-wrap</title><link href="https://blog.toshima.ru/2017/08/08/less-without-word-wrap.html" rel="alternate" type="text/html" title="Using less without word-wrap" /><published>2017-08-08T00:00:00+00:00</published><updated>2017-08-08T00:00:00+00:00</updated><id>https://blog.toshima.ru/2017/08/08/less-without-word-wrap</id><content type="html" xml:base="https://blog.toshima.ru/2017/08/08/less-without-word-wrap.html">&lt;p&gt;When you open up a file with less, word-wrap is sometimes annoying.&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;less longtext.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;amp-img src=&quot;/images/less1.png&quot; alt=&quot;less1&quot; width='1110' height='860' layout='responsive'&gt;&lt;/amp-img&gt;&lt;/p&gt;
+
+&lt;p&gt;You can open it without word-wrap by passing &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-S&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;less &lt;span class=&quot;nt&quot;&gt;-S&lt;/span&gt; longtext.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;amp-img src=&quot;/images/less2.png&quot; alt=&quot;less2&quot; width='1250' height='716' layout='responsive'&gt;&lt;/amp-img&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://superuser.com/questions/272818/how-to-turn-off-word-wrap-in-less&quot;&gt;linux - How to turn off word-wrap in less - Super User&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="less" /><category term="linux" /><summary type="html">When you open up a file with less, word-wrap is sometimes annoying.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

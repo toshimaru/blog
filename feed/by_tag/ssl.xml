@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ssl.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/ssl.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Check supported TLS version with openssl command</title><link href="https://blog.toshima.ru/2020/01/06/check-supported-tls-version.html" rel="alternate" type="text/html" title="Check supported TLS version with openssl command" /><published>2020-01-06T00:00:00+00:00</published><updated>2020-01-06T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/01/06/check-supported-tls-version</id><content type="html" xml:base="https://blog.toshima.ru/2020/01/06/check-supported-tls-version.html">&lt;ol id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#web-tls-checker&quot; id=&quot;markdown-toc-web-tls-checker&quot;&gt;Web TLS Checker&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#openssl-command&quot; id=&quot;markdown-toc-openssl-command&quot;&gt;openssl command&lt;/a&gt;    &lt;ol&gt;
+      &lt;li&gt;&lt;a href=&quot;#check-tls-v1-is-supported&quot; id=&quot;markdown-toc-check-tls-v1-is-supported&quot;&gt;Check TLS v1 is supported&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#check-tls-v11-is-supported&quot; id=&quot;markdown-toc-check-tls-v11-is-supported&quot;&gt;Check TLS v1.1 is supported&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#check-tls-v12-is-supported&quot; id=&quot;markdown-toc-check-tls-v12-is-supported&quot;&gt;Check TLS v1.2 is supported&lt;/a&gt;&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#related-post&quot; id=&quot;markdown-toc-related-post&quot;&gt;Related Post&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;web-tls-checker&quot;&gt;Web TLS Checker&lt;/h2&gt;
+
+&lt;p&gt;You can check if a specific version of TLS is supported with the following TLS Checker.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cdn77.com/tls-test&quot;&gt;TLS Checker - Instant Results | CDN77.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ssllabs.com/ssltest/&quot;&gt;SSL Server Test (Powered by Qualys SSL Labs)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;openssl-command&quot;&gt;openssl command&lt;/h2&gt;
+
+&lt;p&gt;You can also check supported TLS version by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl s_client&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ openssl s_client -connect {domain}:443 -servername {domain} -tls{version}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If supported, valid SSL Certificate is shown.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;openssl s_client &lt;span class=&quot;nt&quot;&gt;-connect&lt;/span&gt; google.com:443 &lt;span class=&quot;nt&quot;&gt;-servername&lt;/span&gt; google.com &lt;span class=&quot;nt&quot;&gt;-tls1&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;CONNECTED(00000005)
+depth=2 OU = GlobalSign Root CA - R2, O = GlobalSign, CN = GlobalSign
+verify return:1
+depth=1 C = US, O = Google Trust Services, CN = GTS CA 1O1
+verify return:1
+depth=0 C = US, ST = California, L = Mountain View, O = Google LLC, CN = *.google.com
+verify return:1
+---
+Certificate chain
+ 0 s:/C=US/ST=California/L=Mountain View/O=Google LLC/CN=*.google.com
+   i:/C=US/O=Google Trust Services/CN=GTS CA 1O1
+ 1 s:/C=US/O=Google Trust Services/CN=GTS CA 1O1
+   i:/OU=GlobalSign Root CA - R2/O=GlobalSign/CN=GlobalSign
+---
+Server certificate
+-----BEGIN CERTIFICATE-----
+MIIJRDCCCCygAwIBAgIRAOXiH3ntcKfZAwAAAABmVK4wDQYJKoZIhvcNAQELBQAw
+...(snip)...
+rRUF99NVPWhf8+q+LIkUf60Gr2V3ZfVf
+-----END CERTIFICATE-----
+subject=/C=US/ST=California/L=Mountain View/O=Google LLC/CN=*.google.com
+issuer=/C=US/O=Google Trust Services/CN=GTS CA 1O1
+---
+No client certificate CA names sent
+Server Temp Key: ECDH, X25519, 253 bits
+---
+SSL handshake has read 3973 bytes and written 242 bytes
+---
+New, TLSv1/SSLv3, Cipher is ECDHE-ECDSA-AES128-SHA
+Server public key is 256 bit
+Secure Renegotiation IS supported
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If not supported, the following messages are shown.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;openssl s_client &lt;span class=&quot;nt&quot;&gt;-connect&lt;/span&gt; yahoo.co.jp:443 &lt;span class=&quot;nt&quot;&gt;-servername&lt;/span&gt; yahoo.co.jp &lt;span class=&quot;nt&quot;&gt;-tls1&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;CONNECTED(00000006)
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;...
+&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;---
+no peer certificate available
+---
+No client certificate CA names sent
+---
+SSL handshake has read 7 bytes and written 0 bytes
+---
+New, (NONE), Cipher is (NONE)
+Secure Renegotiation IS NOT supported
+Compression: NONE
+Expansion: NONE
+No ALPN negotiated
+SSL-Session:
+    Protocol  : TLSv1
+    Cipher    : 0000
+    Session-ID:
+    Session-ID-ctx:
+    Master-Key:
+    Start Time: 1578292633
+    Timeout   : 7200 (sec)
+    Verify return code: 0 (ok)
+---
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;check-tls-v1-is-supported&quot;&gt;Check TLS v1 is supported&lt;/h3&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;openssl s_client &lt;span class=&quot;nt&quot;&gt;-connect&lt;/span&gt; google.com:443 &lt;span class=&quot;nt&quot;&gt;-servername&lt;/span&gt; google.com &lt;span class=&quot;nt&quot;&gt;-tls1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;check-tls-v11-is-supported&quot;&gt;Check TLS v1.1 is supported&lt;/h3&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;openssl s_client &lt;span class=&quot;nt&quot;&gt;-connect&lt;/span&gt; google.com:443 &lt;span class=&quot;nt&quot;&gt;-servername&lt;/span&gt; google.com &lt;span class=&quot;nt&quot;&gt;-tls1_1&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;check-tls-v12-is-supported&quot;&gt;Check TLS v1.2 is supported&lt;/h3&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;openssl s_client &lt;span class=&quot;nt&quot;&gt;-connect&lt;/span&gt; google.com:443 &lt;span class=&quot;nt&quot;&gt;-servername&lt;/span&gt; google.com &lt;span class=&quot;nt&quot;&gt;-tls1_2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;related-post&quot;&gt;Related Post&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;/2017/09/22/ssl-expiration-check-via-command-line.html&quot;&gt;Check SSL Certificate Expiration Date via Command Line | Toshimaru’s Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="tls" /><category term="ssl" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Check SSL Certificate Expiration Date via Command Line</title><link href="https://blog.toshima.ru/2017/09/22/ssl-expiration-check-via-command-line.html" rel="alternate" type="text/html" title="Check SSL Certificate Expiration Date via Command Line" /><published>2017-09-22T00:00:00+00:00</published><updated>2017-09-22T00:00:00+00:00</updated><id>https://blog.toshima.ru/2017/09/22/ssl-expiration-check-via-command-line</id><content type="html" xml:base="https://blog.toshima.ru/2017/09/22/ssl-expiration-check-via-command-line.html">&lt;p&gt;If you wanna check SSL certificate expiration date for specific domain via command line, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Let’s check &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google.com:443&lt;/code&gt; certificate expiration date using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;openssl s_client &lt;span class=&quot;nt&quot;&gt;-connect&lt;/span&gt; google.com:443 &lt;span class=&quot;nt&quot;&gt;-servername&lt;/span&gt; google.com &amp;lt; /dev/null 2&amp;gt; /dev/null | openssl x509 &lt;span class=&quot;nt&quot;&gt;-text&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;After&quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;            Not After : Dec  6 17:09:00 2017 GMT
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dec  6 17:09:00 2017 GMT&lt;/code&gt; is expiration date.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.shellhacks.com/openssl-check-ssl-certificate-expiration-date/&quot;&gt;OpenSSL: Check SSL Certificate Expiration Date and More - ShellHacks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[Japanese] &lt;a href=&quot;https://blog.manabusakai.com/2016/07/lambda-cert-expire/&quot;&gt;Lambda を使って SSL サーバ証明書の有効期限をチェックする&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="ssl" /><category term="bash" /><summary type="html">If you wanna check SSL certificate expiration date for specific domain via command line, you can use openssl command.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

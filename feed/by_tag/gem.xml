@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/gem.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/gem.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to set your rubygems credentials</title><link href="https://blog.toshima.ru/2019/09/10/how-to-set-rubygems-credentials.html" rel="alternate" type="text/html" title="How to set your rubygems credentials" /><published>2019-09-10T00:00:00+00:00</published><updated>2019-09-10T00:00:00+00:00</updated><id>https://blog.toshima.ru/2019/09/10/how-to-set-rubygems-credentials</id><content type="html" xml:base="https://blog.toshima.ru/2019/09/10/how-to-set-rubygems-credentials.html">&lt;p&gt;One day, I tried to publish &lt;a href=&quot;https://github.com/toshimaru/rubocop-rails_config&quot;&gt;my gem&lt;/a&gt;, but it failed.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake release
+&lt;span class=&quot;go&quot;&gt;rubocop-rails_config 0.7.2 built to pkg/rubocop-rails_config-0.7.2.gem.
+Tagged v0.7.2.
+Pushed git commits and tags.
+rake aborted!
+Your rubygems.org credentials aren't set. Run `gem push` to set them.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To resolve this, you need to put gem credential on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.gem/credentials&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;your_gem_account_name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; https://rubygems.org/api/v1/api_key.yaml &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/.gem/credentials
+&lt;span class=&quot;go&quot;&gt;Enter host password for user '{your_gem_account_name}': {your_password}
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, let’s run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rake release&lt;/code&gt; command again.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake release
+&lt;span class=&quot;go&quot;&gt;rubocop-rails_config 0.7.2 built to pkg/rubocop-rails_config-0.7.2.gem.
+Tag v0.7.2 has already been created.
+rake aborted!
+ERROR:  Your gem push credentials file located at:
+
+	~/.gem/credentials
+
+has file permissions of 0644 but 0600 is required.
+
+To fix this error run:
+
+	chmod 0600 ~/.gem/credentials
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Okay, let’s fix the permission.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;0600 ~/.gem/credentials
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Re-try:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake release
+&lt;span class=&quot;go&quot;&gt;rubocop-rails_config 0.7.2 built to pkg/rubocop-rails_config-0.7.2.gem.
+Tag v0.7.2 has already been created.
+Pushed rubocop-rails_config 0.7.2 to rubygems.org
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Success! That’s it! :)&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://michaelrigart.be/easily-publish-ruby-gems/&quot;&gt;Easily publish your ruby gems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><category term="gem" /><summary type="html">One day, I tried to publish my gem, but it failed.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bundler Github/Gist shorthand</title><link href="https://blog.toshima.ru/2016/11/07/bundler-gist-shorthand.html" rel="alternate" type="text/html" title="Bundler Github/Gist shorthand" /><published>2016-11-07T00:00:00+00:00</published><updated>2019-09-10T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/11/07/bundler-gist-shorthand</id><content type="html" xml:base="https://blog.toshima.ru/2016/11/07/bundler-gist-shorthand.html">&lt;h2 id=&quot;bundler-for-git-source&quot;&gt;Bundler for git source&lt;/h2&gt;
+
+&lt;p&gt;You may know how to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt; from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git&lt;/code&gt; source.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'page_number'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;git: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https://gist.github.com/123456789&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;bundler-for-githubgist-source&quot;&gt;Bundler for GitHub/Gist source&lt;/h2&gt;
+
+&lt;p&gt;How about GitHub/Gist source? Bundler has shorthands for GitHub/Gist.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;page_number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;github: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;user_name/repo_name&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gem&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;page_number&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;gist: &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;gist_id_123456789&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://bundler.io/v1.12/git.html#gems-from-git-repositories&quot;&gt;Gems from git repositories&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="bundler" /><category term="gist" /><category term="gem" /><summary type="html">Bundler for git source</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

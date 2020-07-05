@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/bash.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/bash.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Linux man Section Numbers</title><link href="https://blog.toshima.ru/2020/06/10/man-section-numbers.html" rel="alternate" type="text/html" title="Linux man Section Numbers" /><published>2020-06-10T00:00:00+00:00</published><updated>2020-06-10T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/06/10/man-section-numbers</id><content type="html" xml:base="https://blog.toshima.ru/2020/06/10/man-section-numbers.html">&lt;p&gt;When you use *nux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command, you’ll see number after commands or system calls. e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LS(1)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FORK(2)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;What’s this number? It’s called &lt;strong&gt;section number&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The next question is, what does the section number actually mean?&lt;/p&gt;
+
+&lt;h2 id=&quot;section-numbers&quot;&gt;Section numbers&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;section number&lt;/th&gt;
+      &lt;th&gt;description&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Executable programs or shell commands&lt;/strong&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;System calls&lt;/strong&gt;. This functions are provided by the kernel.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Library calls&lt;/strong&gt;. This functions are used as program libraries.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Special files&lt;/strong&gt;. This is usually found in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev&lt;/code&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;File formats and conventions&lt;/strong&gt;, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passwd&lt;/code&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Games&lt;/strong&gt;.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Miscellaneous&lt;/strong&gt; (including macro packages and conventions), e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man(7)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;groff(7)&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;8&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;System administration commands&lt;/strong&gt;. This is usually only for root.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;9&lt;/td&gt;
+      &lt;td&gt;&lt;strong&gt;Kernel routines&lt;/strong&gt; [Non standard]&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;This list is based on Linux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command (You can see it by runnning &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man man&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Man_page#Manual_sections&quot;&gt;man page - Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="linux" /><category term="unix" /><category term="mac" /><category term="bash" /><summary type="html">When you use *nux man command, you’ll see number after commands or system calls. e.g. LS(1), FORK(2).</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Run MySQL query from command line</title><link href="https://blog.toshima.ru/2020/01/07/mysql-result-via-command-line.html" rel="alternate" type="text/html" title="Run MySQL query from command line" /><published>2020-01-07T00:00:00+00:00</published><updated>2020-01-07T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/01/07/mysql-result-via-command-line</id><content type="html" xml:base="https://blog.toshima.ru/2020/01/07/mysql-result-via-command-line.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#mysql-version&quot; id=&quot;markdown-toc-mysql-version&quot;&gt;MySQL Version&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-output-from-command-line&quot; id=&quot;markdown-toc-table-output-from-command-line&quot;&gt;Table output from command line&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#table-output-without-header-from-command-line&quot; id=&quot;markdown-toc-table-output-without-header-from-command-line&quot;&gt;Table output without header from command line&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tsv-output-from-command-line&quot; id=&quot;markdown-toc-tsv-output-from-command-line&quot;&gt;TSV output from command line&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#tsv-output-without-header-from-command-line&quot; id=&quot;markdown-toc-tsv-output-without-header-from-command-line&quot;&gt;TSV output without header from command line&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;mysql-version&quot;&gt;MySQL Version&lt;/h2&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;mysql  Ver 8.0.18 for Linux on x86_64 (MySQL Community Server - GPL)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Use MySQL on Docker?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;See my another post: &lt;a href=&quot;/2018/09/16/docker-run-mysql.html&quot;&gt;Run and Connect to MySQL on Docker&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;table-output-from-command-line&quot;&gt;Table output from command line&lt;/h2&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-e &quot;SELECT QUERY ...&quot;&lt;/code&gt; to the mysql command.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;select User from mysql.user&quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Enter password:
++------------------+
+| User             |
++------------------+
+| root             |
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;table-output-without-header-from-command-line&quot;&gt;Table output without header from command line&lt;/h2&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-N&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;select User from mysql.user&quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Enter password:
++------------------+
+| root             |
+| mysql.infoschema |
+| mysql.session    |
+| mysql.sys        |
+| root             |
++------------------+
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tsv-output-from-command-line&quot;&gt;TSV output from command line&lt;/h2&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-B&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;select User, Host from mysql.user&quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Enter password:
+User	Host
+root	%
+mysql.infoschema	localhost
+mysql.session	localhost
+mysql.sys	localhost
+root	localhost
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tsv-output-without-header-from-command-line&quot;&gt;TSV output without header from command line&lt;/h2&gt;
+
+&lt;p&gt;Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-B&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-N&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;mysql &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; root &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-B&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-N&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;select User, Host from mysql.user&quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Enter password:
+root	%
+mysql.infoschema	localhost
+mysql.session	localhost
+mysql.sys	localhost
+root	localhost
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;[Japanese] &lt;a href=&quot;https://tkuchiki.hatenablog.com/entry/2012/11/30/114946&quot;&gt;MySQLをコマンドラインから直接実行&amp;amp;出力形式の変更方法 - tkuchikiの日記&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><category term="bash" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Check SSL Certificate Expiration Date via Command Line</title><link href="https://blog.toshima.ru/2017/09/22/ssl-expiration-check-via-command-line.html" rel="alternate" type="text/html" title="Check SSL Certificate Expiration Date via Command Line" /><published>2017-09-22T00:00:00+00:00</published><updated>2017-09-22T00:00:00+00:00</updated><id>https://blog.toshima.ru/2017/09/22/ssl-expiration-check-via-command-line</id><content type="html" xml:base="https://blog.toshima.ru/2017/09/22/ssl-expiration-check-via-command-line.html">&lt;p&gt;If you wanna check SSL certificate expiration date for specific domain via command line, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;p&gt;Let’s check &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;google.com:443&lt;/code&gt; certificate expiration date using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;openssl&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;openssl s_client &lt;span class=&quot;nt&quot;&gt;-connect&lt;/span&gt; google.com:443 &lt;span class=&quot;nt&quot;&gt;-servername&lt;/span&gt; google.com &amp;lt; /dev/null 2&amp;gt; /dev/null | openssl x509 &lt;span class=&quot;nt&quot;&gt;-text&lt;/span&gt; | &lt;span class=&quot;nb&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;After&quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;            Not After : Dec  6 17:09:00 2017 GMT
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dec  6 17:09:00 2017 GMT&lt;/code&gt; is expiration date.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.shellhacks.com/openssl-check-ssl-certificate-expiration-date/&quot;&gt;OpenSSL: Check SSL Certificate Expiration Date and More - ShellHacks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[Japanese] &lt;a href=&quot;https://blog.manabusakai.com/2016/07/lambda-cert-expire/&quot;&gt;Lambda を使って SSL サーバ証明書の有効期限をチェックする&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="ssl" /><category term="bash" /><summary type="html">If you wanna check SSL certificate expiration date for specific domain via command line, you can use openssl command.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Display disk usage on macOS with du command</title><link href="https://blog.toshima.ru/2016/11/26/display-disk-usage-command-on-mac.html" rel="alternate" type="text/html" title="Display disk usage on macOS with du command" /><published>2016-11-26T00:00:00+00:00</published><updated>2016-11-26T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/11/26/display-disk-usage-command-on-mac</id><content type="html" xml:base="https://blog.toshima.ru/2016/11/26/display-disk-usage-command-on-mac.html">&lt;p&gt;You can get disk usage on MacOS by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;du&lt;/code&gt; command.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ du -d 1 -h
+200M  ./Amazon Music.app
+6.1M  ./Android File Transfer.app
+1.9M  ./App Store.app
+...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-d&lt;/code&gt; option means depth. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;du&lt;/code&gt; outputs result for all files which is too much, so &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-d 1&lt;/code&gt; option is needed.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-h&lt;/code&gt; option means human-readable. This option add unit suffixes such as Byte, Kilobyte, Megabyte, Gigabyte.&lt;/p&gt;
+
+&lt;h2 id=&quot;filter-by-unit&quot;&gt;Filter by unit&lt;/h2&gt;
+
+&lt;p&gt;If you want to filter result by unit:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;du -d 1 -h | grep -e &quot;\dG&quot;
+2.0G  ./iMovie.app
+1.3G  ./iPhoto.app
+8.2G  .
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="mac" /><category term="bash" /><summary type="html">You can get disk usage on MacOS by using du command.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

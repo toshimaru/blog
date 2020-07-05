@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/erb.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/erb.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Escape ERB tag string in ERB file</title><link href="https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb.html" rel="alternate" type="text/html" title="Escape ERB tag string in ERB file" /><published>2016-11-18T00:00:00+00:00</published><updated>2016-11-18T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb</id><content type="html" xml:base="https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb.html">&lt;p&gt;How can we output erb tag string like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;% erb %&amp;gt;&lt;/code&gt; in erb file without being interpreted as erb? You can do this by using double percent &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%% %&amp;gt;&lt;/code&gt;!&lt;/p&gt;
+
+&lt;div class=&quot;language-erb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;escaped&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s look at how it changes on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;irb&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$  irb
+&amp;gt;  ERB.new(&quot;&amp;lt;%% escaped? %&amp;gt;&quot;).result
+=&amp;gt; &quot;&amp;lt;% escaped? %&amp;gt;&quot;
+&amp;gt;  ERB.new(&quot;&amp;lt;% escaped? %&amp;gt;&quot;).result
+NoMethodError: undefined method `escaped?' for main:Object
+	from (erb):1:in `&amp;lt;main&amp;gt;'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%%&lt;/code&gt; becomes string without an error.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;(JAPANESE) &lt;a href=&quot;http://koseki.hatenablog.com/entry/20090416/erbtag&quot;&gt;http://koseki.hatenablog.com/entry/20090416/erbtag&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="erb" /><category term="ruby" /><summary type="html">How can we output erb tag string like &amp;lt;% erb %&amp;gt; in erb file without being interpreted as erb? You can do this by using double percent &amp;lt;%% %&amp;gt;!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ruby.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/ruby.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Create an Array of n items in Ruby</title><link href="https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby.html" rel="alternate" type="text/html" title="Create an Array of n items in Ruby" /><published>2020-05-23T00:00:00+00:00</published><updated>2020-05-23T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby</id><content type="html" xml:base="https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#create-array-of-items&quot; id=&quot;markdown-toc-create-array-of-items&quot;&gt;Create array of items&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#create-array-with-arraynew&quot; id=&quot;markdown-toc-create-array-with-arraynew&quot;&gt;Create array with Array.new&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#symbolproc&quot; id=&quot;markdown-toc-symbolproc&quot;&gt;SymbolProc&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#array-of-array&quot; id=&quot;markdown-toc-array-of-array&quot;&gt;Array of Array&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#array-of-hash&quot; id=&quot;markdown-toc-array-of-hash&quot;&gt;Array of Hash&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#array-of-object&quot; id=&quot;markdown-toc-array-of-object&quot;&gt;Array of Object&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;create-array-of-items&quot;&gt;Create array of items&lt;/h2&gt;
+
+&lt;p&gt;How can we create an array of 10 items in Ruby?&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
+&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ary&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This code can be refactored with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array.new&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;create-array-with-arraynew&quot;&gt;Create array with Array.new&lt;/h2&gt;
+
+&lt;p&gt;The initial value is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nil&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; [nil, nil, nil]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;symbolproc&quot;&gt;SymbolProc&lt;/h2&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;array-of-array&quot;&gt;Array of Array&lt;/h2&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;array-of-hash&quot;&gt;Array of Hash&lt;/h2&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; [{}, {}, {}, {}]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;array-of-object&quot;&gt;Array of Object&lt;/h2&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.ruby-lang.org/en/2.7.0/Array.html#class-Array-label-Creating+Arrays&quot;&gt;class Array - Documentation for Ruby 2.7.0&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">My custom attr_accessor in Ruby</title><link href="https://blog.toshima.ru/2020/04/12/ruby-custom-attr-accessor.html" rel="alternate" type="text/html" title="My custom attr_accessor in Ruby" /><published>2020-04-12T00:00:00+00:00</published><updated>2020-04-12T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/04/12/ruby-custom-attr-accessor</id><content type="html" xml:base="https://blog.toshima.ru/2020/04/12/ruby-custom-attr-accessor.html">&lt;p&gt;Do you imagin how &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_accessor&lt;/code&gt; is implemented in Ruby? Let’s implement it by yourself.&lt;/p&gt;
+
+&lt;h2 id=&quot;my-attr_accessor-module&quot;&gt;My &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_accessor&lt;/code&gt; module&lt;/h2&gt;
+
+&lt;p&gt;Create &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CustomAttrAccessor&lt;/code&gt; module which overrides Ruby’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_accessor&lt;/code&gt; method.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;CustomAttrAccessor&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;included&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ClassMethods&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ClassMethods&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;attr_accessor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;define_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;trying to get @&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;instance_variable_get&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;@&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+      &lt;span class=&quot;n&quot;&gt;define_method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;=&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+        &lt;span class=&quot;nb&quot;&gt;instance_variable_set&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;@&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;  
+        &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;@&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;attr&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; has been set&quot;&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;inlcude-attr_accessor-module&quot;&gt;inlcude &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_accessor&lt;/code&gt; module&lt;/h2&gt;
+
+&lt;p&gt;You can use your custom &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_accessor&lt;/code&gt; by including the module you’ve created in the class.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;A&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;CustomAttrAccessor&lt;/span&gt;
+
+  &lt;span class=&quot;nb&quot;&gt;attr_accessor&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bar&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;test-your-attr_accessor&quot;&gt;Test your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_accessor&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Let’s test the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attr_accessor&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# trying to get @bar&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; nil&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;my value&quot;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# @bar has been set&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;bar&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# trying to get @bar&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;val&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; &quot;my value&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ruby-technique-class-macro&quot;&gt;Ruby Technique: Class Macro&lt;/h2&gt;
+
+&lt;p&gt;You can create your own class macro like the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ClassMacro&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;included&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;base&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;extend&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ClassMethods&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ClassMethods&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_class_macro&lt;/span&gt;
+      &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;my_class_macro!&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Macro&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;include&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ClassMacro&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;my_class_macro&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; my_class_macro!&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pragprog.com/book/ppmetr2/metaprogramming-ruby-2&quot;&gt;Metaprogramming Ruby 2: Program Like the Ruby Pros by Paolo Perrotta | The Pragmatic Bookshelf&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.thegreatcodeadventure.com/ruby-custom-class-macros-with-class-instance-variables/&quot;&gt;Ruby Custom Class Macros with Class Instance Variables&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><summary type="html">Do you imagin how attr_accessor is implemented in Ruby? Let’s implement it by yourself.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Ruby Private Constant</title><link href="https://blog.toshima.ru/2020/02/22/ruby-private-constant.html" rel="alternate" type="text/html" title="Ruby Private Constant" /><published>2020-02-22T00:00:00+00:00</published><updated>2020-02-22T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/02/22/ruby-private-constant</id><content type="html" xml:base="https://blog.toshima.ru/2020/02/22/ruby-private-constant.html">&lt;p&gt;How can we define a private constant in Ruby.&lt;/p&gt;
+
+&lt;p&gt;Let’ define &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;PRIVATE_CONSTANT&lt;/code&gt; in the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private&lt;/code&gt; section.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# private_constant.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MyModule&lt;/span&gt;
+  &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
+
+  &lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Is this private?'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The result:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./private_constant'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Is this private?&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;It’s not private!&lt;/strong&gt; 👎&lt;/p&gt;
+
+&lt;h2 id=&quot;private_constant&quot;&gt;private_constant&lt;/h2&gt;
+
+&lt;p&gt;To make it private, use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private_constant&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# private_constant.rb&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MyModule&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Is this private?'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;private_constant&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:PRIVATE_CONSTANT&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The result:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./private_constant'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; private constant MyModule::PRIVATE_CONSTANT referenced (NameError)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The error:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;private constant MyModule::PRIVATE_CONSTANT referenced (NameError)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It raises &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;NameError&lt;/code&gt; because the code tries to reference private constant.&lt;/p&gt;
+
+&lt;h2 id=&quot;conclusion&quot;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;private_constant&lt;/code&gt; to make a private constant in Ruby.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;private_constant&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:YOUR_CONSTANT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><summary type="html">How can we define a private constant in Ruby.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Stop emitting warnings in Ruby 2.7</title><link href="https://blog.toshima.ru/2020/01/01/stop-emitting-warning-ruby27.html" rel="alternate" type="text/html" title="Stop emitting warnings in Ruby 2.7" /><published>2020-01-01T00:00:00+00:00</published><updated>2020-01-01T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/01/01/stop-emitting-warning-ruby27</id><content type="html" xml:base="https://blog.toshima.ru/2020/01/01/stop-emitting-warning-ruby27.html">&lt;p&gt;Ruby 2.7 emits many warnings.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails db:migrate
+&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/stack.rb:37: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/static.rb:110: warning: The called method `initialize' is defined here
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/mysql/database_statements.rb:12: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/abstract/query_cache.rb:96: warning: The called method `select_all' is defined here
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/transactions.rb:212: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/abstract/database_statements.rb:274: warning: The called method `transaction' is defined here
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/persistence.rb:503: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/timestamp.rb:127: warning: The called method `create_or_update' is defined here
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activemodel-6.0.2.1/lib/active_model/type/integer.rb:13: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activemodel-6.0.2.1/lib/active_model/type/value.rb:8: warning: The called method `initialize' is defined here
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To stop emitting the warnings, just add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RUBYOPT=-W:no-deprecated&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;RUBYOPT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;-W&lt;/span&gt;:no-deprecated bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails db:migrate
+&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;no Ruby warnings
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.ruby-lang.org/en/news/2019/12/25/ruby-2-7-0-released/&quot;&gt;Ruby 2.7.0 Released&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><summary type="html">Ruby 2.7 emits many warnings.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Make Puma test output silent</title><link href="https://blog.toshima.ru/2019/12/17/make-puma-silent-on-test.html" rel="alternate" type="text/html" title="Make Puma test output silent" /><published>2019-12-17T00:00:00+00:00</published><updated>2019-12-17T00:00:00+00:00</updated><id>https://blog.toshima.ru/2019/12/17/make-puma-silent-on-test</id><content type="html" xml:base="https://blog.toshima.ru/2019/12/17/make-puma-silent-on-test.html">&lt;p&gt;When you run RSpec, you might see the following output:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rspec
+&lt;span class=&quot;go&quot;&gt;Randomized with seed 59799
+............................................................................................Capybara starting Puma...
+* Version 4.3.1 , codename: Mysterious Traveller
+* Min threads: 0, max threads: 4
+* Listening on tcp://127.0.0.1:42837
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;...................................................................
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Capybara starting Puma&lt;/code&gt; is shown in the RSpec output.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Capybara starting Puma...
+* Version 4.3.1 , codename: Mysterious Traveller
+* Min threads: 0, max threads: 4
+* Listening on tcp://127.0.0.1:42837
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is because Puma is started by Capybara when system test is invoked.&lt;/p&gt;
+
+&lt;p&gt;You can make it silent by setting. In your test helper, add the line:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Capybara.server = :puma, { Silent: true }
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;It means run puma server silently.&lt;/p&gt;
+
+&lt;p&gt;After this setting:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rspec
+&lt;span class=&quot;go&quot;&gt;
+Randomized with seed 45766
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;...............................................................................................................................................................
+&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;
+Finished in 11.6 seconds (files took 5.29 seconds to load)
+159 examples, 0 failures
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Test output is now clean!&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/teamcapybara/capybara#setup&quot;&gt;teamcapybara/capybara: Acceptance test framework for web applications&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><summary type="html">When you run RSpec, you might see the following output:</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Bundler Error: bundle from bundler conflicts</title><link href="https://blog.toshima.ru/2019/10/14/bundle-from-bundler-conflicts.html" rel="alternate" type="text/html" title="Bundler Error: bundle from bundler conflicts" /><published>2019-10-14T00:00:00+00:00</published><updated>2019-10-14T00:00:00+00:00</updated><id>https://blog.toshima.ru/2019/10/14/bundle-from-bundler-conflicts</id><content type="html" xml:base="https://blog.toshima.ru/2019/10/14/bundle-from-bundler-conflicts.html">&lt;p&gt;One day I installed &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundler&lt;/code&gt; and got an error.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler
+&lt;span class=&quot;go&quot;&gt;ERROR:  Error installing bundler:
+	&quot;bundle&quot; from bundler conflicts with ...../bin/bundle
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Adding &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--force&lt;/code&gt; option resolves this error.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Parsing documentation for bundler-2.0.2
+Installing ri documentation for bundler-2.0.2
+Done installing documentation for bundler after 5 seconds
+1 gem installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tips&quot;&gt;Tips&lt;/h2&gt;
+
+&lt;p&gt;Adding &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--no-document&lt;/code&gt; option is good practice if you don’t need it.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;bundler &lt;span class=&quot;nt&quot;&gt;--no-document&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--force&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/rubygems/rubygems/issues/2058&quot;&gt;Bundler fails to install after RubyGems update · Issue #2058 · rubygems/rubygems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="bundler" /><category term="ruby" /><summary type="html">One day I installed bundler and got an error.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to set your rubygems credentials</title><link href="https://blog.toshima.ru/2019/09/10/how-to-set-rubygems-credentials.html" rel="alternate" type="text/html" title="How to set your rubygems credentials" /><published>2019-09-10T00:00:00+00:00</published><updated>2019-09-10T00:00:00+00:00</updated><id>https://blog.toshima.ru/2019/09/10/how-to-set-rubygems-credentials</id><content type="html" xml:base="https://blog.toshima.ru/2019/09/10/how-to-set-rubygems-credentials.html">&lt;p&gt;One day, I tried to publish &lt;a href=&quot;https://github.com/toshimaru/rubocop-rails_config&quot;&gt;my gem&lt;/a&gt;, but it failed.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake release
+&lt;span class=&quot;go&quot;&gt;rubocop-rails_config 0.7.2 built to pkg/rubocop-rails_config-0.7.2.gem.
+Tagged v0.7.2.
+Pushed git commits and tags.
+rake aborted!
+Your rubygems.org credentials aren't set. Run `gem push` to set them.
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;To resolve this, you need to put gem credential on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.gem/credentials&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;your_gem_account_name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; https://rubygems.org/api/v1/api_key.yaml &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/.gem/credentials
+&lt;span class=&quot;go&quot;&gt;Enter host password for user '{your_gem_account_name}': {your_password}
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then, let’s run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rake release&lt;/code&gt; command again.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake release
+&lt;span class=&quot;go&quot;&gt;rubocop-rails_config 0.7.2 built to pkg/rubocop-rails_config-0.7.2.gem.
+Tag v0.7.2 has already been created.
+rake aborted!
+ERROR:  Your gem push credentials file located at:
+
+	~/.gem/credentials
+
+has file permissions of 0644 but 0600 is required.
+
+To fix this error run:
+
+	chmod 0600 ~/.gem/credentials
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Okay, let’s fix the permission.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;chmod &lt;/span&gt;0600 ~/.gem/credentials
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Re-try:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rake release
+&lt;span class=&quot;go&quot;&gt;rubocop-rails_config 0.7.2 built to pkg/rubocop-rails_config-0.7.2.gem.
+Tag v0.7.2 has already been created.
+Pushed rubocop-rails_config 0.7.2 to rubygems.org
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Success! That’s it! :)&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://michaelrigart.be/easily-publish-ruby-gems/&quot;&gt;Easily publish your ruby gems&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><category term="gem" /><summary type="html">One day, I tried to publish my gem, but it failed.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">VSCode Setting for Rubyist</title><link href="https://blog.toshima.ru/2018/07/12/vscode-for-ruby.html" rel="alternate" type="text/html" title="VSCode Setting for Rubyist" /><published>2018-07-12T00:00:00+00:00</published><updated>2018-07-12T00:00:00+00:00</updated><id>https://blog.toshima.ru/2018/07/12/vscode-for-ruby</id><content type="html" xml:base="https://blog.toshima.ru/2018/07/12/vscode-for-ruby.html">&lt;h2 id=&quot;intellisense&quot;&gt;Intellisense&lt;/h2&gt;
+
+&lt;p&gt;To use VSCode &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;go to&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;peek definition&lt;/code&gt;/&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;symbol&lt;/code&gt;, you have to set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby.intellisense&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Valid options are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubyLocate&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;. Default option is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;false&lt;/code&gt;, so set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubyLocate&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ruby.intellisense&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;rubyLocate&quot;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Go to Symbols&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Go to Definition&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;lint&quot;&gt;Lint&lt;/h2&gt;
+
+&lt;p&gt;You can also use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ruby -wc&lt;/code&gt; syntax check as a lint(By default no linters are turned on).&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ruby.lint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you are unicode user, set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;unicode&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-json highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;err&quot;&gt;...&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ruby.lint&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+        &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;ruby&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nl&quot;&gt;&quot;unicode&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+    &lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/rubyide/vscode-ruby&quot;&gt;rubyide/vscode-ruby&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="vscode" /><category term="ruby" /><summary type="html">Intellisense</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Escape ERB tag string in ERB file</title><link href="https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb.html" rel="alternate" type="text/html" title="Escape ERB tag string in ERB file" /><published>2016-11-18T00:00:00+00:00</published><updated>2016-11-18T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb</id><content type="html" xml:base="https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb.html">&lt;p&gt;How can we output erb tag string like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;% erb %&amp;gt;&lt;/code&gt; in erb file without being interpreted as erb? You can do this by using double percent &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%% %&amp;gt;&lt;/code&gt;!&lt;/p&gt;
+
+&lt;div class=&quot;language-erb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;escaped&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s look at how it changes on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;irb&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$  irb
+&amp;gt;  ERB.new(&quot;&amp;lt;%% escaped? %&amp;gt;&quot;).result
+=&amp;gt; &quot;&amp;lt;% escaped? %&amp;gt;&quot;
+&amp;gt;  ERB.new(&quot;&amp;lt;% escaped? %&amp;gt;&quot;).result
+NoMethodError: undefined method `escaped?' for main:Object
+	from (erb):1:in `&amp;lt;main&amp;gt;'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%%&lt;/code&gt; becomes string without an error.&lt;/p&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;(JAPANESE) &lt;a href=&quot;http://koseki.hatenablog.com/entry/20090416/erbtag&quot;&gt;http://koseki.hatenablog.com/entry/20090416/erbtag&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="erb" /><category term="ruby" /><summary type="html">How can we output erb tag string like &amp;lt;% erb %&amp;gt; in erb file without being interpreted as erb? You can do this by using double percent &amp;lt;%% %&amp;gt;!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Get HTML/JSON response from URL simply in Ruby</title><link href="https://blog.toshima.ru/2016/08/09/get-uri-in-ruby.html" rel="alternate" type="text/html" title="Get HTML/JSON response from URL simply in Ruby" /><published>2016-08-09T00:00:00+00:00</published><updated>2016-08-09T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/08/09/get-uri-in-ruby</id><content type="html" xml:base="https://blog.toshima.ru/2016/08/09/get-uri-in-ruby.html">&lt;h2 id=&quot;get-html-response-from-url&quot;&gt;GET HTML response from URL&lt;/h2&gt;
+
+&lt;p&gt;To &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET&lt;/code&gt; URL and the response simply in Ruby:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'net/http'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uri'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://google.com/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Parse URL from URI string&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Net::HTTP.get&lt;/code&gt; the parsed URL&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;get-http-status-code-from-url&quot;&gt;GET HTTP status code from URL&lt;/h2&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'net/http'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uri'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://google.com/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;code&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;get_response&lt;/code&gt; method returns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Net::HTTPResponse&lt;/code&gt; which has methods like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;code&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;body&lt;/code&gt;, etc.&lt;/p&gt;
+
+&lt;h2 id=&quot;get-json-response-from-url&quot;&gt;GET JSON response from URL&lt;/h2&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'net/http'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uri'&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'json'&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://www.example.com/sample.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ruby-doc.org/stdlib-2.3.3/libdoc/net/http/rdoc/Net/HTTP.html&quot;&gt;Class: Net::HTTP (Ruby 2.3.3)&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[JAPANESE] &lt;a href=&quot;http://qiita.com/awakia/items/bd8c1385115df27c15fa&quot;&gt;RubyでJSON形式の結果が返ってくるURLをParseする - Qiita&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><summary type="html">GET HTML response from URL</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

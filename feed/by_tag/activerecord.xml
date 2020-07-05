@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/activerecord.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-07-05T02:23:05+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/activerecord.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to rollback migration in Rails</title><link href="https://blog.toshima.ru/2020/02/13/how-to-rollback-migration-in-rails.html" rel="alternate" type="text/html" title="How to rollback migration in Rails" /><published>2020-02-13T00:00:00+00:00</published><updated>2020-02-13T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/02/13/how-to-rollback-migration-in-rails</id><content type="html" xml:base="https://blog.toshima.ru/2020/02/13/how-to-rollback-migration-in-rails.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#rollback-last-migration&quot; id=&quot;markdown-toc-rollback-last-migration&quot;&gt;Rollback last migration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#rollback-specific-migration&quot; id=&quot;markdown-toc-rollback-specific-migration&quot;&gt;Rollback specific migration&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#check-migration-status&quot; id=&quot;markdown-toc-check-migration-status&quot;&gt;Check migration status&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#migration-down-and-up&quot; id=&quot;markdown-toc-migration-down-and-up&quot;&gt;Migration down and up&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;rollback-last-migration&quot;&gt;Rollback last migration&lt;/h2&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:rollback &lt;span class=&quot;nv&quot;&gt;STEP&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you specify &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;STEP=2&lt;/code&gt;, the last two migrations are rollbacked.&lt;/p&gt;
+
+&lt;h2 id=&quot;rollback-specific-migration&quot;&gt;Rollback specific migration&lt;/h2&gt;
+
+&lt;p&gt;You can rollback a specific migration with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db:migrate:down&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VERSION=xxxx&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate:down &lt;span class=&quot;nv&quot;&gt;VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;20200905201547
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;if you want to run the migration again:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate:up &lt;span class=&quot;nv&quot;&gt;VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;20200905201547
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;check-migration-status&quot;&gt;Check migration status&lt;/h2&gt;
+
+&lt;p&gt;You can check your migrations are up or down with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db:migrate:status&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate:status
+&lt;span class=&quot;go&quot;&gt;Status   Migration ID    Migration Name
+--------------------------------------------------
+  up     20190307124026  Create users
+  up     20190315090930  Add index to users email
+ down    20190315xxxxxx  xxxx
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;migration-down-and-up&quot;&gt;Migration down and up&lt;/h2&gt;
+
+&lt;p&gt;You can run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db:migrate:down&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db:migrate:up&lt;/code&gt; with one command, which is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db:migrate:redo&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails db:migrate:redo &lt;span class=&quot;nv&quot;&gt;VERSION&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;20200905201547
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can check if a specific migration is reversible. If not, &lt;a href=&quot;https://railsdoc.github.io/classes/ActiveRecord/IrreversibleMigration.html&quot;&gt;ActiveRecord::IrreversibleMigration&lt;/a&gt; error will be raised.&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/3647685/how-to-rollback-a-specific-migration&quot;&gt;ruby on rails - How to rollback a specific migration? - Stack Overflow&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Rails Bulk Migration</title><link href="https://blog.toshima.ru/2020/01/02/rails-migration-bulk-true.html" rel="alternate" type="text/html" title="Rails Bulk Migration" /><published>2020-01-02T00:00:00+00:00</published><updated>2020-01-30T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/01/02/rails-migration-bulk-true</id><content type="html" xml:base="https://blog.toshima.ru/2020/01/02/rails-migration-bulk-true.html">&lt;p&gt;Schema change on RDB could be a dangerous operation.&lt;/p&gt;
+
+&lt;p&gt;That’s the same on Rails, so it’s important to run migrations with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;p&gt;This article explains how &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk&lt;/code&gt; option changes Rails migration.&lt;/p&gt;
+
+&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#prerequisite&quot; id=&quot;markdown-toc-prerequisite&quot;&gt;Prerequisite&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#user-table-schema&quot; id=&quot;markdown-toc-user-table-schema&quot;&gt;User table schema&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#migration-without-bulk-option&quot; id=&quot;markdown-toc-migration-without-bulk-option&quot;&gt;Migration without &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk&lt;/code&gt; option&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#migration-with-bulk-option&quot; id=&quot;markdown-toc-migration-with-bulk-option&quot;&gt;Migration with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk&lt;/code&gt; option&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;prerequisite&quot;&gt;Prerequisite&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Rails 6.0&lt;/li&gt;
+  &lt;li&gt;MySQL 8.0&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;user-table-schema&quot;&gt;User table schema&lt;/h2&gt;
+
+&lt;p&gt;This is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;users&lt;/code&gt; table for a sample.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysql&amp;gt; desc users;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint(20)   | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| created_at | datetime(6)  | NO   |     | NULL    |                |
+| updated_at | datetime(6)  | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;migration-without-bulk-option&quot;&gt;Migration without &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk&lt;/code&gt; option&lt;/h2&gt;
+
+&lt;p&gt;Let’s add three columns named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new_column1&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new_column2&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;new_column3&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails g migration addColumnsToUser new_column1:integer new_column2:string new_column3:boolean
+&lt;span class=&quot;go&quot;&gt;      invoke  active_record
+      create    db/migrate/20200101164105_add_columns_to_user.rb
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The migration file is the following:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AddColumnsToUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;6.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;add_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new_column1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:integer&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;add_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new_column2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:string&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;add_column&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new_column3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:boolean&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db:migrate&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails db:migrate
+&lt;span class=&quot;go&quot;&gt;== 20200101164105 AddColumnsToUser: migrating =================================
+-- add_column(:users, :new_column1, :integer)
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;   -&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;0.2708s
+&lt;span class=&quot;go&quot;&gt;-- add_column(:users, :new_column2, :string)
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;   -&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;0.0496s
+&lt;span class=&quot;go&quot;&gt;-- add_column(:users, :new_column3, :boolean)
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;   -&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;0.0347s
+&lt;span class=&quot;go&quot;&gt;== 20200101164105 AddColumnsToUser: migrated (0.3771s) ========================
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As you can see, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;add_column&lt;/code&gt;, which may be a dangerous operation, is invoked three times. That’s not good.&lt;/p&gt;
+
+&lt;h2 id=&quot;migration-with-bulk-option&quot;&gt;Migration with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk&lt;/code&gt; option&lt;/h2&gt;
+
+&lt;p&gt;Let’s create a migration with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;p&gt;Modify the migration file like below:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;AddColumnsToUser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Migration&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;6.0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;change&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;change_table&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:users&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;bulk: &lt;/span&gt;&lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;integer&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new_column1&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;string&lt;/span&gt;  &lt;span class=&quot;ss&quot;&gt;:new_column2&lt;/span&gt;
+      &lt;span class=&quot;n&quot;&gt;t&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;boolean&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:new_column3&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bulk: true&lt;/code&gt; means the schema changes will be squashed into one.&lt;/p&gt;
+
+&lt;p&gt;Run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;db:migrate&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails db:migrate
+&lt;span class=&quot;go&quot;&gt;== 20200101164105 AddColumnsToUser: migrating =================================
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;-- change_table(:users, {:bulk=&amp;gt;&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;   -&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;0.1296s
+&lt;span class=&quot;go&quot;&gt;== 20200101164105 AddColumnsToUser: migrated (0.1300s) ========================
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Yes! &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;change_table&lt;/code&gt; is invoked just one time!&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><summary type="html">Schema change on RDB could be a dangerous operation.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Select Unique Values from a Column in ActiveRecord</title><link href="https://blog.toshima.ru/2018/08/04/activerecord-distinct-pluck.html" rel="alternate" type="text/html" title="Select Unique Values from a Column in ActiveRecord" /><published>2018-08-04T00:00:00+00:00</published><updated>2018-08-04T00:00:00+00:00</updated><id>https://blog.toshima.ru/2018/08/04/activerecord-distinct-pluck</id><content type="html" xml:base="https://blog.toshima.ru/2018/08/04/activerecord-distinct-pluck.html">&lt;p&gt;IF you want to select unique values from a column in ActiveRecord, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;distinct&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pluck&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;distinct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:column&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;distinct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#    (0.1ms)  SELECT DISTINCT &quot;users&quot;.&quot;id&quot; FROM &quot;users&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can also get unique values from multiple columns.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;distinct&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;pluck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#    (0.1ms)  SELECT DISTINCT &quot;users&quot;.&quot;id&quot;, &quot;users&quot;.&quot;name&quot; FROM &quot;users&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/9658881/rails-select-unique-values-from-a-column&quot;&gt;activerecord - Rails: select unique values from a column - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="activerecord" /><category term="rails" /><summary type="html">IF you want to select unique values from a column in ActiveRecord, you can use distinct + pluck.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Show SQL queries in rails console</title><link href="https://blog.toshima.ru/2017/08/10/show-sql-in-rails-console.html" rel="alternate" type="text/html" title="Show SQL queries in rails console" /><published>2017-08-10T00:00:00+00:00</published><updated>2019-12-24T00:00:00+00:00</updated><id>https://blog.toshima.ru/2017/08/10/show-sql-in-rails-console</id><content type="html" xml:base="https://blog.toshima.ru/2017/08/10/show-sql-in-rails-console.html">&lt;p&gt;When you set &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;log_level&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;:info&lt;/code&gt; (mostly on production server), the SQL outputs are disabled in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails console&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Rails Configuration&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;application&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;configure&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log_level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:info&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-ruby highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# $ rails c&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;count&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12345&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# No Query is shown&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you want to see SQL generated by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Model.count&lt;/code&gt;, What you need is setting log level manually.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;The available log levels are: :debug, :info, :warn, :error, :fatal, and :unknown, corresponding to the log level numbers from 0 up to 5, respectively. To change the default log level&lt;/p&gt;
+
+  &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;log_level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:warn&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# In any environment &amp;gt; initializer, or&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# at any time&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;via. &lt;a href=&quot;http://guides.rubyonrails.org/debugging_rails_applications.html#log-levels&quot;&gt;Log Levels - Debugging Rails Applications — Ruby on Rails Guides&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# $ rails c&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Rails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;logger&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;level&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:debug&lt;/span&gt;
+
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;count&lt;/span&gt;
+   &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mf&quot;&gt;1.8&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ms&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  &lt;span class=&quot;no&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;COUNT&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`models`&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12345&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now, you can check the queries in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails console&lt;/code&gt;.&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><summary type="html">When you set log_level :info (mostly on production server), the SQL outputs are disabled in rails console.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Use saved_change_to_attribute? instead of attribute_changed? as of Rails 5.1</title><link href="https://blog.toshima.ru/2017/04/06/saved-change-to-attribute.html" rel="alternate" type="text/html" title="Use saved_change_to_attribute? instead of attribute_changed? as of Rails 5.1" /><published>2017-04-06T00:00:00+00:00</published><updated>2017-04-06T00:00:00+00:00</updated><id>https://blog.toshima.ru/2017/04/06/saved-change-to-attribute</id><content type="html" xml:base="https://blog.toshima.ru/2017/04/06/saved-change-to-attribute.html">&lt;p&gt;As of &lt;a href=&quot;http://edgeguides.rubyonrails.org/5_1_release_notes.html&quot;&gt;Ruby on Rails 5.1&lt;/a&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_changed?&lt;/code&gt; ActiveRecord method will be deprecated.&lt;/p&gt;
+
+&lt;p&gt;The deprecation message:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DEPRECATION WARNING: The behavior of `attribute_changed?` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `saved_change_to_attribute?` instead.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As the messages says, using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_change_to_attribute?&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_changed?&lt;/code&gt; is recommended.&lt;/p&gt;
+
+&lt;h2 id=&quot;example&quot;&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;Let’s say you write code like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Post&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;ApplicationRecord&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;after_update&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:deprecation_after_update&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deprecation_after_update&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Post has title column&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;title_changed?&lt;/span&gt;
+      &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Then you need to rewrite it like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;saved_change_to_title?&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;saved_change_to_attribute?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;use-attribute_before_last_save-instead-of-attribute_was&quot;&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_before_last_save&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_was&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Also, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_was&lt;/code&gt; is deprecated in Rails 5.1. which is one of methods in &lt;a href=&quot;http://api.rubyonrails.org/classes/ActiveModel/Dirty.html&quot;&gt;ActiveModel::Dirty&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The deprecation message is:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;DEPRECATION WARNING: The behavior of `attribute_was` inside of after callbacks will be changing in the next version of Rails. The new return value will reflect the behavior of calling the method after `save` returned (e.g. the opposite of what it returns now). To maintain the current behavior, use `attribute_before_last_save` instead.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As message says, we need to replace &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_was&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_before_last_save&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-diff highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gd&quot;&gt;-title_was
+&lt;/span&gt;&lt;span class=&quot;gi&quot;&gt;+title_before_last_save
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;why-this-change-needed&quot;&gt;Why this change needed?&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/sgrif&quot;&gt;sgrif&lt;/a&gt; explains why on GitHub issue: &lt;a href=&quot;https://github.com/rails/rails/pull/25337&quot;&gt;Deprecate the behavior of AR::Dirty inside of after_(create|update|save) callbacks by sgrif · Pull Request #25337 · rails/rails&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><summary type="html">As of Ruby on Rails 5.1, attribute_changed? ActiveRecord method will be deprecated.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Build group_by and having query with ActiveRecord</title><link href="https://blog.toshima.ru/2016/10/20/activerecord-group-having.html" rel="alternate" type="text/html" title="Build group_by and having query with ActiveRecord" /><published>2016-10-20T00:00:00+00:00</published><updated>2016-10-20T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/10/20/activerecord-group-having</id><content type="html" xml:base="https://blog.toshima.ru/2016/10/20/activerecord-group-having.html">&lt;p&gt;Want to build query which has &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;group by&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;having&lt;/code&gt;(like below) with ActiveRecord?&lt;/p&gt;
+
+&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;  
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;tables&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;GROUP&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bar&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;HAVING&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can build it by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;group&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;having&lt;/code&gt; which are &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ActiveRecord::QueryMethods&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;ActiveRecordModel&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;group&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;having&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;count(*) &amp;gt; 1&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;count&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://api.rubyonrails.org/classes/ActiveRecord/QueryMethods.html&quot;&gt;ActiveRecord::QueryMethods - APIdock&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="activerecord" /><category term="rails" /><summary type="html">Want to build query which has group by and having(like below) with ActiveRecord?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Show Active Record Model column names</title><link href="https://blog.toshima.ru/2016/06/18/active-record-model-columns.html" rel="alternate" type="text/html" title="Show Active Record Model column names" /><published>2016-06-18T00:00:00+00:00</published><updated>2016-06-18T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/06/18/active-record-model-columns</id><content type="html" xml:base="https://blog.toshima.ru/2016/06/18/active-record-model-columns.html">&lt;p&gt;Active Record provides a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;column_names&lt;/code&gt; method to show column names of a Model.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;column_names&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&quot;id&quot;, &quot;name&quot;, &quot;email&quot;, &quot;password_digest&quot;, &quot;created_at&quot;, &quot;updated_at&quot;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/5575970/activerecord-list-columns-in-table-from-console&quot;&gt;sql - ActiveRecord: List columns in table from console - Stack Overflow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="activerecord" /><category term="rails" /><summary type="html">Active Record provides a column_names method to show column names of a Model.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
