@@ -20,24 +20,26 @@
 
     </style>
     <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>javascript | Toshimaru’s Blog</title>
+<title>JavaScript splice vs slice | Toshimaru’s Blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="javascript" />
+<meta property="og:title" content="JavaScript splice vs slice" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Where there’s a will, there’s a way." />
-<meta property="og:description" content="Where there’s a will, there’s a way." />
-<link rel="canonical" href="https://blog.toshima.ru/tag/javascript/" />
-<meta property="og:url" content="https://blog.toshima.ru/tag/javascript/" />
+<meta name="description" content="Let’s look into the difference between splice and slice, which are JavaScript Array methods." />
+<meta property="og:description" content="Let’s look into the difference between splice and slice, which are JavaScript Array methods." />
+<link rel="canonical" href="https://blog.toshima.ru/2020/07/12/js-splice-vs-slice.html" />
+<meta property="og:url" content="https://blog.toshima.ru/2020/07/12/js-splice-vs-slice.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
 <meta property="og:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-12T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
-<meta property="twitter:title" content="javascript" />
+<meta property="twitter:title" content="JavaScript splice vs slice" />
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"@type":"WebPage","url":"https://blog.toshima.ru/tag/javascript/","headline":"javascript","image":"https://blog.toshima.ru/android-chrome-512x512.png","author":{"@type":"Person","name":"toshimaru"},"description":"Where there’s a will, there’s a way.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"https://blog.toshima.ru/2020/07/12/js-splice-vs-slice.html","headline":"JavaScript splice vs slice","dateModified":"2020-07-12T00:00:00+00:00","datePublished":"2020-07-12T00:00:00+00:00","image":"https://blog.toshima.ru/android-chrome-512x512.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2020/07/12/js-splice-vs-slice.html"},"author":{"@type":"Person","name":"toshimaru"},"description":"Let’s look into the difference between splice and slice, which are JavaScript Array methods.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru's Blog" />
@@ -76,46 +78,127 @@
       <header class="masthead">
   <h1 class="masthead-title--small"><a href="/">Toshimaru's Blog</a></h1>
 </header>
-<div class="content page">
-  <h1 class="page-title">javascript</h1>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/07/12/js-splice-vs-slice.html">JavaScript splice vs slice</a>
-    </h2>
-    <div class="list-post-date">
+<article class="content post">
+  <h1 class="post-title">JavaScript splice vs slice</h1>
+  <div class="post-meta">
+    <div class="post-date">
       <time>12 Jul 2020</time>
+      
+    </div>
+    <div class="post-tags">
+      <ul class="tags">
+        
+          <li><a href="/tag/javascript" class="tag">javascript</a></li>
+        
+      </ul>
     </div>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/04/16/object-destructuring-assignment.html">Object Destructuring Assignment in JavaScript</a>
-    </h2>
-    <div class="list-post-date">
-      <time>16 Apr 2020</time>
-    </div>
+
+  <div class="post-body">
+    <p>Let’s look into the difference between <code class="language-plaintext highlighter-rouge">splice</code> and <code class="language-plaintext highlighter-rouge">slice</code>, which are JavaScript Array methods.</p>
+
+<h2 id="splice">splice</h2>
+
+<h3 id="syntax">Syntax</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">let</span> <span class="nx">arrDeletedItems</span> <span class="o">=</span> <span class="nx">array</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="nx">start</span><span class="p">[,</span> <span class="nx">deleteCount</span><span class="p">[,</span> <span class="nx">item1</span><span class="p">[,</span> <span class="nx">item2</span><span class="p">[,</span> <span class="p">...]]]])</span>
+</code></pre></div></div>
+
+<h3 id="sample-code">Sample Code</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">deletedAry</span> <span class="o">=</span> <span class="nx">ary</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nx">ary</span> <span class="c1">// [ 1 ]</span>
+<span class="nx">deletedAry</span> <span class="c1">// [ 2, 3, 4, 5 ]</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="kd">const</span> <span class="nx">deletedAry</span> <span class="o">=</span> <span class="nx">ary</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="nx">ary</span> <span class="c1">// [ 2, 3, 4, 5 ]</span>
+<span class="nx">deletedAry</span> <span class="c1">// [ 1 ]</span>
+</code></pre></div></div>
+
+<h2 id="slice">slice</h2>
+
+<h3 id="syntax-1">Syntax</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">arr</span><span class="p">.</span><span class="nx">slice</span><span class="p">([</span><span class="nx">start</span><span class="p">[,</span> <span class="nx">end</span><span class="p">]])</span>
+</code></pre></div></div>
+
+<h3 id="sample-code-1">Sample Code</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">const</span> <span class="nx">ary</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nx">ary</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c1">// [ 2, 3, 4, 5 ]</span>
+<span class="nx">ary</span> <span class="c1">// [ 1, 2, 3, 4, 5 ]</span>
+
+<span class="nx">ary</span><span class="p">.</span><span class="nx">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="c1">// [1]</span>
+<span class="nx">ary</span> <span class="c1">// [ 1, 2, 3, 4, 5 ]</span>
+</code></pre></div></div>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th> </th>
+      <th><code class="language-plaintext highlighter-rouge">splice()</code></th>
+      <th><code class="language-plaintext highlighter-rouge">slice()</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Return value</td>
+      <td>Array</td>
+      <td>Array</td>
+    </tr>
+    <tr>
+      <td>Change receiver?</td>
+      <td>Yes</td>
+      <td>No</td>
+    </tr>
+    <tr>
+      <td>Use case</td>
+      <td>Get and remove value from array</td>
+      <td>Get value from array</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice">Array.prototype.splice() - JavaScript | MDN</a></li>
+  <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice">Array.prototype.slice() - JavaScript | MDN</a></li>
+</ul>
+
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/04/get-query-parameters-in-javascript.html">Get Query Parameters in JavaScript</a>
-    </h2>
-    <div class="list-post-date">
-      <time>04 Jan 2020</time>
-    </div>
+
+  <div class="social-share">
+    <amp-social-share type="twitter"></amp-social-share>
+    <amp-social-share type="facebook"></amp-social-share>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2017/03/24/es6-array-merge.html">Merge arrays in ES6 way</a>
-    </h2>
-    <div class="list-post-date">
-      <time>24 Mar 2017</time>
-    </div>
+
+  <div class="post-ad">
+    <amp-ad width="100vw" height=320 type="adsense" data-ad-client="ca-pub-8616720383995770" data-ad-slot="4570107466" data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
+    </amp-ad>
   </div>
-  
-</div>
+
+  <amp-iframe width=600 height=140
+            layout="responsive"
+            sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+            resizable
+            src="https://disqus.toshima.ru/blog-toshima-ru.html?id=/2020/07/12/js-splice-vs-slice&url=https://blog.toshima.ru/2020/07/12/js-splice-vs-slice.html&title=JavaScript%20splice%20vs%20slice">
+    <div overflow
+         tabindex=0
+         role=button
+         aria-label="Load more"
+         style="display:block;font-size:12px;font-weight:500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)">
+        Load more
+    </div>
+  </amp-iframe>
+</article>
 
     </div>
     <footer>
