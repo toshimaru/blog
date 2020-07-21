@@ -150,7 +150,6 @@
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nv">"tweets"</span><span class="p">.</span><span class="nv">"id"</span> <span class="k">AS</span> <span class="n">t0_r0</span><span class="p">,</span> <span class="cm">/*...snip...*/</span>
 <span class="k">FROM</span> <span class="nv">"tweets"</span>
 <span class="k">LEFT</span> <span class="k">OUTER</span> <span class="k">JOIN</span> <span class="nv">"users"</span> <span class="k">ON</span> <span class="nv">"users"</span><span class="p">.</span><span class="nv">"id"</span> <span class="o">=</span> <span class="nv">"tweets"</span><span class="p">.</span><span class="nv">"user_id"</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="nv">"tweets"</span><span class="p">.</span><span class="nv">"created_at"</span> <span class="k">DESC</span>
 </code></pre></div></div>
 
 <h3 id="eager_load-with-inner-join"><code class="language-plaintext highlighter-rouge">eager_load</code> with <code class="language-plaintext highlighter-rouge">INNER JOIN</code></h3>
@@ -165,7 +164,6 @@
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="nv">"tweets"</span><span class="p">.</span><span class="nv">"id"</span> <span class="p">,</span> <span class="cm">/*...snip...*/</span>
 <span class="k">FROM</span> <span class="nv">"tweets"</span>
 <span class="k">INNER</span> <span class="k">JOIN</span> <span class="nv">"users"</span> <span class="k">ON</span> <span class="nv">"users"</span><span class="p">.</span><span class="nv">"id"</span> <span class="o">=</span> <span class="nv">"tweets"</span><span class="p">.</span><span class="nv">"user_id"</span>
-<span class="k">ORDER</span> <span class="k">BY</span> <span class="nv">"tweets"</span><span class="p">.</span><span class="nv">"created_at"</span> <span class="k">DESC</span>
 </code></pre></div></div>
 
   </div>
