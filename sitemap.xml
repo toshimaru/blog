@@ -273,6 +273,10 @@
 <lastmod>2020-07-21T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>https://blog.toshima.ru/2020/08/18/dns-lookup-with-dig.html</loc>
+<lastmod>2020-08-18T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>https://blog.toshima.ru/</loc>
 </url>
 <url>
@@ -375,6 +379,9 @@
 <loc>https://blog.toshima.ru/tag/unix/</loc>
 </url>
 <url>
+<loc>https://blog.toshima.ru/tag/network/</loc>
+</url>
+<url>
 <loc>https://blog.toshima.ru/2016/</loc>
 </url>
 <url>
@@ -463,6 +470,9 @@
 </url>
 <url>
 <loc>https://blog.toshima.ru/2020/</loc>
+</url>
+<url>
+<loc>https://blog.toshima.ru/2020/08/</loc>
 </url>
 <url>
 <loc>https://blog.toshima.ru/2020/07/</loc>
