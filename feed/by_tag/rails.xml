@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/rails.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-08-18T01:00:00+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/rails.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/rails.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-08-22T08:12:23+00:00</updated><id>https://blog.toshima.ru/feed/by_tag/rails.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
 </subtitle><author><name>toshimaru</name></author><entry><title type="html">Rails eager_load with inner join</title><link href="https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join.html" rel="alternate" type="text/html" title="Rails eager_load with inner join" /><published>2020-07-21T00:00:00+00:00</published><updated>2020-07-21T00:00:00+00:00</updated><id>https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join</id><content type="html" xml:base="https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#eager_load&quot; id=&quot;markdown-toc-eager_load&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eager_load&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#eager_load--inner-join&quot; id=&quot;markdown-toc-eager_load--inner-join&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eager_load&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INNER JOIN&lt;/code&gt;&lt;/a&gt;    &lt;ul&gt;
@@ -437,7 +437,18 @@ Enter &quot;.help&quot; for usage hints.
 &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;12345&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Now, you can check the queries in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails console&lt;/code&gt;.&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><summary type="html">When you set log_level :info (mostly on production server), the SQL outputs are disabled in rails console.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Use saved_change_to_attribute? instead of attribute_changed? as of Rails 5.1</title><link href="https://blog.toshima.ru/2017/04/06/saved-change-to-attribute.html" rel="alternate" type="text/html" title="Use saved_change_to_attribute? instead of attribute_changed? as of Rails 5.1" /><published>2017-04-06T00:00:00+00:00</published><updated>2017-04-06T00:00:00+00:00</updated><id>https://blog.toshima.ru/2017/04/06/saved-change-to-attribute</id><content type="html" xml:base="https://blog.toshima.ru/2017/04/06/saved-change-to-attribute.html">&lt;p&gt;As of &lt;a href=&quot;http://edgeguides.rubyonrails.org/5_1_release_notes.html&quot;&gt;Ruby on Rails 5.1&lt;/a&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_changed?&lt;/code&gt; ActiveRecord method will be deprecated.&lt;/p&gt;
+&lt;p&gt;Now, you can check the queries in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails console&lt;/code&gt;.&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><summary type="html">When you set log_level :info (mostly on production server), the SQL outputs are disabled in rails console.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Use saved_change_to_attribute? instead of attribute_changed? as of Rails 5.1</title><link href="https://blog.toshima.ru/2017/04/06/saved-change-to-attribute.html" rel="alternate" type="text/html" title="Use saved_change_to_attribute? instead of attribute_changed? as of Rails 5.1" /><published>2017-04-06T00:00:00+00:00</published><updated>2020-08-22T00:00:00+00:00</updated><id>https://blog.toshima.ru/2017/04/06/saved-change-to-attribute</id><content type="html" xml:base="https://blog.toshima.ru/2017/04/06/saved-change-to-attribute.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#example&quot; id=&quot;markdown-toc-example&quot;&gt;Example&lt;/a&gt;    &lt;ul&gt;
+      &lt;li&gt;&lt;a href=&quot;#saved_change_to_attribute&quot; id=&quot;markdown-toc-saved_change_to_attribute&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_change_to_attribute?&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href=&quot;#saved_change_to_attributeattribute&quot; id=&quot;markdown-toc-saved_change_to_attributeattribute&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_change_to_attribute?(:attribute)&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#use-attribute_before_last_save-instead-of-attribute_was&quot; id=&quot;markdown-toc-use-attribute_before_last_save-instead-of-attribute_was&quot;&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_before_last_save&lt;/code&gt; instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_was&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#why-this-change-needed&quot; id=&quot;markdown-toc-why-this-change-needed&quot;&gt;Why this change needed?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#conversion-table&quot; id=&quot;markdown-toc-conversion-table&quot;&gt;Conversion Table&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;As of &lt;a href=&quot;http://edgeguides.rubyonrails.org/5_1_release_notes.html&quot;&gt;Ruby on Rails 5.1&lt;/a&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_changed?&lt;/code&gt; ActiveRecord method will be deprecated.&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;The deprecation message:&lt;/p&gt;
 
@@ -462,17 +473,25 @@ Enter &quot;.help&quot; for usage hints.
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;Then you need to rewrite it like this:&lt;/p&gt;
+&lt;h3 id=&quot;saved_change_to_attribute&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_change_to_attribute?&lt;/code&gt;&lt;/h3&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;saved_change_to_title?&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;p&gt;Then, you need to rewrite it like this:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deprecation_after_update&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;saved_change_to_title?&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;or&lt;/p&gt;
+&lt;h3 id=&quot;saved_change_to_attributeattribute&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_change_to_attribute?(:attribute)&lt;/code&gt;&lt;/h3&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;saved_change_to_attribute?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+&lt;p&gt;Or you can also rewrite it:&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;deprecation_after_update&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;saved_change_to_attribute?&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# ...&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -495,7 +514,52 @@ Enter &quot;.help&quot; for usage hints.
 
 &lt;h2 id=&quot;why-this-change-needed&quot;&gt;Why this change needed?&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/sgrif&quot;&gt;sgrif&lt;/a&gt; explains why on GitHub issue: &lt;a href=&quot;https://github.com/rails/rails/pull/25337&quot;&gt;Deprecate the behavior of AR::Dirty inside of after_(create|update|save) callbacks by sgrif · Pull Request #25337 · rails/rails&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><summary type="html">As of Ruby on Rails 5.1, attribute_changed? ActiveRecord method will be deprecated.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">mysqldump command for existing Rails app</title><link href="https://blog.toshima.ru/2016/12/16/mysqldump-command.html" rel="alternate" type="text/html" title="mysqldump command for existing Rails app" /><published>2016-12-16T00:00:00+00:00</published><updated>2016-12-16T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/12/16/mysqldump-command</id><content type="html" xml:base="https://blog.toshima.ru/2016/12/16/mysqldump-command.html">&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/sgrif&quot;&gt;sgrif&lt;/a&gt; explains why on GitHub issue: &lt;a href=&quot;https://github.com/rails/rails/pull/25337&quot;&gt;Deprecate the behavior of AR::Dirty inside of after_(create|update|save) callbacks by sgrif · Pull Request #25337 · rails/rails&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;conversion-table&quot;&gt;Conversion Table&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Rails 5.0-&lt;/th&gt;
+      &lt;th&gt;Rails 5.1+&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_changed?&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_change_to_attribute?&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_change&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_change_to_attribute&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_was&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;attribute_before_last_save&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;changes&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_changes&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;changed?&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_changes?&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;changed&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_changes.keys&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;changed_attributes&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;saved_changes.transform_values(&amp;amp;:first)&lt;/code&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;ref. [Japanese] &lt;a href=&quot;https://qiita.com/htz/items/56798d53ec5988733fc6#%E5%A4%89%E6%8F%9B%E8%A1%A8&quot;&gt;Rails 5.1 で attribute_was, attribute_change, attribute_changed?, changed?, changed 等が DEPRECATION WARNING - Qiita&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">mysqldump command for existing Rails app</title><link href="https://blog.toshima.ru/2016/12/16/mysqldump-command.html" rel="alternate" type="text/html" title="mysqldump command for existing Rails app" /><published>2016-12-16T00:00:00+00:00</published><updated>2016-12-16T00:00:00+00:00</updated><id>https://blog.toshima.ru/2016/12/16/mysqldump-command</id><content type="html" xml:base="https://blog.toshima.ru/2016/12/16/mysqldump-command.html">&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Rails 5.0.0.1&lt;/li&gt;
