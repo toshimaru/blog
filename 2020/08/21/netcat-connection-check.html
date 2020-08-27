@@ -20,26 +20,26 @@
 
     </style>
     <!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Toshimaru’s Blog | Where there’s a will, there’s a way.</title>
+<title>Connection Check with netcat(nc) command | Toshimaru’s Blog</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Toshimaru’s Blog" />
+<meta property="og:title" content="Connection Check with netcat(nc) command" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Where there’s a will, there’s a way." />
-<meta property="og:description" content="Where there’s a will, there’s a way." />
-<link rel="canonical" href="https://blog.toshima.ru/2020/" />
-<meta property="og:url" content="https://blog.toshima.ru/2020/" />
+<meta name="description" content="To test TCP connection with nc command, add -v and -z option." />
+<meta property="og:description" content="To test TCP connection with nc command, add -v and -z option." />
+<link rel="canonical" href="https://blog.toshima.ru/2020/08/21/netcat-connection-check.html" />
+<meta property="og:url" content="https://blog.toshima.ru/2020/08/21/netcat-connection-check.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
 <meta property="og:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-01-01T00:00:00+00:00" />
+<meta property="article:published_time" content="2020-08-21T00:00:00+00:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
-<meta property="twitter:title" content="Toshimaru’s Blog" />
+<meta property="twitter:title" content="Connection Check with netcat(nc) command" />
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"https://blog.toshima.ru/2020/","headline":"Toshimaru’s Blog","dateModified":"2020-01-01T00:00:00+00:00","datePublished":"2020-01-01T00:00:00+00:00","image":"https://blog.toshima.ru/android-chrome-512x512.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2020/"},"author":{"@type":"Person","name":"toshimaru"},"description":"Where there’s a will, there’s a way.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"https://blog.toshima.ru/2020/08/21/netcat-connection-check.html","headline":"Connection Check with netcat(nc) command","dateModified":"2020-08-21T00:00:00+00:00","datePublished":"2020-08-21T00:00:00+00:00","image":"https://blog.toshima.ru/android-chrome-512x512.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2020/08/21/netcat-connection-check.html"},"author":{"@type":"Person","name":"toshimaru"},"description":"To test TCP connection with nc command, add -v and -z option.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru's Blog" />
@@ -78,199 +78,79 @@
       <header class="masthead">
   <h1 class="masthead-title--small"><a href="/">Toshimaru's Blog</a></h1>
 </header>
-<div class="content page">
-  <h1 class="page-title"></h1>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/08/21/netcat-connection-check.html">Connection Check with netcat(nc) command</a>
-    </h2>
-    <div class="list-post-date">
+<article class="content post">
+  <h1 class="post-title">Connection Check with netcat(nc) command</h1>
+  <div class="post-meta">
+    <div class="post-date">
       <time>21 Aug 2020</time>
+      
+    </div>
+    <div class="post-tags">
+      <ul class="tags">
+        
+          <li><a href="/tag/network" class="tag">network</a></li>
+        
+          <li><a href="/tag/bash" class="tag">bash</a></li>
+        
+      </ul>
     </div>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/08/18/dns-lookup-with-dig.html">DNS lookup with dig command</a>
-    </h2>
-    <div class="list-post-date">
-      <time>18 Aug 2020</time>
-    </div>
+
+  <div class="post-body">
+    <p>To test TCP connection with <code class="language-plaintext highlighter-rouge">nc</code> command, add <code class="language-plaintext highlighter-rouge">-v</code> and <code class="language-plaintext highlighter-rouge">-z</code> option.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nc -vz hostname port
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">-v</code>: verbose output</li>
+  <li><code class="language-plaintext highlighter-rouge">-z</code>: do not send data</li>
+</ul>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w">  </span>nc <span class="nt">-vz</span> blog.toshima.ru 80
+<span class="go">Connection to blog.toshima.ru port 80 [tcp/http] succeeded!
+</span></code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>nc <span class="nt">-vz</span> blog.toshima.ru 443
+<span class="go">Connection to blog.toshima.ru port 443 [tcp/https] succeeded!
+</span></code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>nc <span class="nt">-vz</span> blog.toshima.ru 443  
+<span class="go">Connection to blog.toshima.ru port 443 [tcp/https] succeeded!
+</span></code></pre></div></div>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>nc <span class="nt">-vzu</span> 1.1.1.1 53
+<span class="go">Connection to 1.1.1.1 port 53 [udp/domain] succeeded!
+</span></code></pre></div></div>
+
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/07/21/rails-eager-load-inner-join.html">Rails eager_load with inner join</a>
-    </h2>
-    <div class="list-post-date">
-      <time>21 Jul 2020</time>
-    </div>
+
+  <div class="social-share">
+    <amp-social-share type="twitter"></amp-social-share>
+    <amp-social-share type="facebook"></amp-social-share>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/07/12/js-splice-vs-slice.html">JavaScript splice vs slice</a>
-    </h2>
-    <div class="list-post-date">
-      <time>12 Jul 2020</time>
-    </div>
+
+  <div class="post-ad">
+    <amp-ad width="100vw" height=320 type="adsense" data-ad-client="ca-pub-8616720383995770" data-ad-slot="4570107466" data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
+    </amp-ad>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/06/10/man-section-numbers.html">Linux man Section Numbers</a>
-    </h2>
-    <div class="list-post-date">
-      <time>10 Jun 2020</time>
+
+  <amp-iframe width=600 height=140
+            layout="responsive"
+            sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+            resizable
+            src="https://disqus.toshima.ru/blog-toshima-ru.html?id=/2020/08/21/netcat-connection-check&url=https://blog.toshima.ru/2020/08/21/netcat-connection-check.html&title=Connection%20Check%20with%20netcat(nc)%20command">
+    <div overflow
+         tabindex=0
+         role=button
+         aria-label="Load more"
+         style="display:block;font-size:12px;font-weight:500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)">
+        Load more
     </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/06/01/mysql-delete-with-join.html">[MySQL] Delete with join query</a>
-    </h2>
-    <div class="list-post-date">
-      <time>01 Jun 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/05/23/new-create-n-items-array-ruby.html">Create an Array of n items in Ruby</a>
-    </h2>
-    <div class="list-post-date">
-      <time>23 May 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/05/22/kramdown-toc.html">Create Table of Contents in kramdown (Jekyll default markdown renderer)</a>
-    </h2>
-    <div class="list-post-date">
-      <time>22 May 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/04/16/object-destructuring-assignment.html">Object Destructuring Assignment in JavaScript</a>
-    </h2>
-    <div class="list-post-date">
-      <time>16 Apr 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/04/15/npm-version.html">Bump version with npm-version</a>
-    </h2>
-    <div class="list-post-date">
-      <time>15 Apr 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/04/12/ruby-custom-attr-accessor.html">My custom attr_accessor in Ruby</a>
-    </h2>
-    <div class="list-post-date">
-      <time>12 Apr 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/04/01/go-coverage-html-output.html">How to output HTML for Go code coverage</a>
-    </h2>
-    <div class="list-post-date">
-      <time>01 Apr 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/02/22/ruby-private-constant.html">Ruby Private Constant</a>
-    </h2>
-    <div class="list-post-date">
-      <time>22 Feb 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/02/13/how-to-rollback-migration-in-rails.html">How to rollback migration in Rails</a>
-    </h2>
-    <div class="list-post-date">
-      <time>13 Feb 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/27/how-to-install-amp-disqus.html">How to install Disqus for AMP</a>
-    </h2>
-    <div class="list-post-date">
-      <time>27 Jan 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/07/mysql-result-via-command-line.html">Run MySQL query from command line</a>
-    </h2>
-    <div class="list-post-date">
-      <time>07 Jan 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/06/check-supported-tls-version.html">Check supported TLS version with openssl command</a>
-    </h2>
-    <div class="list-post-date">
-      <time>06 Jan 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/05/add-disqus.html">Comment is now available!</a>
-    </h2>
-    <div class="list-post-date">
-      <time>05 Jan 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/04/get-query-parameters-in-javascript.html">Get Query Parameters in JavaScript</a>
-    </h2>
-    <div class="list-post-date">
-      <time>04 Jan 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/02/rails-migration-bulk-true.html">Rails Bulk Migration</a>
-    </h2>
-    <div class="list-post-date">
-      <time>02 Jan 2020</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/01/stop-emitting-warning-ruby27.html">Stop emitting warnings in Ruby 2.7</a>
-    </h2>
-    <div class="list-post-date">
-      <time>01 Jan 2020</time>
-    </div>
-  </div>
-  
-</div>
+  </amp-iframe>
+</article>
 
     </div>
     <footer>
