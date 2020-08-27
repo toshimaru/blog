@@ -25,8 +25,8 @@
 <meta property="og:title" content="Connection Check with netcat(nc) command" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="To test TCP connection with nc command, add -v and -z option." />
-<meta property="og:description" content="To test TCP connection with nc command, add -v and -z option." />
+<meta name="description" content="nc command" />
+<meta property="og:description" content="nc command" />
 <link rel="canonical" href="https://blog.toshima.ru/2020/08/21/netcat-connection-check.html" />
 <meta property="og:url" content="https://blog.toshima.ru/2020/08/21/netcat-connection-check.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
@@ -39,7 +39,7 @@
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"https://blog.toshima.ru/2020/08/21/netcat-connection-check.html","headline":"Connection Check with netcat(nc) command","dateModified":"2020-08-21T00:00:00+00:00","datePublished":"2020-08-21T00:00:00+00:00","image":"https://blog.toshima.ru/android-chrome-512x512.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2020/08/21/netcat-connection-check.html"},"author":{"@type":"Person","name":"toshimaru"},"description":"To test TCP connection with nc command, add -v and -z option.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"https://blog.toshima.ru/2020/08/21/netcat-connection-check.html","headline":"Connection Check with netcat(nc) command","dateModified":"2020-08-21T00:00:00+00:00","datePublished":"2020-08-21T00:00:00+00:00","image":"https://blog.toshima.ru/android-chrome-512x512.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2020/08/21/netcat-connection-check.html"},"author":{"@type":"Person","name":"toshimaru"},"description":"nc command","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru's Blog" />
@@ -97,7 +97,9 @@
   </div>
 
   <div class="post-body">
-    <p>To test TCP connection with <code class="language-plaintext highlighter-rouge">nc</code> command, add <code class="language-plaintext highlighter-rouge">-v</code> and <code class="language-plaintext highlighter-rouge">-z</code> option.</p>
+    <h2 id="nc-command"><code class="language-plaintext highlighter-rouge">nc</code> command</h2>
+
+<p>To test TCP connection with <code class="language-plaintext highlighter-rouge">nc</code> command, add <code class="language-plaintext highlighter-rouge">-v</code> and <code class="language-plaintext highlighter-rouge">-z</code> option.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ nc -vz hostname port
 </code></pre></div></div>
@@ -107,17 +109,19 @@
   <li><code class="language-plaintext highlighter-rouge">-z</code>: do not send data</li>
 </ul>
 
+<h3 id="http-connection-check">http connection check</h3>
+
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w">  </span>nc <span class="nt">-vz</span> blog.toshima.ru 80
 <span class="go">Connection to blog.toshima.ru port 80 [tcp/http] succeeded!
 </span></code></pre></div></div>
+
+<h3 id="ssltls-connection-check">SSl/TLS connection check</h3>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>nc <span class="nt">-vz</span> blog.toshima.ru 443
 <span class="go">Connection to blog.toshima.ru port 443 [tcp/https] succeeded!
 </span></code></pre></div></div>
 
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>nc <span class="nt">-vz</span> blog.toshima.ru 443  
-<span class="go">Connection to blog.toshima.ru port 443 [tcp/https] succeeded!
-</span></code></pre></div></div>
+<h3 id="udp-connection-check">UDP connection check</h3>
 
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>nc <span class="nt">-vzu</span> 1.1.1.1 53
 <span class="go">Connection to 1.1.1.1 port 53 [udp/domain] succeeded!
