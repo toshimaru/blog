@@ -1,5 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-11-22T03:12:06+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to use lsof command</title><link href="https://blog.toshima.ru/2020/11/21/new-lsof-command.html" rel="alternate" type="text/html" title="How to use lsof command" /><published>2020-11-21T00:00:00+09:00</published><updated>2020-11-21T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/11/21/new-lsof-command</id><content type="html" xml:base="https://blog.toshima.ru/2020/11/21/new-lsof-command.html">&lt;h2 id=&quot;what-is-lsof-command&quot;&gt;What is lsof command?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-11-22T15:32:43+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">IPv6 Loopback Address</title><link href="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html" rel="alternate" type="text/html" title="IPv6 Loopback Address" /><published>2020-11-22T00:00:00+09:00</published><updated>2020-11-22T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/11/22/ipv6-localhost</id><content type="html" xml:base="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html">&lt;p&gt;There’re two addresses for IPv6 loopback addresses.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::1&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;If you want to access the addresses from your browser, the URL is:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://[::1]/&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://[::]/&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc2732&quot;&gt;RFC 2732 - Format for Literal IPv6 Addresses in URL’s&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="network" /><summary type="html">There’re two addresses for IPv6 loopback addresses.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to use lsof command</title><link href="https://blog.toshima.ru/2020/11/21/new-lsof-command.html" rel="alternate" type="text/html" title="How to use lsof command" /><published>2020-11-21T00:00:00+09:00</published><updated>2020-11-21T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/11/21/new-lsof-command</id><content type="html" xml:base="https://blog.toshima.ru/2020/11/21/new-lsof-command.html">&lt;h2 id=&quot;what-is-lsof-command&quot;&gt;What is lsof command?&lt;/h2&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsof&lt;/code&gt; command is used to list open files. The word &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsof&lt;/code&gt; is a combination of list (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ls&lt;/code&gt;) and open files (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;of&lt;/code&gt;).&lt;/p&gt;
 
@@ -682,34 +700,4 @@ mysql&amp;gt; select * from user_types;
 
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://docs.ruby-lang.org/en/2.7.0/Array.html#class-Array-label-Creating+Arrays&quot;&gt;class Array - Documentation for Ruby 2.7.0&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Create Table of Contents in kramdown</title><link href="https://blog.toshima.ru/2020/05/22/kramdown-toc.html" rel="alternate" type="text/html" title="Create Table of Contents in kramdown" /><published>2020-05-22T00:00:00+09:00</published><updated>2020-10-20T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/05/22/kramdown-toc</id><content type="html" xml:base="https://blog.toshima.ru/2020/05/22/kramdown-toc.html">&lt;p&gt;If you use &lt;a href=&quot;https://github.com/gettalong/kramdown&quot;&gt;kramdown&lt;/a&gt; (which is a default markdown renderer for &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll&lt;/a&gt;), you can easily add TOC (Table of Contents) to your markdown contents.&lt;/p&gt;
-
-&lt;p&gt;Just add the snippet to the position where you want to show the TOC.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;* toc
-{:toc}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;table-of-contents-for-this-post&quot;&gt;Table of Contents for this post&lt;/h2&gt;
-
-&lt;p&gt;Let’s add TOC in this post.&lt;/p&gt;
-
-&lt;p&gt;👇&lt;/p&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#table-of-contents-for-this-post&quot; id=&quot;markdown-toc-table-of-contents-for-this-post&quot;&gt;Table of Contents for this post&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#does-it-work&quot; id=&quot;markdown-toc-does-it-work&quot;&gt;Does it work?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;👆&lt;/p&gt;
-
-&lt;h2 id=&quot;does-it-work&quot;&gt;Does it work?&lt;/h2&gt;
-
-&lt;p&gt;As you can see, it works correctly! :)&lt;/p&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://kramdown.gettalong.org/converter/html.html#toc&quot;&gt;HTML Converter | kramdown&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="jekyll" /><category term="markdown" /><summary type="html">If you use kramdown (which is a default markdown renderer for Jekyll), you can easily add TOC (Table of Contents) to your markdown contents.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://docs.ruby-lang.org/en/2.7.0/Array.html#class-Array-label-Creating+Arrays&quot;&gt;class Array - Documentation for Ruby 2.7.0&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
