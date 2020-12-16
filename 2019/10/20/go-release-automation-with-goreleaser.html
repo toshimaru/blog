@@ -21,7 +21,7 @@
     </style>
     <!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>Go Release Automation with goreleaser + GitHub Actions | Toshimaru’s Blog</title>
-<meta name="generator" content="Jekyll v4.1.1" />
+<meta name="generator" content="Jekyll v4.2.0" />
 <meta property="og:title" content="Go Release Automation with goreleaser + GitHub Actions" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
@@ -39,7 +39,7 @@
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2019/10/20/go-release-automation-with-goreleaser.html"},"description":"I created a workflow to automate my go CLI tool with goreleaser + GitHub actions.","url":"https://blog.toshima.ru/2019/10/20/go-release-automation-with-goreleaser.html","@type":"BlogPosting","image":"https://blog.toshima.ru/images/goreleaser.jpg","headline":"Go Release Automation with goreleaser + GitHub Actions","dateModified":"2019-10-20T00:00:00+09:00","datePublished":"2019-10-20T00:00:00+09:00","author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
+{"description":"I created a workflow to automate my go CLI tool with goreleaser + GitHub actions.","url":"https://blog.toshima.ru/2019/10/20/go-release-automation-with-goreleaser.html","@type":"BlogPosting","image":"https://blog.toshima.ru/images/goreleaser.jpg","headline":"Go Release Automation with goreleaser + GitHub Actions","dateModified":"2019-10-20T00:00:00+09:00","datePublished":"2019-10-20T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2019/10/20/go-release-automation-with-goreleaser.html"},"author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru's Blog" />
@@ -181,7 +181,7 @@
 
 <p>If no tag is found, snapshot option is forced.</p>
 
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`</span><span class="err">⚠️ No tag found. Snapshot forced</span><span class="s2">`</span><span class="p">);</span>
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">`⚠️ No tag found. Snapshot forced`</span><span class="p">);</span>
 <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">args</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="dl">'</span><span class="s1">--snapshot</span><span class="dl">'</span><span class="p">))</span> <span class="p">{</span>
   <span class="nx">snapshot</span> <span class="o">=</span> <span class="dl">'</span><span class="s1"> --snapshot</span><span class="dl">'</span><span class="p">;</span>
 <span class="p">}</span>
