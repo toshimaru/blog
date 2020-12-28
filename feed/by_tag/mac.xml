@@ -1,5 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mac.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T04:49:07+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mac.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">Linux man Section Numbers</title><link href="https://blog.toshima.ru/2020/06/10/man-section-numbers.html" rel="alternate" type="text/html" title="Linux man Section Numbers" /><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-10T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/06/10/man-section-numbers</id><content type="html" xml:base="https://blog.toshima.ru/2020/06/10/man-section-numbers.html">&lt;p&gt;When you use *nux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command, you’ll see number after commands or system calls. e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LS(1)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FORK(2)&lt;/code&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mac.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T05:03:29+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mac.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">ffi ffi_prep_closure BuildError on macOS</title><link href="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html" rel="alternate" type="text/html" title="ffi ffi_prep_closure BuildError on macOS" /><published>2020-12-29T00:00:00+09:00</published><updated>2020-12-29T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html">&lt;h2 id=&quot;issue&quot;&gt;Issue&lt;/h2&gt;
+
+&lt;p&gt;I encountered &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ffi&lt;/code&gt; gem build error while running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
+/Users/toshimaru/.rbenv/versions/2.7.1/bin/ruby -I /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r
+./siteconf20201228-73606-f28m46.rb extconf.rb
+checking for ffi_prep_closure_loc() in -lffi... yes
+checking for ffi_prep_cif_var()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+creating extconf.h
+creating Makefile
+
+current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
+make &quot;DESTDIR=&quot; clean
+
+current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
+make &quot;DESTDIR=&quot;
+compiling AbstractMemory.c
+compiling ArrayType.c
+compiling Buffer.c
+compiling Call.c
+compiling ClosurePool.c
+compiling DynamicLibrary.c
+compiling Function.c
+Function.c:847:17: error: implicit declaration of function &apos;ffi_prep_closure_loc&apos; is invalid in C99
+[-Werror,-Wimplicit-function-declaration]
+    ffiStatus = ffi_prep_closure_loc(closure-&amp;gt;pcl, &amp;amp;fnInfo-&amp;gt;ffi_cif, callback_invoke, closure, code);
+                ^
+Function.c:847:17: note: did you mean &apos;ffi_prep_closure&apos;?
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/ffi/ffi.h:269:1: note: &apos;ffi_prep_closure&apos; declared here
+ffi_prep_closure(
+^
+1 error generated.
+make: *** [Function.o] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2 for
+inspection.
+Results logged to
+/Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/extensions/x86_64-darwin-18/2.7.0/ffi-1.14.2/gem_make.out
+
+An error occurred while installing ffi (1.14.2), and Bundler cannot continue.
+Make sure that `gem install ffi -v &apos;1.14.2&apos; --source &apos;https://rubygems.org/&apos;` succeeds before bundling.
+
+In Gemfile:
+  bootstrap-sass was resolved to 3.4.1, which depends on
+    sassc was resolved to 2.4.0, which depends on
+      ffi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ffi &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-system-libffi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ffi/ffi/issues/791&quot;&gt;dyld: Symbol not found: _ffi_prep_closure_loc on Macos 10.14 · Issue #791 · ffi/ffi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@leoliang.climber/missing-ffi-prep-closure-error-for-ffi-1-13-1-gem-70f800a48090&quot;&gt;Missing ffi_prep_closure for ffi-1.13.1 gem | by Jialiang Liang | Medium&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mac" /><category term="gem" /><summary type="html">Issue</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Linux man Section Numbers</title><link href="https://blog.toshima.ru/2020/06/10/man-section-numbers.html" rel="alternate" type="text/html" title="Linux man Section Numbers" /><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-10T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/06/10/man-section-numbers</id><content type="html" xml:base="https://blog.toshima.ru/2020/06/10/man-section-numbers.html">&lt;p&gt;When you use *nux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command, you’ll see number after commands or system calls. e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LS(1)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FORK(2)&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;What’s this number? It’s called &lt;strong&gt;section number&lt;/strong&gt;.&lt;/p&gt;
 

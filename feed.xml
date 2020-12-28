@@ -1,5 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T04:49:07+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">IPv6 Loopback Address</title><link href="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html" rel="alternate" type="text/html" title="IPv6 Loopback Address" /><published>2020-11-22T00:00:00+09:00</published><updated>2020-11-22T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/11/22/ipv6-localhost</id><content type="html" xml:base="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html">&lt;p&gt;There’re two addresses for IPv6 loopback addresses.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T05:03:29+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">ffi ffi_prep_closure BuildError on macOS</title><link href="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html" rel="alternate" type="text/html" title="ffi ffi_prep_closure BuildError on macOS" /><published>2020-12-29T00:00:00+09:00</published><updated>2020-12-29T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html">&lt;h2 id=&quot;issue&quot;&gt;Issue&lt;/h2&gt;
+
+&lt;p&gt;I encountered &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ffi&lt;/code&gt; gem build error while running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
+
+    current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
+/Users/toshimaru/.rbenv/versions/2.7.1/bin/ruby -I /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r
+./siteconf20201228-73606-f28m46.rb extconf.rb
+checking for ffi_prep_closure_loc() in -lffi... yes
+checking for ffi_prep_cif_var()... yes
+checking for ffi_raw_call()... yes
+checking for ffi_prep_raw_closure()... yes
+creating extconf.h
+creating Makefile
+
+current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
+make &quot;DESTDIR=&quot; clean
+
+current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
+make &quot;DESTDIR=&quot;
+compiling AbstractMemory.c
+compiling ArrayType.c
+compiling Buffer.c
+compiling Call.c
+compiling ClosurePool.c
+compiling DynamicLibrary.c
+compiling Function.c
+Function.c:847:17: error: implicit declaration of function &apos;ffi_prep_closure_loc&apos; is invalid in C99
+[-Werror,-Wimplicit-function-declaration]
+    ffiStatus = ffi_prep_closure_loc(closure-&amp;gt;pcl, &amp;amp;fnInfo-&amp;gt;ffi_cif, callback_invoke, closure, code);
+                ^
+Function.c:847:17: note: did you mean &apos;ffi_prep_closure&apos;?
+/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/ffi/ffi.h:269:1: note: &apos;ffi_prep_closure&apos; declared here
+ffi_prep_closure(
+^
+1 error generated.
+make: *** [Function.o] Error 1
+
+make failed, exit code 2
+
+Gem files will remain installed in /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2 for
+inspection.
+Results logged to
+/Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/extensions/x86_64-darwin-18/2.7.0/ffi-1.14.2/gem_make.out
+
+An error occurred while installing ffi (1.14.2), and Bundler cannot continue.
+Make sure that `gem install ffi -v &apos;1.14.2&apos; --source &apos;https://rubygems.org/&apos;` succeeds before bundling.
+
+In Gemfile:
+  bootstrap-sass was resolved to 3.4.1, which depends on
+    sassc was resolved to 2.4.0, which depends on
+      ffi
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ffi &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-system-libffi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/ffi/ffi/issues/791&quot;&gt;dyld: Symbol not found: _ffi_prep_closure_loc on Macos 10.14 · Issue #791 · ffi/ffi&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://medium.com/@leoliang.climber/missing-ffi-prep-closure-error-for-ffi-1-13-1-gem-70f800a48090&quot;&gt;Missing ffi_prep_closure for ffi-1.13.1 gem | by Jialiang Liang | Medium&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mac" /><category term="gem" /><summary type="html">Issue</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">IPv6 Loopback Address</title><link href="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html" rel="alternate" type="text/html" title="IPv6 Loopback Address" /><published>2020-11-22T00:00:00+09:00</published><updated>2020-11-22T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/11/22/ipv6-localhost</id><content type="html" xml:base="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html">&lt;p&gt;There’re two addresses for IPv6 loopback addresses.&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::1&lt;/code&gt;&lt;/li&gt;
@@ -642,62 +707,4 @@ mysql&amp;gt; select * from user_types;
 |       3 |    3 |
 +---------+------+
 3 rows in set (0.00 sec)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Create an Array of n items in Ruby</title><link href="https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby.html" rel="alternate" type="text/html" title="Create an Array of n items in Ruby" /><published>2020-05-23T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby</id><content type="html" xml:base="https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#create-array-of-items&quot; id=&quot;markdown-toc-create-array-of-items&quot;&gt;Create array of items&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#create-array-with-arraynew&quot; id=&quot;markdown-toc-create-array-with-arraynew&quot;&gt;Create array with Array.new&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#symbolproc&quot; id=&quot;markdown-toc-symbolproc&quot;&gt;SymbolProc&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#array-of-array&quot; id=&quot;markdown-toc-array-of-array&quot;&gt;Array of Array&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#array-of-hash&quot; id=&quot;markdown-toc-array-of-hash&quot;&gt;Array of Hash&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#array-of-object&quot; id=&quot;markdown-toc-array-of-object&quot;&gt;Array of Object&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;create-array-of-items&quot;&gt;Create array of items&lt;/h2&gt;
-
-&lt;p&gt;How can we create an array of 10 items in Ruby?&lt;/p&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;ary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[]&lt;/span&gt;
-&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;times&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ary&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ary&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;This code can be refactored with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Array.new&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;create-array-with-arraynew&quot;&gt;Create array with Array.new&lt;/h2&gt;
-
-&lt;p&gt;The initial value is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nil&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; [nil, nil, nil]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;symbolproc&quot;&gt;SymbolProc&lt;/h2&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:to_s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;# =&amp;gt; [&quot;0&quot;, &quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;, &quot;5&quot;, &quot;6&quot;, &quot;7&quot;, &quot;8&quot;, &quot;9&quot;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;array-of-array&quot;&gt;Array of Array&lt;/h2&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; [[nil, nil, nil], [nil, nil, nil], [nil, nil, nil]]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;array-of-hash&quot;&gt;Array of Hash&lt;/h2&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Hash&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; [{}, {}, {}, {}]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;array-of-object&quot;&gt;Array of Object&lt;/h2&gt;
-
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;no&quot;&gt;Array&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;User&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;new&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;c1&quot;&gt;#&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;, #&amp;lt;User id: nil, name: nil, email: nil, created_at: nil, updated_at: nil&amp;gt;]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.ruby-lang.org/en/2.7.0/Array.html#class-Array-label-Creating+Arrays&quot;&gt;class Array - Documentation for Ruby 2.7.0&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
