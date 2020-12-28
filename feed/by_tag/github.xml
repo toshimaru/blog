@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/github.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T04:15:51+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/github.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/github.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T04:49:07+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/github.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
 </subtitle><author><name>toshimaru</name></author><entry><title type="html">Publish Jekyll site without gh-pages branch</title><link href="https://blog.toshima.ru/2016/08/24/publish-jekyll-without-gh-pages.html" rel="alternate" type="text/html" title="Publish Jekyll site without gh-pages branch" /><published>2016-08-24T00:00:00+09:00</published><updated>2016-08-24T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/08/24/publish-jekyll-without-gh-pages</id><content type="html" xml:base="https://blog.toshima.ru/2016/08/24/publish-jekyll-without-gh-pages.html">&lt;p&gt;Github announced &lt;a href=&quot;https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/&quot;&gt;variety of sources of Github Pages&lt;/a&gt; is supported in &lt;a href=&quot;https://github.com/blog/2233-publish-your-project-documentation-with-github-pages&quot;&gt;their official blog&lt;/a&gt;. It allows developers to publish Github Pages with master branch instead of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch. Since this feature, you can publish your Jekyll site without using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gh-pages&lt;/code&gt; branch and Github Pages deployment now can be much simpler.&lt;/p&gt;
 
 &lt;h2 id=&quot;build-page-on-docs-directory&quot;&gt;Build page on docs directory&lt;/h2&gt;
@@ -27,7 +27,7 @@ Configuration file: /Users/toshimaru/blog.toshima.ru/_config.yml
 
 &lt;p&gt;&lt;strong&gt;Last step&lt;/strong&gt;: Change Github Pages source in your repository setting.&lt;/p&gt;
 
-&lt;p&gt;&lt;amp-img src=&quot;/images/doc-gh-pages.png&quot; alt=&quot;change Github Pages source&quot; width='745' height='436' layout='responsive'&gt;&lt;/amp-img&gt;&lt;/p&gt;
+&lt;p&gt;&lt;amp-img src=&quot;/images/doc-gh-pages.png&quot; alt=&quot;change Github Pages source&quot; width=&apos;745&apos; height=&apos;436&apos; layout=&apos;responsive&apos;&gt;&lt;/amp-img&gt;&lt;/p&gt;
 
 &lt;p&gt;You will see your Github Pages on your own published pages. Happy Jekylling &amp;lt;3&lt;/p&gt;
 
@@ -36,13 +36,13 @@ Configuration file: /Users/toshimaru/blog.toshima.ru/_config.yml
 &lt;p&gt;By using &lt;a href=&quot;https://github.com/ruby/rake&quot;&gt;rake&lt;/a&gt;, you can deploy your Jekyll site with one command, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rake deploy&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# Rakefile&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'deploy Jekyll site to Github Pages'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;deploy Jekyll site to Github Pages&apos;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;task&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:deploy&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bundle exec jekyll clean'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'bundle exec jekyll build'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git add ./docs'&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git commit -m \'Update\''&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'git push origin master'&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;bundle exec jekyll clean&apos;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;bundle exec jekyll build&apos;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;git add ./docs&apos;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;git commit -m \&apos;Update\&apos;&apos;&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;git push origin master&apos;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 

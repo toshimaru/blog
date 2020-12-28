@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ruby.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T04:15:51+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/ruby.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there's a will, there's a way.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ruby.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T04:49:07+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/ruby.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
 </subtitle><author><name>toshimaru</name></author><entry><title type="html">Create an Array of n items in Ruby</title><link href="https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby.html" rel="alternate" type="text/html" title="Create an Array of n items in Ruby" /><published>2020-05-23T00:00:00+09:00</published><updated>2020-05-23T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby</id><content type="html" xml:base="https://blog.toshima.ru/2020/05/23/new-create-n-items-array-ruby.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#create-array-of-items&quot; id=&quot;markdown-toc-create-array-of-items&quot;&gt;Create array of items&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#create-array-with-arraynew&quot; id=&quot;markdown-toc-create-array-with-arraynew&quot;&gt;Create array with Array.new&lt;/a&gt;&lt;/li&gt;
@@ -145,13 +145,13 @@
 &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MyModule&lt;/span&gt;
   &lt;span class=&quot;kp&quot;&gt;private&lt;/span&gt;
 
-  &lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Is this private?'&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Is this private?&apos;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The result:&lt;/p&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./private_constant'&lt;/span&gt;
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;./private_constant&apos;&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; Is this private?&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -163,14 +163,14 @@
 
 &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;# private_constant.rb&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;MyModule&lt;/span&gt;
-  &lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'Is this private?'&lt;/span&gt;
+  &lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;Is this private?&apos;&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;private_constant&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:PRIVATE_CONSTANT&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;The result:&lt;/p&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'./private_constant'&lt;/span&gt;
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;./private_constant&apos;&lt;/span&gt;
 &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;MyModule&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;PRIVATE_CONSTANT&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;# =&amp;gt; private constant MyModule::PRIVATE_CONSTANT referenced (NameError)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -192,15 +192,15 @@
 
 &lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;bundle &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;rails db:migrate
 &lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/stack.rb:37: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
-&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/static.rb:110: warning: The called method `initialize' is defined here
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/actionpack-6.0.2.1/lib/action_dispatch/middleware/static.rb:110: warning: The called method `initialize&apos; is defined here
 &lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/mysql/database_statements.rb:12: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
-&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/abstract/query_cache.rb:96: warning: The called method `select_all' is defined here
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/abstract/query_cache.rb:96: warning: The called method `select_all&apos; is defined here
 &lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/transactions.rb:212: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
-&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/abstract/database_statements.rb:274: warning: The called method `transaction' is defined here
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/connection_adapters/abstract/database_statements.rb:274: warning: The called method `transaction&apos; is defined here
 &lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/persistence.rb:503: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
-&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/timestamp.rb:127: warning: The called method `create_or_update' is defined here
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activerecord-6.0.2.1/lib/active_record/timestamp.rb:127: warning: The called method `create_or_update&apos; is defined here
 &lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activemodel-6.0.2.1/lib/active_model/type/integer.rb:13: warning: Using the last argument as keyword parameters is deprecated;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;maybe &lt;span class=&quot;k&quot;&gt;**&lt;/span&gt; should be added to the call
-&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activemodel-6.0.2.1/lib/active_model/type/value.rb:8: warning: The called method `initialize' is defined here
+&lt;span class=&quot;go&quot;&gt;/usr/local/bundle/ruby/2.7.0/gems/activemodel-6.0.2.1/lib/active_model/type/value.rb:8: warning: The called method `initialize&apos; is defined here
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;To stop emitting the warnings, just add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RUBYOPT=-W:no-deprecated&lt;/code&gt;.&lt;/p&gt;
@@ -288,13 +288,13 @@ Done installing documentation for bundler after 5 seconds
 Tagged v0.7.2.
 Pushed git commits and tags.
 rake aborted!
-Your rubygems.org credentials aren't set. Run `gem push` to set them.
+Your rubygems.org credentials aren&apos;t set. Run `gem push` to set them.
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;To resolve this, you need to put gem credential on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;~/.gem/credentials&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;curl &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;your_gem_account_name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; https://rubygems.org/api/v1/api_key.yaml &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; ~/.gem/credentials
-&lt;span class=&quot;go&quot;&gt;Enter host password for user '{your_gem_account_name}': {your_password}
+&lt;span class=&quot;go&quot;&gt;Enter host password for user &apos;{your_gem_account_name}&apos;: {your_password}
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Then, let’s run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rake release&lt;/code&gt; command again.&lt;/p&gt;
@@ -382,8 +382,8 @@ Pushed rubocop-rails_config 0.7.2 to rubygems.org
 &amp;gt;  ERB.new(&quot;&amp;lt;%% escaped? %&amp;gt;&quot;).result
 =&amp;gt; &quot;&amp;lt;% escaped? %&amp;gt;&quot;
 &amp;gt;  ERB.new(&quot;&amp;lt;% escaped? %&amp;gt;&quot;).result
-NoMethodError: undefined method `escaped?' for main:Object
-	from (erb):1:in `&amp;lt;main&amp;gt;'
+NoMethodError: undefined method `escaped?&apos; for main:Object
+	from (erb):1:in `&amp;lt;main&amp;gt;&apos;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%%&lt;/code&gt; becomes string without an error.&lt;/p&gt;
@@ -396,10 +396,10 @@ NoMethodError: undefined method `escaped?' for main:Object
 
 &lt;p&gt;To &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;GET&lt;/code&gt; URL and the response simply in Ruby:&lt;/p&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'net/http'&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uri'&lt;/span&gt;
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;uri&apos;&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://google.com/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;https://google.com/&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -410,10 +410,10 @@ NoMethodError: undefined method `escaped?' for main:Object
 
 &lt;h2 id=&quot;get-http-status-code-from-url&quot;&gt;GET HTTP status code from URL&lt;/h2&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'net/http'&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uri'&lt;/span&gt;
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;uri&apos;&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'https://google.com/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;https://google.com/&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get_response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;code&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -421,11 +421,11 @@ NoMethodError: undefined method `escaped?' for main:Object
 
 &lt;h2 id=&quot;get-json-response-from-url&quot;&gt;GET JSON response from URL&lt;/h2&gt;
 
-&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'net/http'&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'uri'&lt;/span&gt;
-&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;'json'&lt;/span&gt;
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;net/http&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;uri&apos;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;json&apos;&lt;/span&gt;
 
-&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'http://www.example.com/sample.json'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;URI&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&apos;http://www.example.com/sample.json&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;json&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Net&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;HTTP&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;uri&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;result&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
