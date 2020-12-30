@@ -1,5 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mac.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-29T05:03:29+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mac.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">ffi ffi_prep_closure BuildError on macOS</title><link href="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html" rel="alternate" type="text/html" title="ffi ffi_prep_closure BuildError on macOS" /><published>2020-12-29T00:00:00+09:00</published><updated>2020-12-29T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html">&lt;h2 id=&quot;issue&quot;&gt;Issue&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mac.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-31T04:11:09+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mac.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Fix macOS Kernel Panic with Disabling auto graphic switching</title><link href="https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching.html" rel="alternate" type="text/html" title="Fix macOS Kernel Panic with Disabling auto graphic switching" /><published>2020-12-30T00:00:00+09:00</published><updated>2020-12-30T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching.html">&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;macOS Catalina&lt;/li&gt;
+  &lt;li&gt;MacBook Pro 15-inch&lt;/li&gt;
+  &lt;li&gt;Graphics: Intel UHD Graphics&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;error&quot;&gt;Error&lt;/h2&gt;
+
+&lt;p&gt;MacOS suddenly restarts with the following error:&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Kernel Extensions in backtrace:
+   com.apple.iokit.IOPCIFamily ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
+
+&lt;p&gt;According to Apple Community, this seems an issue related “energy saver”.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Go to system preferences&amp;gt;energy saver and do the following for both battery and power adapter:&lt;/p&gt;
+
+  &lt;p&gt;1) Disable auto graphic switching
+2) Turn off Power Nap&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;ref. &lt;a href=&quot;https://discussions.apple.com/thread/251233423?answerId=252366191022#252366191022&quot;&gt;Your computer was restarted because of a … - Apple Community&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Disabling auto graphic switching solves the issue.&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="mac" /><summary type="html">Prerequisites</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">ffi ffi_prep_closure BuildError on macOS</title><link href="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html" rel="alternate" type="text/html" title="ffi ffi_prep_closure BuildError on macOS" /><published>2020-12-29T00:00:00+09:00</published><updated>2020-12-29T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html">&lt;h2 id=&quot;issue&quot;&gt;Issue&lt;/h2&gt;
 
 &lt;p&gt;I encountered &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ffi&lt;/code&gt; gem build error while running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
 
@@ -56,7 +85,13 @@ In Gemfile:
 
 &lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
 
+&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ffi&lt;/code&gt; with opttion &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--disable-system-libffi&lt;/code&gt;.&lt;/p&gt;
+
 &lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ffi &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-system-libffi&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;x.x.x is version
+&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ffi:x.x.x &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-system-libffi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
