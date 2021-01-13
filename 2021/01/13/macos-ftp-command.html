@@ -20,26 +20,26 @@
 
     </style>
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Remove old Docker containers | Toshimaru’s Blog</title>
+<title>Install ftp command on macOS with brew | Toshimaru’s Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Remove old Docker containers" />
+<meta property="og:title" content="Install ftp command on macOS with brew" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="[Update]" />
-<meta property="og:description" content="[Update]" />
-<link rel="canonical" href="https://blog.toshima.ru/2016/04/10/remove-old-docker-containers.html" />
-<meta property="og:url" content="https://blog.toshima.ru/2016/04/10/remove-old-docker-containers.html" />
+<meta name="description" content="ftp command is removed since macOS High Sierra for a security reason. ftp command can be installed with brew." />
+<meta property="og:description" content="ftp command is removed since macOS High Sierra for a security reason. ftp command can be installed with brew." />
+<link rel="canonical" href="https://blog.toshima.ru/2021/01/13/macos-ftp-command.html" />
+<meta property="og:url" content="https://blog.toshima.ru/2021/01/13/macos-ftp-command.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
 <meta property="og:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-04-10T00:00:00+09:00" />
+<meta property="article:published_time" content="2021-01-13T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
-<meta property="twitter:title" content="Remove old Docker containers" />
+<meta property="twitter:title" content="Install ftp command on macOS with brew" />
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"headline":"Remove old Docker containers","dateModified":"2021-01-13T00:00:00+09:00","datePublished":"2016-04-10T00:00:00+09:00","description":"[Update]","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2016/04/10/remove-old-docker-containers.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2016/04/10/remove-old-docker-containers.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
+{"headline":"Install ftp command on macOS with brew","dateModified":"2021-01-13T00:00:00+09:00","datePublished":"2021-01-13T00:00:00+09:00","description":"ftp command is removed since macOS High Sierra for a security reason. ftp command can be installed with brew.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/01/13/macos-ftp-command.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2021/01/13/macos-ftp-command.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -79,76 +79,71 @@
   <h1 class="masthead-title--small"><a href="/">Toshimaru's Blog</a></h1>
 </header>
 <article class="content post">
-  <h1 class="post-title">Remove old Docker containers</h1>
+  <h1 class="post-title">Install ftp command on macOS with brew</h1>
   <div class="post-meta">
     <div class="post-date">
-      <time>10 Apr 2016</time>
-      (Updated on 13 Jan 2021)
+      <time>13 Jan 2021</time>
+      
     </div>
     <div class="post-tags">
       <ul class="tags">
         
-          <li><a href="/tag/docker" class="tag">docker</a></li>
+          <li><a href="/tag/ftp" class="tag">ftp</a></li>
+        
+          <li><a href="/tag/macos" class="tag">macos</a></li>
         
       </ul>
     </div>
   </div>
 
   <div class="post-body">
-    <p><strong>[Update]</strong></p>
+    <p><code class="language-plaintext highlighter-rouge">ftp</code> command is removed since macOS High Sierra <a href="https://discussions.apple.com/thread/8093031">for a security reason</a>. <code class="language-plaintext highlighter-rouge">ftp</code> command can be installed with brew.</p>
 
-<blockquote>
-  <p>Since Docker 1.13.x you can use Docker container prune:</p>
-  <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker container prune
-</code></pre></div>  </div>
-</blockquote>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container prune
-</code></pre></div></div>
-
-<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker system prune
-</code></pre></div></div>
-
-<h2 id="reference">Reference</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>[docker container prune</td>
-          <td>Docker Documentation](https://docs.docker.com/engine/reference/commandline/container_prune/)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>[docker system prune</td>
-          <td>Docker Documentation](https://docs.docker.com/engine/reference/commandline/system_prune/)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li>macOS Catalina (v10.15)</li>
+  <li>MacBook Pro</li>
+  <li>brew</li>
 </ul>
 
-<hr />
+<h2 id="install">Install</h2>
 
-<p>When you run <code class="language-plaintext highlighter-rouge">docker ps -a</code>, you might have too many containers and want to remove old containers. you can remove those containers as below:</p>
+<p>Just install <code class="language-plaintext highlighter-rouge">tnftp</code> with <code class="language-plaintext highlighter-rouge">brew</code>.</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">rm</span> <span class="sb">`</span>docker ps <span class="nt">-aq</span><span class="sb">`</span>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>brew Install tnftp
 </code></pre></div></div>
 
-<p>If specified container is running, you will get an error:</p>
+<h2 id="command-sample">Command Sample</h2>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Failed to remove container (f6259edb8236): Error response from daemon: Conflict, You cannot remove a running container. Stop the container before attempting removal or use -f
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ftp <span class="nt">-a</span> 127.0.0.1 4481
 </code></pre></div></div>
 
-<h2 id="see-also">See also</h2>
+<p><code class="language-plaintext highlighter-rouge">-a</code> means “Causes ftp to bypass normal login proce-dure, and use an anonymous login instead”.</p>
 
-<p><a href="https://stackoverflow.com/questions/17236796/how-to-remove-old-docker-containers">How to remove old Docker containers - Stack Overflow</a></p>
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>ftp
+<span class="gp">ftp&gt;</span><span class="w"> </span><span class="nb">help</span>
+<span class="go">Commands may be abbreviated.  Commands are:
+
+!		edit		lpage		nlist		rcvbuf		struct
+</span><span class="gp">$</span><span class="w">		</span>epsv		lpwd		nmap		recv		sunique
+<span class="go">account		epsv4		ls		ntrans		reget		system
+append		epsv6		macdef		open		remopts		tenex
+ascii		exit		mdelete		page		rename		throttle
+bell		features	mdir		passive		reset		trace
+binary		fget		mget		pdir		restart		type
+bye		form		mkdir		pls		rhelp		umask
+case		ftp		mls		pmlsd		rmdir		unset
+cd		gate		mlsd		preserve	rstatus		usage
+cdup		get		mlst		progress	runique		user
+chmod		glob		mode		prompt		send		verbose
+close		hash		modtime		proxy		sendport	xferbuf
+cr		help		more		put		set		?
+debug		idle		mput		pwd		site
+delete		image		mreget		quit		size
+dir		lcd		msend		quote		sndbuf
+disconnect	less		newer		rate		status
+</span></code></pre></div></div>
 
   </div>
 
@@ -168,7 +163,7 @@
             layout="responsive"
             sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
             resizable
-            src="https://disqus.toshima.ru/blog-toshima-ru.html?id=/2016/04/10/remove-old-docker-containers&url=https://blog.toshima.ru/2016/04/10/remove-old-docker-containers.html&title=Remove%20old%20Docker%20containers">
+            src="https://disqus.toshima.ru/blog-toshima-ru.html?id=/2021/01/13/macos-ftp-command&url=https://blog.toshima.ru/2021/01/13/macos-ftp-command.html&title=Install%20ftp%20command%20on%20macOS%20with%20brew">
     <div overflow
          tabindex=0
          role=button

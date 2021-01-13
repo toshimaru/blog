@@ -1,5 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2020-12-31T04:11:09+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">Fix macOS Kernel Panic with Disabling auto graphic switching</title><link href="https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching.html" rel="alternate" type="text/html" title="Fix macOS Kernel Panic with Disabling auto graphic switching" /><published>2020-12-30T00:00:00+09:00</published><updated>2020-12-30T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching.html">&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-13T15:59:45+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Install ftp command on macOS with brew</title><link href="https://blog.toshima.ru/2021/01/13/macos-ftp-command.html" rel="alternate" type="text/html" title="Install ftp command on macOS with brew" /><published>2021-01-13T00:00:00+09:00</published><updated>2021-01-13T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/01/13/macos-ftp-command</id><content type="html" xml:base="https://blog.toshima.ru/2021/01/13/macos-ftp-command.html">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp&lt;/code&gt; command is removed since macOS High Sierra &lt;a href=&quot;https://discussions.apple.com/thread/8093031&quot;&gt;for a security reason&lt;/a&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp&lt;/code&gt; command can be installed with brew.&lt;/p&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;macOS Catalina (v10.15)&lt;/li&gt;
+  &lt;li&gt;MacBook Pro&lt;/li&gt;
+  &lt;li&gt;brew&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;install&quot;&gt;Install&lt;/h2&gt;
+
+&lt;p&gt;Just install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tnftp&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;brew Install tnftp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;command-sample&quot;&gt;Command Sample&lt;/h2&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;ftp &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; 127.0.0.1 4481
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-a&lt;/code&gt; means “Causes ftp to bypass normal login proce-dure, and use an anonymous login instead”.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;ftp
+&lt;span class=&quot;gp&quot;&gt;ftp&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Commands may be abbreviated.  Commands are:
+
+!		edit		lpage		nlist		rcvbuf		struct
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;		&lt;/span&gt;epsv		lpwd		nmap		recv		sunique
+&lt;span class=&quot;go&quot;&gt;account		epsv4		ls		ntrans		reget		system
+append		epsv6		macdef		open		remopts		tenex
+ascii		exit		mdelete		page		rename		throttle
+bell		features	mdir		passive		reset		trace
+binary		fget		mget		pdir		restart		type
+bye		form		mkdir		pls		rhelp		umask
+case		ftp		mls		pmlsd		rmdir		unset
+cd		gate		mlsd		preserve	rstatus		usage
+cdup		get		mlst		progress	runique		user
+chmod		glob		mode		prompt		send		verbose
+close		hash		modtime		proxy		sendport	xferbuf
+cr		help		more		put		set		?
+debug		idle		mput		pwd		site
+delete		image		mreget		quit		size
+dir		lcd		msend		quote		sndbuf
+disconnect	less		newer		rate		status
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="ftp" /><category term="macos" /><summary type="html">ftp command is removed since macOS High Sierra for a security reason. ftp command can be installed with brew.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Fix macOS Kernel Panic with Disabling auto graphic switching</title><link href="https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching.html" rel="alternate" type="text/html" title="Fix macOS Kernel Panic with Disabling auto graphic switching" /><published>2020-12-30T00:00:00+09:00</published><updated>2020-12-30T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/30/kernel-panic-disable-auto-graphic-switching.html">&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;macOS Catalina&lt;/li&gt;
@@ -583,67 +629,4 @@ github.com.		3599	IN	TXT	&quot;v=spf1 ip4:192.30.252.0/22 ip4:208.74.204.0/22 ip
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice&quot;&gt;Array.prototype.splice() - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice&quot;&gt;Array.prototype.slice() - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="javascript" /><summary type="html">Let’s look into the difference between splice and slice, which are JavaScript Array methods.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Linux man Section Numbers</title><link href="https://blog.toshima.ru/2020/06/10/man-section-numbers.html" rel="alternate" type="text/html" title="Linux man Section Numbers" /><published>2020-06-10T00:00:00+09:00</published><updated>2020-06-10T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/06/10/man-section-numbers</id><content type="html" xml:base="https://blog.toshima.ru/2020/06/10/man-section-numbers.html">&lt;p&gt;When you use *nux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command, you’ll see number after commands or system calls. e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;LS(1)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;FORK(2)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;What’s this number? It’s called &lt;strong&gt;section number&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;p&gt;The next question is, what does the section number actually mean?&lt;/p&gt;
-
-&lt;h2 id=&quot;section-numbers&quot;&gt;Section numbers&lt;/h2&gt;
-
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;section number&lt;/th&gt;
-      &lt;th&gt;description&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;1&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Executable programs or shell commands&lt;/strong&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;2&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;System calls&lt;/strong&gt;. This functions are provided by the kernel.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Library calls&lt;/strong&gt;. This functions are used as program libraries.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;4&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Special files&lt;/strong&gt;. This is usually found in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/dev&lt;/code&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;5&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;File formats and conventions&lt;/strong&gt;, e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/etc/passwd&lt;/code&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;6&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Games&lt;/strong&gt;.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;7&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Miscellaneous&lt;/strong&gt; (including macro packages and conventions), e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man(7)&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;groff(7)&lt;/code&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;8&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;System administration commands&lt;/strong&gt;. This is usually only for root.&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;9&lt;/td&gt;
-      &lt;td&gt;&lt;strong&gt;Kernel routines&lt;/strong&gt; [Non standard]&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;This list is based on Linux &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man&lt;/code&gt; command (You can see it by runnning &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;man man&lt;/code&gt;).&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Man_page#Manual_sections&quot;&gt;man page - Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="linux" /><category term="unix" /><category term="mac" /><category term="bash" /><summary type="html">When you use *nux man command, you’ll see number after commands or system calls. e.g. LS(1), FORK(2).</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="javascript" /><summary type="html">Let’s look into the difference between splice and slice, which are JavaScript Array methods.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

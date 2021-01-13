@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ftp.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-13T15:59:45+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/ftp.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Install ftp command on macOS with brew</title><link href="https://blog.toshima.ru/2021/01/13/macos-ftp-command.html" rel="alternate" type="text/html" title="Install ftp command on macOS with brew" /><published>2021-01-13T00:00:00+09:00</published><updated>2021-01-13T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/01/13/macos-ftp-command</id><content type="html" xml:base="https://blog.toshima.ru/2021/01/13/macos-ftp-command.html">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp&lt;/code&gt; command is removed since macOS High Sierra &lt;a href=&quot;https://discussions.apple.com/thread/8093031&quot;&gt;for a security reason&lt;/a&gt;. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ftp&lt;/code&gt; command can be installed with brew.&lt;/p&gt;
+
+&lt;h2 id=&quot;prerequisites&quot;&gt;Prerequisites&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;macOS Catalina (v10.15)&lt;/li&gt;
+  &lt;li&gt;MacBook Pro&lt;/li&gt;
+  &lt;li&gt;brew&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;install&quot;&gt;Install&lt;/h2&gt;
+
+&lt;p&gt;Just install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;tnftp&lt;/code&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;brew&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;brew Install tnftp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;command-sample&quot;&gt;Command Sample&lt;/h2&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;ftp &lt;span class=&quot;nt&quot;&gt;-a&lt;/span&gt; 127.0.0.1 4481
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-a&lt;/code&gt; means “Causes ftp to bypass normal login proce-dure, and use an anonymous login instead”.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;ftp
+&lt;span class=&quot;gp&quot;&gt;ftp&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;help&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;Commands may be abbreviated.  Commands are:
+
+!		edit		lpage		nlist		rcvbuf		struct
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;		&lt;/span&gt;epsv		lpwd		nmap		recv		sunique
+&lt;span class=&quot;go&quot;&gt;account		epsv4		ls		ntrans		reget		system
+append		epsv6		macdef		open		remopts		tenex
+ascii		exit		mdelete		page		rename		throttle
+bell		features	mdir		passive		reset		trace
+binary		fget		mget		pdir		restart		type
+bye		form		mkdir		pls		rhelp		umask
+case		ftp		mls		pmlsd		rmdir		unset
+cd		gate		mlsd		preserve	rstatus		usage
+cdup		get		mlst		progress	runique		user
+chmod		glob		mode		prompt		send		verbose
+close		hash		modtime		proxy		sendport	xferbuf
+cr		help		more		put		set		?
+debug		idle		mput		pwd		site
+delete		image		mreget		quit		size
+dir		lcd		msend		quote		sndbuf
+disconnect	less		newer		rate		status
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="ftp" /><category term="macos" /><summary type="html">ftp command is removed since macOS High Sierra for a security reason. ftp command can be installed with brew.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
