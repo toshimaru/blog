@@ -103,6 +103,10 @@
 </code></pre></div>  </div>
 </blockquote>
 
+<p><a href="https://stackoverflow.com/questions/17236796/how-to-remove-old-docker-containers">How to remove old Docker containers - Stack Overflow</a></p>
+
+<h2 id="docker-prune-commands">docker prune commands</h2>
+
 <div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>docker container prune
 </code></pre></div></div>
 
@@ -112,26 +116,8 @@
 <h2 id="reference">Reference</h2>
 
 <ul>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>[docker container prune</td>
-          <td>Docker Documentation](https://docs.docker.com/engine/reference/commandline/container_prune/)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>[docker system prune</td>
-          <td>Docker Documentation](https://docs.docker.com/engine/reference/commandline/system_prune/)</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/container_prune/">docker container prune | Docker Documentation</a></li>
+  <li><a href="https://docs.docker.com/engine/reference/commandline/system_prune/">docker system prune | Docker Documentation</a></li>
 </ul>
 
 <hr />
@@ -141,14 +127,10 @@
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>docker <span class="nb">rm</span> <span class="sb">`</span>docker ps <span class="nt">-aq</span><span class="sb">`</span>
 </code></pre></div></div>
 
-<p>If specified container is running, you will get an error:</p>
+<p>If specified container is running, you’ll get an error:</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Failed to remove container (f6259edb8236): Error response from daemon: Conflict, You cannot remove a running container. Stop the container before attempting removal or use -f
 </code></pre></div></div>
-
-<h2 id="see-also">See also</h2>
-
-<p><a href="https://stackoverflow.com/questions/17236796/how-to-remove-old-docker-containers">How to remove old Docker containers - Stack Overflow</a></p>
 
   </div>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/docker.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-13T15:59:45+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/docker.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/docker.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-13T16:13:08+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/docker.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
 </subtitle><author><name>toshimaru</name></author><entry><title type="html">Run and Connect to MySQL on Docker</title><link href="https://blog.toshima.ru/2018/09/16/docker-run-mysql.html" rel="alternate" type="text/html" title="Run and Connect to MySQL on Docker" /><published>2018-09-16T00:00:00+09:00</published><updated>2020-01-08T00:00:00+09:00</updated><id>https://blog.toshima.ru/2018/09/16/docker-run-mysql</id><content type="html" xml:base="https://blog.toshima.ru/2018/09/16/docker-run-mysql.html">&lt;p&gt;I wanted to run MySQL v8.0.x on Docker aside from MySQL v5.7 running on my localhost, so I’ll give a instruction for it.&lt;/p&gt;
 
 &lt;h2 id=&quot;docker-pull&quot;&gt;docker pull&lt;/h2&gt;
@@ -223,6 +223,10 @@ default   -        virtualbox   Running   tcp://192.x.x.x:xxx           v17.06.0
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;  &lt;/div&gt;
 &lt;/blockquote&gt;
 
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/17236796/how-to-remove-old-docker-containers&quot;&gt;How to remove old Docker containers - Stack Overflow&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;docker-prune-commands&quot;&gt;docker prune commands&lt;/h2&gt;
+
 &lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;docker container prune
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
@@ -232,26 +236,8 @@ default   -        virtualbox   Running   tcp://192.x.x.x:xxx           v17.06.0
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[docker container prune&lt;/td&gt;
-          &lt;td&gt;Docker Documentation](https://docs.docker.com/engine/reference/commandline/container_prune/)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;table&gt;
-      &lt;tbody&gt;
-        &lt;tr&gt;
-          &lt;td&gt;[docker system prune&lt;/td&gt;
-          &lt;td&gt;Docker Documentation](https://docs.docker.com/engine/reference/commandline/system_prune/)&lt;/td&gt;
-        &lt;/tr&gt;
-      &lt;/tbody&gt;
-    &lt;/table&gt;
-  &lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/container_prune/&quot;&gt;docker container prune | Docker Documentation&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.docker.com/engine/reference/commandline/system_prune/&quot;&gt;docker system prune | Docker Documentation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -261,11 +247,7 @@ default   -        virtualbox   Running   tcp://192.x.x.x:xxx           v17.06.0
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;docker &lt;span class=&quot;nb&quot;&gt;rm&lt;/span&gt; &lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;docker ps &lt;span class=&quot;nt&quot;&gt;-aq&lt;/span&gt;&lt;span class=&quot;sb&quot;&gt;`&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;If specified container is running, you will get an error:&lt;/p&gt;
+&lt;p&gt;If specified container is running, you’ll get an error:&lt;/p&gt;
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Failed to remove container (f6259edb8236): Error response from daemon: Conflict, You cannot remove a running container. Stop the container before attempting removal or use -f
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/17236796/how-to-remove-old-docker-containers&quot;&gt;How to remove old Docker containers - Stack Overflow&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="docker" /><summary type="html">[Update]</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="docker" /><summary type="html">[Update]</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
