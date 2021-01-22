@@ -25,8 +25,8 @@
 <meta property="og:title" content="Filter MySQL processlist" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="You can see MySQL processes by show processlist." />
-<meta property="og:description" content="You can see MySQL processes by show processlist." />
+<meta name="description" content="You can see MySQL processes by querying show processlist." />
+<meta property="og:description" content="You can see MySQL processes by querying show processlist." />
 <link rel="canonical" href="https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html" />
 <meta property="og:url" content="https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
@@ -39,7 +39,7 @@
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"headline":"Filter MySQL processlist","dateModified":"2016-01-05T00:00:00+09:00","datePublished":"2016-01-05T00:00:00+09:00","description":"You can see MySQL processes by show processlist.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
+{"headline":"Filter MySQL processlist","dateModified":"2021-01-22T00:00:00+09:00","datePublished":"2016-01-05T00:00:00+09:00","description":"You can see MySQL processes by querying show processlist.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -83,7 +83,7 @@
   <div class="post-meta">
     <div class="post-date">
       <time>05 Jan 2016</time>
-      
+      (Updated on 22 Jan 2021)
     </div>
     <div class="post-tags">
       <ul class="tags">
@@ -95,14 +95,14 @@
   </div>
 
   <div class="post-body">
-    <p>You can see MySQL processes by <code class="language-plaintext highlighter-rouge">show processlist</code>.</p>
+    <p>You can see MySQL processes by querying <code class="language-plaintext highlighter-rouge">show processlist</code>.</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">show</span> <span class="n">processlist</span><span class="p">;</span>
-<span class="c1">-- Or</span>
+<span class="c1">-- or</span>
 <span class="k">show</span> <span class="k">full</span> <span class="n">processlist</span><span class="p">;</span>
 </code></pre></div></div>
 
-<p>But, it can’t be filtered. If you’d like to retrieve processes like usual SQL syntax, it can be replaced with:</p>
+<p>However, it can’t be filtered. If you’d like to retrieve processes like usual SQL syntax, it can be replaced with:</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">PROCESSLIST</span><span class="p">;</span>
 </code></pre></div></div>
@@ -110,16 +110,16 @@
 <p>Now, you can filter process with <code class="language-plaintext highlighter-rouge">WHERE</code> clause.</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">PROCESSLIST</span>
-<span class="k">WHERE</span> 
-    <span class="n">DB</span> <span class="o">=</span> <span class="s1">'development'</span> <span class="k">AND</span> 
-    <span class="k">USER</span> <span class="o">=</span> <span class="s1">'myuser'</span><span class="p">;</span>
+<span class="k">WHERE</span>
+    <span class="n">DB</span> <span class="o">=</span> <span class="s1">'your_database_name'</span> <span class="k">AND</span>
+    <span class="k">USER</span> <span class="o">=</span> <span class="s1">'username_runnning_query'</span><span class="p">;</span>
 </code></pre></div></div>
 
 <h2 id="order-by-time">Order by Time</h2>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">PROCESSLIST</span>
-<span class="k">WHERE</span> 
-    <span class="n">DB</span> <span class="o">=</span> <span class="s1">'development'</span> <span class="k">AND</span> 
+<span class="k">WHERE</span>
+    <span class="n">DB</span> <span class="o">=</span> <span class="s1">'development'</span> <span class="k">AND</span>
     <span class="k">USER</span> <span class="o">=</span> <span class="s1">'myuser'</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="nb">TIME</span> <span class="k">DESC</span><span class="p">;</span>
 </code></pre></div></div>
@@ -128,6 +128,7 @@
 
 <ul>
   <li><a href="https://stackoverflow.com/questions/929612/how-to-customize-show-processlist-in-mysql">how to customize <code class="language-plaintext highlighter-rouge">show processlist</code> in mysql? - Stack Overflow</a></li>
+  <li><a href="https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html">MySQL :: MySQL 8.0 Reference Manual :: 13.7.7.29 SHOW PROCESSLIST Statement</a></li>
 </ul>
 
   </div>

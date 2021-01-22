@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mysql.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-13T16:13:08+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mysql.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mysql.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-22T11:25:34+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mysql.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
 </subtitle><author><name>toshimaru</name></author><entry><title type="html">[MySQL] Delete with join query</title><link href="https://blog.toshima.ru/2020/06/01/mysql-delete-with-join.html" rel="alternate" type="text/html" title="[MySQL] Delete with join query" /><published>2020-06-01T00:00:00+09:00</published><updated>2020-06-01T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/06/01/mysql-delete-with-join</id><content type="html" xml:base="https://blog.toshima.ru/2020/06/01/mysql-delete-with-join.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#preparation&quot; id=&quot;markdown-toc-preparation&quot;&gt;Preparation&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#create-table&quot; id=&quot;markdown-toc-create-table&quot;&gt;Create Table&lt;/a&gt;&lt;/li&gt;
@@ -567,14 +567,14 @@ Done!!
       &lt;p&gt;DMR means development milestone release. ref. &lt;a href=&quot;https://dev.mysql.com/doc/mysql-development-cycle/en/development-milestone-releases.html&quot;&gt;MySQL :: MySQL Development Cycle :: 6 Development Milestone Releases&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
     &lt;/li&gt;
   &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="circleci" /><category term="mysql" /><category term="ci" /><summary type="html">[UPDATE 2]</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Filter MySQL processlist</title><link href="https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html" rel="alternate" type="text/html" title="Filter MySQL processlist" /><published>2016-01-05T00:00:00+09:00</published><updated>2016-01-05T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/01/05/mysql-processlist-filter</id><content type="html" xml:base="https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html">&lt;p&gt;You can see MySQL processes by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;show processlist&lt;/code&gt;.&lt;/p&gt;
+&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="circleci" /><category term="mysql" /><category term="ci" /><summary type="html">[UPDATE 2]</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Filter MySQL processlist</title><link href="https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html" rel="alternate" type="text/html" title="Filter MySQL processlist" /><published>2016-01-05T00:00:00+09:00</published><updated>2021-01-22T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/01/05/mysql-processlist-filter</id><content type="html" xml:base="https://blog.toshima.ru/2016/01/05/mysql-processlist-filter.html">&lt;p&gt;You can see MySQL processes by querying &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;show processlist&lt;/code&gt;.&lt;/p&gt;
 
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;processlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;-- Or&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;-- or&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;full&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;processlist&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;But, it can’t be filtered. If you’d like to retrieve processes like usual SQL syntax, it can be replaced with:&lt;/p&gt;
+&lt;p&gt;However, it can’t be filtered. If you’d like to retrieve processes like usual SQL syntax, it can be replaced with:&lt;/p&gt;
 
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INFORMATION_SCHEMA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROCESSLIST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -582,16 +582,16 @@ Done!!
 &lt;p&gt;Now, you can filter process with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;WHERE&lt;/code&gt; clause.&lt;/p&gt;
 
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INFORMATION_SCHEMA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROCESSLIST&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;DB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;development&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; 
-    &lt;span class=&quot;k&quot;&gt;USER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;myuser&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;DB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;your_database_name&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;USER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;username_runnning_query&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h2 id=&quot;order-by-time&quot;&gt;Order by Time&lt;/h2&gt;
 
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INFORMATION_SCHEMA&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PROCESSLIST&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; 
-    &lt;span class=&quot;n&quot;&gt;DB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;development&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt; 
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;DB&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;development&apos;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AND&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;USER&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;myuser&apos;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;TIME&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DESC&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
@@ -600,4 +600,5 @@ Done!!
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/929612/how-to-customize-show-processlist-in-mysql&quot;&gt;how to customize &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;show processlist&lt;/code&gt; in mysql? - Stack Overflow&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><summary type="html">You can see MySQL processes by show processlist.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+  &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/show-processlist.html&quot;&gt;MySQL :: MySQL 8.0 Reference Manual :: 13.7.7.29 SHOW PROCESSLIST Statement&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><summary type="html">You can see MySQL processes by querying show processlist.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
