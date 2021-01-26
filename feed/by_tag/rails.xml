@@ -1,5 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/rails.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-22T11:25:34+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/rails.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">Rails eager_load with inner join</title><link href="https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join.html" rel="alternate" type="text/html" title="Rails eager_load with inner join" /><published>2020-07-21T00:00:00+09:00</published><updated>2020-07-21T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join</id><content type="html" xml:base="https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/rails.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-26T12:31:23+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/rails.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Remove line breaks from String in Ruby</title><link href="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html" rel="alternate" type="text/html" title="Remove line breaks from String in Ruby" /><published>2021-01-26T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string</id><content type="html" xml:base="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html">&lt;p&gt;How do you remove line break from string in Ruby?&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c&quot;&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;b&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;in-ruby&quot;&gt;In Ruby&lt;/h2&gt;
+
+&lt;h3 id=&quot;delete&quot;&gt;delete&lt;/h3&gt;
+
+&lt;p&gt;Just delete line breaks.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;delete&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;abc&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ref. (Japanese) &lt;a href=&quot;https://docs.ruby-lang.org/ja/latest/method/Array/i/delete.html&quot;&gt;Array#delete&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;tr&quot;&gt;tr&lt;/h3&gt;
+
+&lt;p&gt;Replace line breaks with tabs.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;tr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;abc&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ref. (Japanese) &lt;a href=&quot;https://docs.ruby-lang.org/ja/latest/method/String/i/tr.html&quot;&gt;String#tr&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;in-rails&quot;&gt;In Rails&lt;/h2&gt;
+
+&lt;h3 id=&quot;squish&quot;&gt;squish&lt;/h3&gt;
+
+&lt;p&gt;In Rails, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;squish&lt;/code&gt; can be used. line breaks are replaced with white spaces.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;squish&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a b c&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;All whitespace characters are replaced with one white spaces.&lt;/p&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;   a&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\t&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c   &quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;squish&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a b c&quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ref. &lt;a href=&quot;https://api.rubyonrails.org/classes/String.html#method-i-squish&quot;&gt;String squish()&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="ruby" /><category term="rails" /><summary type="html">How do you remove line break from string in Ruby?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Rails eager_load with inner join</title><link href="https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join.html" rel="alternate" type="text/html" title="Rails eager_load with inner join" /><published>2020-07-21T00:00:00+09:00</published><updated>2020-07-21T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join</id><content type="html" xml:base="https://blog.toshima.ru/2020/07/21/rails-eager-load-inner-join.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#eager_load&quot; id=&quot;markdown-toc-eager_load&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eager_load&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;#eager_load--inner-join&quot; id=&quot;markdown-toc-eager_load--inner-join&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;eager_load&lt;/code&gt; + &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INNER JOIN&lt;/code&gt;&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#model&quot; id=&quot;markdown-toc-model&quot;&gt;Model&lt;/a&gt;&lt;/li&gt;
@@ -559,44 +605,4 @@ Enter &quot;.help&quot; for usage hints.
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;ref. [Japanese] &lt;a href=&quot;https://qiita.com/htz/items/56798d53ec5988733fc6#%E5%A4%89%E6%8F%9B%E8%A1%A8&quot;&gt;Rails 5.1 で attribute_was, attribute_change, attribute_changed?, changed?, changed 等が DEPRECATION WARNING - Qiita&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">mysqldump command for existing Rails app</title><link href="https://blog.toshima.ru/2016/12/16/mysqldump-command.html" rel="alternate" type="text/html" title="mysqldump command for existing Rails app" /><published>2016-12-16T00:00:00+09:00</published><updated>2016-12-16T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/12/16/mysqldump-command</id><content type="html" xml:base="https://blog.toshima.ru/2016/12/16/mysqldump-command.html">&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Rails 5.0.0.1&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;how-to-export-dumpsql-using-mysqldump&quot;&gt;How to export dump.sql using mysqldump&lt;/h2&gt;
-
-&lt;p&gt;The following command generates &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dump.sql&lt;/code&gt; for existing Rails app.&lt;/p&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mysqldump &lt;span class=&quot;nt&quot;&gt;-u&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;USER_NAME&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-h&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;HOST_NAME&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--no-create-info&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--ignore-table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;DATABASE_NAME.schema_migrations &lt;span class=&quot;nt&quot;&gt;--ignore-table&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;DATABASE_NAME.ar_internal_metadata &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;DATABASE_NAME&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; dump.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;variables&quot;&gt;Variables&lt;/h3&gt;
-
-&lt;p&gt;Change following variables depending on your environment.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;USER_NAME&lt;/code&gt;: database user name&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;HOST_NAME&lt;/code&gt;: MySQL host name&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DATABASE_NAME&lt;/code&gt;: your rails app database name&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;command-explanation&quot;&gt;Command explanation&lt;/h3&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--no-create-info&lt;/code&gt; flag means do not include &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CREATE TABLE&lt;/code&gt; information. It’s needed because we already have create table information file in Rails &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;schema.rb&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--ignore-table&lt;/code&gt; is needed to ignore those two tables.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;schema_migrations&lt;/code&gt;: This table has version information(e.g. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;20161205083433&lt;/code&gt;)&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ar_internal_metadata&lt;/code&gt;: This table has your Rails app environment information&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;These are automatically created by Rails, so you don’t need it.&lt;/p&gt;
-
-&lt;h2 id=&quot;how-to-import-dumpsql&quot;&gt;How to import dump.sql&lt;/h2&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle exec rails db:reset
-$ mysql -u root DATABASE_NAME &amp;lt; ./dump.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><category term="rails" /><summary type="html">Environment</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;ref. [Japanese] &lt;a href=&quot;https://qiita.com/htz/items/56798d53ec5988733fc6#%E5%A4%89%E6%8F%9B%E8%A1%A8&quot;&gt;Rails 5.1 で attribute_was, attribute_change, attribute_changed?, changed?, changed 等が DEPRECATION WARNING - Qiita&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="rails" /><category term="activerecord" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

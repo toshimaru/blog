@@ -20,24 +20,26 @@
 
     </style>
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>rails | Toshimaru’s Blog</title>
+<title>Remove line breaks from String in Ruby | Toshimaru’s Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="rails" />
+<meta property="og:title" content="Remove line breaks from String in Ruby" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Where there’s a will, there’s a way." />
-<meta property="og:description" content="Where there’s a will, there’s a way." />
-<link rel="canonical" href="https://blog.toshima.ru/tag/rails/" />
-<meta property="og:url" content="https://blog.toshima.ru/tag/rails/" />
+<meta name="description" content="How do you remove line break from string in Ruby?" />
+<meta property="og:description" content="How do you remove line break from string in Ruby?" />
+<link rel="canonical" href="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html" />
+<meta property="og:url" content="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
 <meta property="og:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-01-26T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
-<meta property="twitter:title" content="rails" />
+<meta property="twitter:title" content="Remove line breaks from String in Ruby" />
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"headline":"rails","description":"Where there’s a will, there’s a way.","@type":"WebPage","url":"https://blog.toshima.ru/tag/rails/","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
+{"headline":"Remove line breaks from String in Ruby","dateModified":"2021-01-26T00:00:00+09:00","datePublished":"2021-01-26T00:00:00+09:00","description":"How do you remove line break from string in Ruby?","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -76,145 +78,101 @@
       <header class="masthead">
   <h1 class="masthead-title--small"><a href="/">Toshimaru's Blog</a></h1>
 </header>
-<div class="content page">
-  <h1 class="page-title">rails</h1>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/01/26/ruby-remove-line-breaks-from-string.html">Remove line breaks from String in Ruby</a>
-    </h2>
-    <div class="list-post-date">
+<article class="content post">
+  <h1 class="post-title">Remove line breaks from String in Ruby</h1>
+  <div class="post-meta">
+    <div class="post-date">
       <time>26 Jan 2021</time>
+      
+    </div>
+    <div class="post-tags">
+      <ul class="tags">
+        
+          <li><a href="/tag/ruby" class="tag">ruby</a></li>
+        
+          <li><a href="/tag/rails" class="tag">rails</a></li>
+        
+      </ul>
     </div>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/07/21/rails-eager-load-inner-join.html">Rails eager_load with inner join</a>
-    </h2>
-    <div class="list-post-date">
-      <time>21 Jul 2020</time>
-    </div>
+
+  <div class="post-body">
+    <p>How do you remove line break from string in Ruby?</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="nb">puts</span> <span class="s2">"a</span><span class="se">\n</span><span class="s2">b</span><span class="se">\n</span><span class="s2">c"</span>
+<span class="n">a</span>
+<span class="n">b</span>
+<span class="n">c</span>
+</code></pre></div></div>
+
+<h2 id="in-ruby">In Ruby</h2>
+
+<h3 id="delete">delete</h3>
+
+<p>Just delete line breaks.</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="s2">"a</span><span class="se">\n</span><span class="s2">b</span><span class="se">\n</span><span class="s2">c"</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="s2">"abc"</span>
+</code></pre></div></div>
+
+<p>ref. (Japanese) <a href="https://docs.ruby-lang.org/ja/latest/method/Array/i/delete.html">Array#delete</a></p>
+
+<h3 id="tr">tr</h3>
+
+<p>Replace line breaks with tabs.</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="s2">"a</span><span class="se">\n</span><span class="s2">b</span><span class="se">\n</span><span class="s2">c"</span><span class="p">.</span><span class="nf">tr</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">,</span> <span class="s2">"</span><span class="se">\t</span><span class="s2">"</span><span class="p">)</span>
+<span class="o">=&gt;</span> <span class="s2">"abc"</span>
+</code></pre></div></div>
+
+<p>ref. (Japanese) <a href="https://docs.ruby-lang.org/ja/latest/method/String/i/tr.html">String#tr</a></p>
+
+<h2 id="in-rails">In Rails</h2>
+
+<h3 id="squish">squish</h3>
+
+<p>In Rails, <code class="language-plaintext highlighter-rouge">squish</code> can be used. line breaks are replaced with white spaces.</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="s2">"a</span><span class="se">\n</span><span class="s2">b</span><span class="se">\n</span><span class="s2">c"</span><span class="p">.</span><span class="nf">squish</span>
+<span class="o">=&gt;</span> <span class="s2">"a b c"</span>
+</code></pre></div></div>
+
+<p>All whitespace characters are replaced with one white spaces.</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;</span> <span class="s2">"   a</span><span class="se">\n</span><span class="s2">b</span><span class="se">\t</span><span class="s2">c   "</span><span class="p">.</span><span class="nf">squish</span>
+<span class="o">=&gt;</span> <span class="s2">"a b c"</span>
+</code></pre></div></div>
+
+<p>ref. <a href="https://api.rubyonrails.org/classes/String.html#method-i-squish">String squish()</a></p>
+
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/02/13/how-to-rollback-migration-in-rails.html">How to rollback migration in Rails</a>
-    </h2>
-    <div class="list-post-date">
-      <time>13 Feb 2020</time>
-    </div>
+
+  <div class="social-share">
+    <amp-social-share type="twitter"></amp-social-share>
+    <amp-social-share type="facebook"></amp-social-share>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2020/01/02/rails-migration-bulk-true.html">Rails Bulk Migration</a>
-    </h2>
-    <div class="list-post-date">
-      <time>02 Jan 2020</time>
-    </div>
+
+  <div class="post-ad">
+    <amp-ad width="100vw" height=320 type="adsense" data-ad-client="ca-pub-8616720383995770" data-ad-slot="4570107466" data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
+    </amp-ad>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2019/09/06/rails-create-composite-primary-key.html">Rails can create a table having composite primary key</a>
-    </h2>
-    <div class="list-post-date">
-      <time>06 Sep 2019</time>
+
+  <amp-iframe width=600 height=140
+            layout="responsive"
+            sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+            resizable
+            src="https://disqus.toshima.ru/blog-toshima-ru.html?id=/2021/01/26/ruby-remove-line-breaks-from-string&url=https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html&title=Remove%20line%20breaks%20from%20String%20in%20Ruby">
+    <div overflow
+         tabindex=0
+         role=button
+         aria-label="Load more"
+         style="display:block;font-size:12px;font-weight:500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)">
+        Load more
     </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2019/09/03/explain-on-rails-console.html">Explain SQL on Rails Console</a>
-    </h2>
-    <div class="list-post-date">
-      <time>03 Sep 2019</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2018/08/04/activerecord-distinct-pluck.html">Select Unique Values from a Column in ActiveRecord</a>
-    </h2>
-    <div class="list-post-date">
-      <time>04 Aug 2018</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2018/01/05/rails-dbconsole.html">Run Rails Database Console</a>
-    </h2>
-    <div class="list-post-date">
-      <time>05 Jan 2018</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2017/08/10/show-sql-in-rails-console.html">Show SQL queries in rails console</a>
-    </h2>
-    <div class="list-post-date">
-      <time>10 Aug 2017</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2017/04/06/saved-change-to-attribute.html">Use saved_change_to_attribute? instead of attribute_changed? as of Rails 5.1</a>
-    </h2>
-    <div class="list-post-date">
-      <time>06 Apr 2017</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2016/12/16/mysqldump-command.html">mysqldump command for existing Rails app</a>
-    </h2>
-    <div class="list-post-date">
-      <time>16 Dec 2016</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2016/10/20/activerecord-group-having.html">Build group_by and having query with ActiveRecord</a>
-    </h2>
-    <div class="list-post-date">
-      <time>20 Oct 2016</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2016/06/18/active-record-model-columns.html">Show Active Record Model column names</a>
-    </h2>
-    <div class="list-post-date">
-      <time>18 Jun 2016</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2016/06/05/how-to-disable-turbolinks-in-rails.html">How to disable turbolinks in rails new</a>
-    </h2>
-    <div class="list-post-date">
-      <time>05 Jun 2016</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2016/04/09/rails-new-uglifier-error.html">How to fix uglifier Bundler::GemRequireError</a>
-    </h2>
-    <div class="list-post-date">
-      <time>09 Apr 2016</time>
-    </div>
-  </div>
-  
-</div>
+  </amp-iframe>
+</article>
 
     </div>
     <footer>
