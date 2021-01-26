@@ -25,8 +25,8 @@
 <meta property="og:title" content="MySQL: Insert Result of Select query" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="You don’t need to use VALUES after INSERT INTO. Just use SELECT after INSERT INTO." />
-<meta property="og:description" content="You don’t need to use VALUES after INSERT INTO. Just use SELECT after INSERT INTO." />
+<meta name="description" content="Normal Insert" />
+<meta property="og:description" content="Normal Insert" />
 <link rel="canonical" href="https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html" />
 <meta property="og:url" content="https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
@@ -39,7 +39,7 @@
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"headline":"MySQL: Insert Result of Select query","dateModified":"2017-10-16T00:00:00+09:00","datePublished":"2017-10-16T00:00:00+09:00","description":"You don’t need to use VALUES after INSERT INTO. Just use SELECT after INSERT INTO.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
+{"headline":"MySQL: Insert Result of Select query","dateModified":"2021-01-26T00:00:00+09:00","datePublished":"2017-10-16T00:00:00+09:00","description":"Normal Insert","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -83,7 +83,7 @@
   <div class="post-meta">
     <div class="post-date">
       <time>16 Oct 2017</time>
-      
+      (Updated on 26 Jan 2021)
     </div>
     <div class="post-tags">
       <ul class="tags">
@@ -95,7 +95,19 @@
   </div>
 
   <div class="post-body">
-    <p>You don’t need to use <code class="language-plaintext highlighter-rouge">VALUES</code> after <code class="language-plaintext highlighter-rouge">INSERT INTO</code>. Just use <code class="language-plaintext highlighter-rouge">SELECT</code> after <code class="language-plaintext highlighter-rouge">INSERT INTO</code>.</p>
+    <h2 id="normal-insert">Normal Insert</h2>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span>
+  <span class="k">table_name</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="p">...)</span>
+<span class="k">VALUES</span>
+  <span class="p">(</span><span class="n">val1</span><span class="p">,</span> <span class="n">val2</span><span class="p">,</span> <span class="p">...)</span>
+</code></pre></div></div>
+
+<h2 id="insert-result-of-select-query">Insert Result of Select query</h2>
+
+<p>You don’t need to use <code class="language-plaintext highlighter-rouge">VALUES</code> after <code class="language-plaintext highlighter-rouge">INSERT INTO</code>.</p>
+
+<p>Just add <code class="language-plaintext highlighter-rouge">SELECT</code> after <code class="language-plaintext highlighter-rouge">INSERT INTO</code>.</p>
 
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span>
   <span class="k">table_name</span><span class="p">(</span><span class="n">col1</span><span class="p">,</span> <span class="n">col2</span><span class="p">,</span> <span class="p">...)</span>
@@ -107,7 +119,8 @@
 <h2 id="reference">Reference</h2>
 
 <ul>
-  <li><a href="https://dev.mysql.com/doc/refman/5.7/en/insert-select.html">MySQL :: MySQL 5.7 Reference Manual :: 13.2.5.1 INSERT … SELECT Syntax</a></li>
+  <li><a href="https://dev.mysql.com/doc/refman/8.0/en/insert.html">MySQL :: MySQL 8.0 Reference Manual :: 13.2.6 INSERT Statement</a></li>
+  <li><a href="https://dev.mysql.com/doc/refman/8.0/en/insert-select.html">MySQL :: MySQL 8.0 Reference Manual :: 13.2.6.1 INSERT … SELECT Statement</a></li>
 </ul>
 
   </div>
