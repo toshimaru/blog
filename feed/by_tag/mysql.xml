@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mysql.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-26T14:40:55+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mysql.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mysql.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-01-28T09:51:47+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mysql.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
 </subtitle><author><name>toshimaru</name></author><entry><title type="html">[MySQL] Delete with join query</title><link href="https://blog.toshima.ru/2020/06/01/mysql-delete-with-join.html" rel="alternate" type="text/html" title="[MySQL] Delete with join query" /><published>2020-06-01T00:00:00+09:00</published><updated>2020-06-01T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/06/01/mysql-delete-with-join</id><content type="html" xml:base="https://blog.toshima.ru/2020/06/01/mysql-delete-with-join.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#preparation&quot; id=&quot;markdown-toc-preparation&quot;&gt;Preparation&lt;/a&gt;    &lt;ul&gt;
       &lt;li&gt;&lt;a href=&quot;#create-table&quot; id=&quot;markdown-toc-create-table&quot;&gt;Create Table&lt;/a&gt;&lt;/li&gt;
@@ -452,7 +452,15 @@ owners.
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/5.7/en/command-line-options.html&quot;&gt;MySQL :: MySQL 5.7 Reference Manual :: 4.2.4 Using Options on the Command Line&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><summary type="html">Environment</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MySQL: Insert Result of Select query</title><link href="https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html" rel="alternate" type="text/html" title="MySQL: Insert Result of Select query" /><published>2017-10-16T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select</id><content type="html" xml:base="https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html">&lt;h2 id=&quot;normal-insert&quot;&gt;Normal Insert&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><summary type="html">Environment</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MySQL: Insert Result of Select query</title><link href="https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html" rel="alternate" type="text/html" title="MySQL: Insert Result of Select query" /><published>2017-10-16T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select</id><content type="html" xml:base="https://blog.toshima.ru/2017/10/16/mysql-insert-result-of-select.html">&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#normal-insert&quot; id=&quot;markdown-toc-normal-insert&quot;&gt;Normal Insert&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#insert-result-of-select-query&quot; id=&quot;markdown-toc-insert-result-of-select-query&quot;&gt;Insert Result of Select query&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#reference&quot; id=&quot;markdown-toc-reference&quot;&gt;Reference&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;normal-insert&quot;&gt;Normal Insert&lt;/h2&gt;
+
+&lt;p&gt;Use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT INTO ~ VALUES ~&lt;/code&gt; for normal insert query.&lt;/p&gt;
 
 &lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;INSERT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;INTO&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;table_name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;col1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;col2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...)&lt;/span&gt;
@@ -462,7 +470,9 @@ owners.
 
 &lt;h2 id=&quot;insert-result-of-select-query&quot;&gt;Insert Result of Select query&lt;/h2&gt;
 
-&lt;p&gt;You don’t need to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VALUES&lt;/code&gt; after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT INTO&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Then, how can you insert result of select query?&lt;/p&gt;
+
+&lt;p&gt;You don’t need to add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VALUES&lt;/code&gt; after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT INTO&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Just add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;SELECT&lt;/code&gt; after &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;INSERT INTO&lt;/code&gt;.&lt;/p&gt;
 
@@ -478,7 +488,7 @@ owners.
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/insert.html&quot;&gt;MySQL :: MySQL 8.0 Reference Manual :: 13.2.6 INSERT Statement&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://dev.mysql.com/doc/refman/8.0/en/insert-select.html&quot;&gt;MySQL :: MySQL 8.0 Reference Manual :: 13.2.6.1 INSERT … SELECT Statement&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><summary type="html">Normal Insert</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">mysqldump command for existing Rails app</title><link href="https://blog.toshima.ru/2016/12/16/mysqldump-command.html" rel="alternate" type="text/html" title="mysqldump command for existing Rails app" /><published>2016-12-16T00:00:00+09:00</published><updated>2016-12-16T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/12/16/mysqldump-command</id><content type="html" xml:base="https://blog.toshima.ru/2016/12/16/mysqldump-command.html">&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">mysqldump command for existing Rails app</title><link href="https://blog.toshima.ru/2016/12/16/mysqldump-command.html" rel="alternate" type="text/html" title="mysqldump command for existing Rails app" /><published>2016-12-16T00:00:00+09:00</published><updated>2016-12-16T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/12/16/mysqldump-command</id><content type="html" xml:base="https://blog.toshima.ru/2016/12/16/mysqldump-command.html">&lt;h2 id=&quot;environment&quot;&gt;Environment&lt;/h2&gt;
 
 &lt;ul&gt;
   &lt;li&gt;Rails 5.0.0.1&lt;/li&gt;
