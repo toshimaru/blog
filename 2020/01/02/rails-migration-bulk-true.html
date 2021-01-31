@@ -39,7 +39,7 @@
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"headline":"Rails Bulk Migration","dateModified":"2020-01-30T00:00:00+09:00","datePublished":"2020-01-02T00:00:00+09:00","description":"Schema change on RDB could be a dangerous operation.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2020/01/02/rails-migration-bulk-true.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2020/01/02/rails-migration-bulk-true.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
+{"headline":"Rails Bulk Migration","dateModified":"2021-01-31T00:00:00+09:00","datePublished":"2020-01-02T00:00:00+09:00","description":"Schema change on RDB could be a dangerous operation.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2020/01/02/rails-migration-bulk-true.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2020/01/02/rails-migration-bulk-true.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -83,7 +83,7 @@
   <div class="post-meta">
     <div class="post-date">
       <time>02 Jan 2020</time>
-      (Updated on 30 Jan 2020)
+      (Updated on 31 Jan 2021)
     </div>
     <div class="post-tags">
       <ul class="tags">
@@ -107,7 +107,10 @@
   <li><a href="#prerequisite" id="markdown-toc-prerequisite">Prerequisite</a></li>
   <li><a href="#user-table-schema" id="markdown-toc-user-table-schema">User table schema</a></li>
   <li><a href="#migration-without-bulk-option" id="markdown-toc-migration-without-bulk-option">Migration without <code class="language-plaintext highlighter-rouge">bulk</code> option</a></li>
-  <li><a href="#migration-with-bulk-option" id="markdown-toc-migration-with-bulk-option">Migration with <code class="language-plaintext highlighter-rouge">bulk</code> option</a></li>
+  <li><a href="#migration-with-bulk-option" id="markdown-toc-migration-with-bulk-option">Migration with <code class="language-plaintext highlighter-rouge">bulk</code> option</a>    <ul>
+      <li><a href="#after-option-is-available" id="markdown-toc-after-option-is-available">after option is available</a></li>
+    </ul>
+  </li>
 </ul>
 
 <h2 id="prerequisite">Prerequisite</h2>
@@ -197,6 +200,20 @@
 </span></code></pre></div></div>
 
 <p>Yes! <code class="language-plaintext highlighter-rouge">change_table</code> is invoked just one time!</p>
+
+<h3 id="after-option-is-available">after option is available</h3>
+
+<p>Tips: <code class="language-plaintext highlighter-rouge">after</code> option is also available in bulk migration.</p>
+
+<div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">class</span> <span class="nc">AddColumnsToUser</span> <span class="o">&lt;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span><span class="p">[</span><span class="mf">6.0</span><span class="p">]</span>
+  <span class="k">def</span> <span class="nf">change</span>
+    <span class="n">change_table</span> <span class="ss">:users</span><span class="p">,</span> <span class="ss">bulk: </span><span class="kp">true</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">integer</span> <span class="ss">:new_column1</span><span class="p">,</span> <span class="ss">after: </span><span class="n">existing_column1</span>
+      <span class="n">t</span><span class="p">.</span><span class="nf">string</span>  <span class="ss">:new_column2</span><span class="p">,</span> <span class="ss">after: </span><span class="n">existing_column2</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div></div>
 
   </div>
 
