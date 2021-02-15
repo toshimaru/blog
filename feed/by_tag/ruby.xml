@@ -1,5 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ruby.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-02-14T11:45:47+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/ruby.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">Remove line breaks from String in Ruby</title><link href="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html" rel="alternate" type="text/html" title="Remove line breaks from String in Ruby" /><published>2021-01-26T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string</id><content type="html" xml:base="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html">&lt;p&gt;How do you remove line break from string in Ruby?&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/ruby.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-02-15T09:12:06+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/ruby.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to install multiple gems with specific version</title><link href="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html" rel="alternate" type="text/html" title="How to install multiple gems with specific version" /><published>2021-02-14T00:00:00+09:00</published><updated>2021-02-14T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html">&lt;p&gt;I’ll explain how to install multiple gems with the specific version.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-gem-normally&quot;&gt;Install gem normally&lt;/h2&gt;
+
+&lt;p&gt;First of all, how to install a gem normally.&lt;/p&gt;
+
+&lt;p&gt;Just run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem install gem_name&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the following example, install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop&lt;/code&gt; gem.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop
+&lt;span class=&quot;go&quot;&gt;Fetching regexp_parser-2.0.3.gem
+Fetching ast-2.4.2.gem
+Fetching unicode-display_width-2.0.0.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching parser-3.0.0.0.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching rainbow-3.0.0.gem
+Fetching rubocop-1.9.1.gem
+Fetching parallel-1.20.1.gem
+Successfully installed unicode-display_width-2.0.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.9.1
+9 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The latest version of the gem will be installed. In this example, rubocop 1.9 was installed.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-gem-with-version&quot;&gt;Install gem with version&lt;/h2&gt;
+
+&lt;p&gt;Let’s specify the version of gem with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; 1.0.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem_name:version&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop:1.0
+&lt;span class=&quot;go&quot;&gt;Fetching parser-3.0.0.0.gem
+Fetching rainbow-3.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching rubocop-1.0.0.gem
+Fetching unicode-display_width-1.7.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching parallel-1.20.1.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+9 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;install-multiple-gems-with-version&quot;&gt;Install multiple gems with version&lt;/h2&gt;
+
+&lt;p&gt;How about installing multiple gems with version?&lt;/p&gt;
+
+&lt;p&gt;Let’s install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop&lt;/code&gt; v1.0.0 and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop-ast&lt;/code&gt; v1.0.0.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop-ast:1.0 rubocop:1.0
+&lt;span class=&quot;go&quot;&gt;Fetching parser-3.0.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching rubocop-ast-1.0.0.gem
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.0.0
+Fetching ruby-progressbar-1.11.0.gem
+Fetching rubocop-1.0.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching rainbow-3.0.0.gem
+Fetching parallel-1.20.1.gem
+Fetching unicode-display_width-1.7.0.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+9 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check the versions.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem list | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;rubocop
+&lt;span class=&quot;go&quot;&gt;rubocop (1.0.0)
+rubocop-ast (1.0.0)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;install-child-dependency-first&quot;&gt;Install child dependency first&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Heads up&lt;/strong&gt;: install child dependency first, otherwise other version will also be installed.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem i rubocop:1.0 rubocop-ast:1.0
+Fetching rainbow-3.0.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching parser-3.0.0.0.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching parallel-1.20.1.gem
+Fetching rubocop-1.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching unicode-display_width-1.7.0.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+Fetching rubocop-ast-1.0.0.gem
+Successfully installed rubocop-ast-1.0.0
+10 gems installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop-ast&lt;/code&gt; v1.4 has been installed as well as v1.0.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem list | grep rubocop
+rubocop (1.0.0)
+rubocop-ast (1.4.1, 1.0.0)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="gem" /><category term="ruby" /><summary type="html">I’ll explain how to install multiple gems with the specific version.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Remove line breaks from String in Ruby</title><link href="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html" rel="alternate" type="text/html" title="Remove line breaks from String in Ruby" /><published>2021-01-26T00:00:00+09:00</published><updated>2021-01-26T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string</id><content type="html" xml:base="https://blog.toshima.ru/2021/01/26/ruby-remove-line-breaks-from-string.html">&lt;p&gt;How do you remove line break from string in Ruby?&lt;/p&gt;
 
 &lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;a&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;c&quot;&lt;/span&gt;
 &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
@@ -417,25 +550,4 @@ Pushed rubocop-rails_config 0.7.2 to rubygems.org
 
 &lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/rubyide/vscode-ruby&quot;&gt;rubyide/vscode-ruby&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="vscode" /><category term="ruby" /><summary type="html">Intellisense</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Escape ERB tag string in ERB file</title><link href="https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb.html" rel="alternate" type="text/html" title="Escape ERB tag string in ERB file" /><published>2016-11-18T00:00:00+09:00</published><updated>2016-11-18T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb</id><content type="html" xml:base="https://blog.toshima.ru/2016/11/18/escape-erb-tag-in-erb.html">&lt;p&gt;How can we output erb tag string like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;% erb %&amp;gt;&lt;/code&gt; in erb file without being interpreted as erb? You can do this by using double percent &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%% %&amp;gt;&lt;/code&gt;!&lt;/p&gt;
-
-&lt;div class=&quot;language-erb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;&amp;lt;%%&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;escaped&lt;/span&gt; &lt;span class=&quot;cp&quot;&gt;%&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Let’s look at how it changes on &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;irb&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$  irb
-&amp;gt;  ERB.new(&quot;&amp;lt;%% escaped? %&amp;gt;&quot;).result
-=&amp;gt; &quot;&amp;lt;% escaped? %&amp;gt;&quot;
-&amp;gt;  ERB.new(&quot;&amp;lt;% escaped? %&amp;gt;&quot;).result
-NoMethodError: undefined method `escaped?&apos; for main:Object
-	from (erb):1:in `&amp;lt;main&amp;gt;&apos;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;%%&lt;/code&gt; becomes string without an error.&lt;/p&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;(JAPANESE) &lt;a href=&quot;http://koseki.hatenablog.com/entry/20090416/erbtag&quot;&gt;http://koseki.hatenablog.com/entry/20090416/erbtag&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="erb" /><category term="ruby" /><summary type="html">How can we output erb tag string like &amp;lt;% erb %&amp;gt; in erb file without being interpreted as erb? You can do this by using double percent &amp;lt;%% %&amp;gt;!</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;&lt;a href=&quot;https://github.com/rubyide/vscode-ruby&quot;&gt;rubyide/vscode-ruby&lt;/a&gt;&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="vscode" /><category term="ruby" /><summary type="html">Intellisense</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

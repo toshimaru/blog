@@ -1,5 +1,138 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-02-14T11:45:47+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">MySQL rank() function</title><link href="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html" rel="alternate" type="text/html" title="MySQL rank() function" /><published>2021-02-13T00:00:00+09:00</published><updated>2021-02-13T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/13/mysql-rank-function</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html">&lt;p&gt;Since MySQL 8.0, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rank()&lt;/code&gt; window function is available.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-02-15T09:12:06+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to install multiple gems with specific version</title><link href="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html" rel="alternate" type="text/html" title="How to install multiple gems with specific version" /><published>2021-02-14T00:00:00+09:00</published><updated>2021-02-14T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html">&lt;p&gt;I’ll explain how to install multiple gems with the specific version.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-gem-normally&quot;&gt;Install gem normally&lt;/h2&gt;
+
+&lt;p&gt;First of all, how to install a gem normally.&lt;/p&gt;
+
+&lt;p&gt;Just run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem install gem_name&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;In the following example, install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop&lt;/code&gt; gem.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop
+&lt;span class=&quot;go&quot;&gt;Fetching regexp_parser-2.0.3.gem
+Fetching ast-2.4.2.gem
+Fetching unicode-display_width-2.0.0.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching parser-3.0.0.0.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching rainbow-3.0.0.gem
+Fetching rubocop-1.9.1.gem
+Fetching parallel-1.20.1.gem
+Successfully installed unicode-display_width-2.0.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.9.1
+9 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The latest version of the gem will be installed. In this example, rubocop 1.9 was installed.&lt;/p&gt;
+
+&lt;h2 id=&quot;install-gem-with-version&quot;&gt;Install gem with version&lt;/h2&gt;
+
+&lt;p&gt;Let’s specify the version of gem with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt; option.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop &lt;span class=&quot;nt&quot;&gt;-v&lt;/span&gt; 1.0.0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Or, you can use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;gem_name:version&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop:1.0
+&lt;span class=&quot;go&quot;&gt;Fetching parser-3.0.0.0.gem
+Fetching rainbow-3.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching rubocop-1.0.0.gem
+Fetching unicode-display_width-1.7.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching parallel-1.20.1.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+9 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;install-multiple-gems-with-version&quot;&gt;Install multiple gems with version&lt;/h2&gt;
+
+&lt;p&gt;How about installing multiple gems with version?&lt;/p&gt;
+
+&lt;p&gt;Let’s install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop&lt;/code&gt; v1.0.0 and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop-ast&lt;/code&gt; v1.0.0.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem i rubocop-ast:1.0 rubocop:1.0
+&lt;span class=&quot;go&quot;&gt;Fetching parser-3.0.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching rubocop-ast-1.0.0.gem
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.0.0
+Fetching ruby-progressbar-1.11.0.gem
+Fetching rubocop-1.0.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching rainbow-3.0.0.gem
+Fetching parallel-1.20.1.gem
+Fetching unicode-display_width-1.7.0.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+9 gems installed
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Check the versions.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem list | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;rubocop
+&lt;span class=&quot;go&quot;&gt;rubocop (1.0.0)
+rubocop-ast (1.0.0)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;install-child-dependency-first&quot;&gt;Install child dependency first&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Heads up&lt;/strong&gt;: install child dependency first, otherwise other version will also be installed.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem i rubocop:1.0 rubocop-ast:1.0
+Fetching rainbow-3.0.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching parser-3.0.0.0.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching parallel-1.20.1.gem
+Fetching rubocop-1.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching unicode-display_width-1.7.0.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+Fetching rubocop-ast-1.0.0.gem
+Successfully installed rubocop-ast-1.0.0
+10 gems installed
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;In this example, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rubocop-ast&lt;/code&gt; v1.4 has been installed as well as v1.0.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ gem list | grep rubocop
+rubocop (1.0.0)
+rubocop-ast (1.4.1, 1.0.0)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="gem" /><category term="ruby" /><summary type="html">I’ll explain how to install multiple gems with the specific version.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MySQL rank() function</title><link href="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html" rel="alternate" type="text/html" title="MySQL rank() function" /><published>2021-02-13T00:00:00+09:00</published><updated>2021-02-13T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/13/mysql-rank-function</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html">&lt;p&gt;Since MySQL 8.0, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rank()&lt;/code&gt; window function is available.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#table&quot; id=&quot;markdown-toc-table&quot;&gt;Table&lt;/a&gt;&lt;/li&gt;
@@ -482,133 +615,4 @@ ruby    18077 toshimaru  txt      REG                1,4    13320          86218
 
 &lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;nc &lt;span class=&quot;nt&quot;&gt;-vzu&lt;/span&gt; 1.1.1.1 53
 &lt;span class=&quot;go&quot;&gt;Connection to 1.1.1.1 port 53 [udp/domain] succeeded!
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="network" /><category term="bash" /><summary type="html">nc command</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">DNS lookup with dig command</title><link href="https://blog.toshima.ru/2020/08/18/dns-lookup-with-dig.html" rel="alternate" type="text/html" title="DNS lookup with dig command" /><published>2020-08-18T00:00:00+09:00</published><updated>2020-08-18T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/08/18/dns-lookup-with-dig</id><content type="html" xml:base="https://blog.toshima.ru/2020/08/18/dns-lookup-with-dig.html">&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dig&lt;/code&gt; is a DNS lookup command which can be used both Linux and macOS.&lt;/p&gt;
-
-&lt;ul id=&quot;markdown-toc&quot;&gt;
-  &lt;li&gt;&lt;a href=&quot;#dig-domain&quot; id=&quot;markdown-toc-dig-domain&quot;&gt;dig domain&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#answer-section-only&quot; id=&quot;markdown-toc-answer-section-only&quot;&gt;Answer Section Only&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#short-answer&quot; id=&quot;markdown-toc-short-answer&quot;&gt;Short Answer&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;#get-another-record-with-dig&quot; id=&quot;markdown-toc-get-another-record-with-dig&quot;&gt;Get another record with dig&lt;/a&gt;    &lt;ul&gt;
-      &lt;li&gt;&lt;a href=&quot;#mx-record&quot; id=&quot;markdown-toc-mx-record&quot;&gt;MX record&lt;/a&gt;&lt;/li&gt;
-      &lt;li&gt;&lt;a href=&quot;#txt-record&quot; id=&quot;markdown-toc-txt-record&quot;&gt;TXT record&lt;/a&gt;&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;dig-domain&quot;&gt;dig domain&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dig&lt;/code&gt; returns &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; record by default. Let’s &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dig&lt;/code&gt; this blog.&lt;/p&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;dig blog.toshima.ru
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; DiG 9.10.6 &amp;lt;&amp;lt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; blog.toshima.ru
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; global options: +cmd
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Got answer:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; -&amp;gt;&amp;gt;HEADER&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opcode&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;: QUERY, status: NOERROR, id: 60414
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
-&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; OPT PSEUDOSECTION:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;EDNS: version: 0, flags:&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; udp: 512
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; QUESTION SECTION:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;blog.toshima.ru.		IN	A
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; ANSWER SECTION:
-&lt;span class=&quot;go&quot;&gt;blog.toshima.ru.	299	IN	CNAME	toshimaru.github.io.
-toshimaru.github.io.	2996	IN	A	185.199.108.153
-toshimaru.github.io.	2996	IN	A	185.199.109.153
-toshimaru.github.io.	2996	IN	A	185.199.110.153
-toshimaru.github.io.	2996	IN	A	185.199.111.153
-
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Query &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;: 42 msec
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; SERVER: 192.168.86.1#53&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;192.168.86.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; WHEN: Tue Aug 18 09:53:40 JST 2020
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; MSG SIZE  rcvd: 141
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;dig&lt;/code&gt; answers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CNAME&lt;/code&gt; record at first, then answers &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;A&lt;/code&gt; record for &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CNAME&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;answer-section-only&quot;&gt;Answer Section Only&lt;/h3&gt;
-
-&lt;p&gt;You can get only the answer section by using options:&lt;/p&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;dig +noall +answer blog.toshima.ru
-&lt;span class=&quot;go&quot;&gt;blog.toshima.ru.	284	IN	CNAME	toshimaru.github.io.
-toshimaru.github.io.	3584	IN	A	185.199.111.153
-toshimaru.github.io.	3584	IN	A	185.199.109.153
-toshimaru.github.io.	3584	IN	A	185.199.108.153
-toshimaru.github.io.	3584	IN	A	185.199.110.153
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;short-answer&quot;&gt;Short Answer&lt;/h3&gt;
-
-&lt;p&gt;Adding &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;+short&lt;/code&gt; option returns shorter answer.&lt;/p&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;dig +short blog.toshima.ru
-&lt;span class=&quot;go&quot;&gt;toshimaru.github.io.
-185.199.108.153
-185.199.109.153
-185.199.110.153
-185.199.111.153
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;get-another-record-with-dig&quot;&gt;Get another record with dig&lt;/h2&gt;
-
-&lt;p&gt;Adding type allows you to get another record.&lt;/p&gt;
-
-&lt;h3 id=&quot;mx-record&quot;&gt;MX record&lt;/h3&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;dig github.com mx
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; DiG 9.10.6 &amp;lt;&amp;lt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; github.com mx
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; global options: +cmd
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Got answer:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; -&amp;gt;&amp;gt;HEADER&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opcode&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;: QUERY, status: NOERROR, id: 21563
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
-&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; OPT PSEUDOSECTION:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;EDNS: version: 0, flags:&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; udp: 512
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; QUESTION SECTION:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;github.com.			IN	MX
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; ANSWER SECTION:
-&lt;span class=&quot;go&quot;&gt;github.com.		3476	IN	MX	1 aspmx.l.google.com.
-github.com.		3476	IN	MX	10 alt3.aspmx.l.google.com.
-github.com.		3476	IN	MX	10 alt4.aspmx.l.google.com.
-github.com.		3476	IN	MX	5 alt1.aspmx.l.google.com.
-github.com.		3476	IN	MX	5 alt2.aspmx.l.google.com.
-
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Query &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;: 51 msec
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; SERVER: 192.168.86.1#53&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;192.168.86.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; WHEN: Tue Aug 18 09:48:21 JST 2020
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; MSG SIZE  rcvd: 154
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;txt-record&quot;&gt;TXT record&lt;/h3&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;dig github.com txt
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&amp;lt;&amp;lt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; DiG 9.10.6 &amp;lt;&amp;lt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&lt;/span&gt; github.com txt
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; global options: +cmd
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Got answer:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; -&amp;gt;&amp;gt;HEADER&lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;-&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;opcode&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;: QUERY, status: NOERROR, id: 61063
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;sh&quot;&gt;; flags: qr rd ra; QUERY: 1, ANSWER: 5, AUTHORITY: 0, ADDITIONAL: 1
-&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; OPT PSEUDOSECTION:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;EDNS: version: 0, flags:&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; udp: 512
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; QUESTION SECTION:
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;github.com.			IN	TXT
-&lt;span class=&quot;go&quot;&gt;
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; ANSWER SECTION:
-&lt;span class=&quot;go&quot;&gt;github.com.		3599	IN	TXT	&quot;MS=6BF03E6AF5CB689E315FB6199603BABF2C88D805&quot;
-github.com.		3599	IN	TXT	&quot;MS=ms44452932&quot;
-github.com.		3599	IN	TXT	&quot;MS=ms58704441&quot;
-github.com.		3599	IN	TXT	&quot;docusign=087098e3-3d46-47b7-9b4e-8a23028154cd&quot;
-github.com.		3599	IN	TXT	&quot;v=spf1 ip4:192.30.252.0/22 ip4:208.74.204.0/22 ip4:46.19.168.0/23 include:_spf.google.com include:esp.github.com include:_spf.createsend.com include:servers.mcsv.net ~all&quot;
-
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; Query &lt;span class=&quot;nb&quot;&gt;time&lt;/span&gt;: 39 msec
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; SERVER: 192.168.86.1#53&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;192.168.86.1&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; WHEN: Tue Aug 18 09:50:10 JST 2020
-&lt;span class=&quot;gp&quot;&gt;;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; MSG SIZE  rcvd: 388
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="network" /><category term="linux" /><category term="bash" /><summary type="html">dig is a DNS lookup command which can be used both Linux and macOS.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="network" /><category term="bash" /><summary type="html">nc command</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

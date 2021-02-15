@@ -20,26 +20,26 @@
 
     </style>
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Toshimaru’s Blog | Where there’s a will, there’s a way.</title>
+<title>How to install multiple gems with specific version | Toshimaru’s Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Toshimaru’s Blog" />
+<meta property="og:title" content="How to install multiple gems with specific version" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Where there’s a will, there’s a way." />
-<meta property="og:description" content="Where there’s a will, there’s a way." />
-<link rel="canonical" href="https://blog.toshima.ru/2021/02/" />
-<meta property="og:url" content="https://blog.toshima.ru/2021/02/" />
+<meta name="description" content="I’ll explain how to install multiple gems with the specific version." />
+<meta property="og:description" content="I’ll explain how to install multiple gems with the specific version." />
+<link rel="canonical" href="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html" />
+<meta property="og:url" content="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
 <meta property="og:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-02-01T00:00:00+09:00" />
+<meta property="article:published_time" content="2021-02-14T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
-<meta property="twitter:title" content="Toshimaru’s Blog" />
+<meta property="twitter:title" content="How to install multiple gems with specific version" />
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"headline":"Toshimaru’s Blog","dateModified":"2021-02-01T00:00:00+09:00","datePublished":"2021-02-01T00:00:00+09:00","description":"Where there’s a will, there’s a way.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/02/"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2021/02/","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
+{"headline":"How to install multiple gems with specific version","dateModified":"2021-02-14T00:00:00+09:00","datePublished":"2021-02-14T00:00:00+09:00","description":"I’ll explain how to install multiple gems with the specific version.","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html"},"@type":"BlogPosting","url":"https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html","author":{"@type":"Person","name":"toshimaru"},"image":"https://blog.toshima.ru/android-chrome-512x512.png","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -78,28 +78,188 @@
       <header class="masthead">
   <h1 class="masthead-title--small"><a href="/">Toshimaru's Blog</a></h1>
 </header>
-<div class="content page">
-  <h1 class="page-title"></h1>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/02/14/install-multiple-gems-with-version.html">How to install multiple gems with specific version</a>
-    </h2>
-    <div class="list-post-date">
+<article class="content post">
+  <h1 class="post-title">How to install multiple gems with specific version</h1>
+  <div class="post-meta">
+    <div class="post-date">
       <time>14 Feb 2021</time>
+      
+    </div>
+    <div class="post-tags">
+      <ul class="tags">
+        
+          <li><a href="/tag/gem" class="tag">gem</a></li>
+        
+          <li><a href="/tag/ruby" class="tag">ruby</a></li>
+        
+      </ul>
     </div>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/02/13/mysql-rank-function.html">MySQL rank() function</a>
-    </h2>
-    <div class="list-post-date">
-      <time>13 Feb 2021</time>
-    </div>
+
+  <div class="post-body">
+    <p>I’ll explain how to install multiple gems with the specific version.</p>
+
+<h2 id="install-gem-normally">Install gem normally</h2>
+
+<p>First of all, how to install a gem normally.</p>
+
+<p>Just run <code class="language-plaintext highlighter-rouge">gem install gem_name</code>.</p>
+
+<p>In the following example, install <code class="language-plaintext highlighter-rouge">rubocop</code> gem.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem i rubocop
+<span class="go">Fetching regexp_parser-2.0.3.gem
+Fetching ast-2.4.2.gem
+Fetching unicode-display_width-2.0.0.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching parser-3.0.0.0.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching rainbow-3.0.0.gem
+Fetching rubocop-1.9.1.gem
+Fetching parallel-1.20.1.gem
+Successfully installed unicode-display_width-2.0.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.9.1
+9 gems installed
+</span></code></pre></div></div>
+
+<p>The latest version of the gem will be installed. In this example, rubocop 1.9 was installed.</p>
+
+<h2 id="install-gem-with-version">Install gem with version</h2>
+
+<p>Let’s specify the version of gem with <code class="language-plaintext highlighter-rouge">-v</code> option.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem i rubocop <span class="nt">-v</span> 1.0.0
+</code></pre></div></div>
+
+<p>Or, you can use <code class="language-plaintext highlighter-rouge">gem_name:version</code></p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem i rubocop:1.0
+<span class="go">Fetching parser-3.0.0.0.gem
+Fetching rainbow-3.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching rubocop-1.0.0.gem
+Fetching unicode-display_width-1.7.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching parallel-1.20.1.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+9 gems installed
+</span></code></pre></div></div>
+
+<h2 id="install-multiple-gems-with-version">Install multiple gems with version</h2>
+
+<p>How about installing multiple gems with version?</p>
+
+<p>Let’s install <code class="language-plaintext highlighter-rouge">rubocop</code> v1.0.0 and <code class="language-plaintext highlighter-rouge">rubocop-ast</code> v1.0.0.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem i rubocop-ast:1.0 rubocop:1.0
+<span class="go">Fetching parser-3.0.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching rubocop-ast-1.0.0.gem
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.0.0
+Fetching ruby-progressbar-1.11.0.gem
+Fetching rubocop-1.0.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching rainbow-3.0.0.gem
+Fetching parallel-1.20.1.gem
+Fetching unicode-display_width-1.7.0.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+9 gems installed
+</span></code></pre></div></div>
+
+<p>Check the versions.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>gem list | <span class="nb">grep </span>rubocop
+<span class="go">rubocop (1.0.0)
+rubocop-ast (1.0.0)
+</span></code></pre></div></div>
+
+<h3 id="install-child-dependency-first">Install child dependency first</h3>
+
+<p><strong>Heads up</strong>: install child dependency first, otherwise other version will also be installed.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem i rubocop:1.0 rubocop-ast:1.0
+Fetching rainbow-3.0.0.gem
+Fetching regexp_parser-2.0.3.gem
+Fetching parser-3.0.0.0.gem
+Fetching ruby-progressbar-1.11.0.gem
+Fetching parallel-1.20.1.gem
+Fetching rubocop-1.0.0.gem
+Fetching ast-2.4.2.gem
+Fetching rubocop-ast-1.4.1.gem
+Fetching unicode-display_width-1.7.0.gem
+Successfully installed unicode-display_width-1.7.0
+Successfully installed ruby-progressbar-1.11.0
+Successfully installed ast-2.4.2
+Successfully installed parser-3.0.0.0
+Successfully installed rubocop-ast-1.4.1
+Successfully installed regexp_parser-2.0.3
+Successfully installed rainbow-3.0.0
+Successfully installed parallel-1.20.1
+Successfully installed rubocop-1.0.0
+Fetching rubocop-ast-1.0.0.gem
+Successfully installed rubocop-ast-1.0.0
+10 gems installed
+</code></pre></div></div>
+
+<p>In this example, <code class="language-plaintext highlighter-rouge">rubocop-ast</code> v1.4 has been installed as well as v1.0.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ gem list | grep rubocop
+rubocop (1.0.0)
+rubocop-ast (1.4.1, 1.0.0)
+</code></pre></div></div>
+
   </div>
-  
-</div>
+
+  <div class="social-share">
+    <amp-social-share type="twitter"></amp-social-share>
+    <amp-social-share type="facebook"></amp-social-share>
+  </div>
+
+  <div class="post-ad">
+    <amp-ad width="100vw" height=320 type="adsense" data-ad-client="ca-pub-8616720383995770" data-ad-slot="4570107466" data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
+    </amp-ad>
+  </div>
+
+  <amp-iframe width=600 height=140
+            layout="responsive"
+            sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+            resizable
+            src="https://disqus.toshima.ru/blog-toshima-ru.html?id=/2021/02/14/install-multiple-gems-with-version&url=https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html&title=How%20to%20install%20multiple%20gems%20with%20specific%20version">
+    <div overflow
+         tabindex=0
+         role=button
+         aria-label="Load more"
+         style="display:block;font-size:12px;font-weight:500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)">
+        Load more
+    </div>
+  </amp-iframe>
+</article>
 
     </div>
     <footer>
