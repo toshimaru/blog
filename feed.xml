@@ -1,5 +1,125 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-04-04T08:47:19+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to install multiple gems with specific version</title><link href="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html" rel="alternate" type="text/html" title="How to install multiple gems with specific version" /><published>2021-02-14T00:00:00+09:00</published><updated>2021-02-14T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html">&lt;p&gt;I’ll explain how to install multiple gems with the specific version.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-04-04T16:42:42+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Rails resources vs resource Routing</title><link href="https://blog.toshima.ru/2021/04/04/rails-resource-vs-resources-routing.html" rel="alternate" type="text/html" title="Rails resources vs resource Routing" /><published>2021-04-04T00:00:00+09:00</published><updated>2021-04-04T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/04/04/rails-resource-vs-resources-routing</id><content type="html" xml:base="https://blog.toshima.ru/2021/04/04/rails-resource-vs-resources-routing.html">&lt;h2 id=&quot;resources-routing&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;resources&lt;/code&gt; routing&lt;/h2&gt;
+
+&lt;h3 id=&quot;routing-definition&quot;&gt;Routing definition&lt;/h3&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:photos&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;routing-result&quot;&gt;Routing result&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;HTTP Verb&lt;/th&gt;
+      &lt;th&gt;Path&lt;/th&gt;
+      &lt;th&gt;Controller#Action&lt;/th&gt;
+      &lt;th&gt;Used for&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/photos&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;photos#index&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;display a list of all photos&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/photos/new&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;photos#new&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;return an HTML form for creating a new photo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;POST&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/photos&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;photos#create&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;create a new photo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/photos/:id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;photos#show&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;display a specific photo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/photos/:id/edit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;photos#edit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;return an HTML form for editing a photo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PATCH/PUT&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/photos/:id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;photos#update&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;update a specific photo&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DELETE&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/photos/:id&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;photos#destroy&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;delete a specific photo&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&quot;resource-routing&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;resource&lt;/code&gt; routing&lt;/h2&gt;
+
+&lt;h3 id=&quot;routing-definition-1&quot;&gt;Routing definition&lt;/h3&gt;
+
+&lt;div class=&quot;language-rb highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;resource&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:geocoder&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;routing-result-1&quot;&gt;Routing result&lt;/h3&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;HTTP Verb&lt;/th&gt;
+      &lt;th&gt;Path&lt;/th&gt;
+      &lt;th&gt;Controller#Action&lt;/th&gt;
+      &lt;th&gt;Used for&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/geocoder/new&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;geocoders#new&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;return an HTML form for creating the geocoder&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;POST&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/geocoder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;geocoders#create&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;create the new geocoder&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/geocoder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;geocoders#show&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;display the one and only geocoder resource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GET&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/geocoder/edit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;geocoders#edit&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;return an HTML form for editing the geocoder&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;PATCH/PUT&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/geocoder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;geocoders#update&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;update the one and only geocoder resource&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;DELETE&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;/geocoder&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;geocoders#destroy&lt;/code&gt;&lt;/td&gt;
+      &lt;td&gt;delete the geocoder resource&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</content><author><name>toshimaru</name></author><category term="rails" /><summary type="html">resources routing</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to install multiple gems with specific version</title><link href="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html" rel="alternate" type="text/html" title="How to install multiple gems with specific version" /><published>2021-02-14T00:00:00+09:00</published><updated>2021-02-14T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/14/install-multiple-gems-with-version.html">&lt;p&gt;I’ll explain how to install multiple gems with the specific version.&lt;/p&gt;
 
 &lt;h2 id=&quot;install-gem-normally&quot;&gt;Install gem normally&lt;/h2&gt;
 
@@ -587,32 +707,4 @@ ruby    18077 toshimaru  txt      REG                1,4    13320          86218
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/Element/classList&quot;&gt;Element.classList - Web APIs | MDN&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="javascript" /><summary type="html">const div = document.createElement(&apos;div&apos;); div.outerHTML // &quot;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&quot;</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Connection Check with netcat(nc) command</title><link href="https://blog.toshima.ru/2020/08/21/netcat-connection-check.html" rel="alternate" type="text/html" title="Connection Check with netcat(nc) command" /><published>2020-08-21T00:00:00+09:00</published><updated>2020-08-21T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/08/21/netcat-connection-check</id><content type="html" xml:base="https://blog.toshima.ru/2020/08/21/netcat-connection-check.html">&lt;h2 id=&quot;nc-command&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nc&lt;/code&gt; command&lt;/h2&gt;
-
-&lt;p&gt;To test TCP connection with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;nc&lt;/code&gt; command, add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-z&lt;/code&gt; option.&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ nc -vz hostname port
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-v&lt;/code&gt;: verbose output&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-z&lt;/code&gt;: do not send data&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;http-connection-check&quot;&gt;http connection check&lt;/h3&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;  &lt;/span&gt;nc &lt;span class=&quot;nt&quot;&gt;-vz&lt;/span&gt; blog.toshima.ru 80
-&lt;span class=&quot;go&quot;&gt;Connection to blog.toshima.ru port 80 [tcp/http] succeeded!
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;ssltls-connection-check&quot;&gt;SSl/TLS connection check&lt;/h3&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;nc &lt;span class=&quot;nt&quot;&gt;-vz&lt;/span&gt; blog.toshima.ru 443
-&lt;span class=&quot;go&quot;&gt;Connection to blog.toshima.ru port 443 [tcp/https] succeeded!
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h3 id=&quot;udp-connection-check&quot;&gt;UDP connection check&lt;/h3&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;nc &lt;span class=&quot;nt&quot;&gt;-vzu&lt;/span&gt; 1.1.1.1 53
-&lt;span class=&quot;go&quot;&gt;Connection to 1.1.1.1 port 53 [udp/domain] succeeded!
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="network" /><category term="bash" /><summary type="html">nc command</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="javascript" /><summary type="html">const div = document.createElement(&apos;div&apos;); div.outerHTML // &quot;&amp;lt;div&amp;gt;&amp;lt;/div&amp;gt;&quot;</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
