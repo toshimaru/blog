@@ -1,5 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mysql.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-04-04T16:42:42+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mysql.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">MySQL rank() function</title><link href="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html" rel="alternate" type="text/html" title="MySQL rank() function" /><published>2021-02-13T00:00:00+09:00</published><updated>2021-02-13T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/13/mysql-rank-function</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html">&lt;p&gt;Since MySQL 8.0, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rank()&lt;/code&gt; window function is available.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/mysql.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-04-05T23:57:28+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/mysql.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">MySQL: How to get the size of tables</title><link href="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html" rel="alternate" type="text/html" title="MySQL: How to get the size of tables" /><published>2021-04-05T00:00:00+09:00</published><updated>2021-04-05T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/04/05/mysql-size-of-tables</id><content type="html" xml:base="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html">&lt;div class=&quot;language-sql highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;SELECT&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;TABLE_NAME&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;TABLE_ROWS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;AVG_ROW_LENGTH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DATA_LENGTH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INDEX_LENGTH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;ALL_DATA_LENGTH(MB)&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DATA_LENGTH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;DATA_LENGTH(MB)&apos;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+       &lt;span class=&quot;n&quot;&gt;floor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;INDEX_LENGTH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1024&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;AS&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&apos;INDEX_LENGTH(MB)&apos;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;FROM&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;information_schema&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tables&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;WHERE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;table_schema&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;database&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;ORDER&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;BY&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DATA_LENGTH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;INDEX_LENGTH&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;DESC&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;LIMIT&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><summary type="html">SELECT TABLE_NAME, TABLE_ROWS, AVG_ROW_LENGTH, floor((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024) AS &apos;ALL_DATA_LENGTH(MB)&apos;, floor((DATA_LENGTH) / 1024 / 1024) AS &apos;DATA_LENGTH(MB)&apos;, floor((INDEX_LENGTH) / 1024 / 1024) AS &apos;INDEX_LENGTH(MB)&apos; FROM information_schema.tables WHERE table_schema=database() ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC LIMIT 10;</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MySQL rank() function</title><link href="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html" rel="alternate" type="text/html" title="MySQL rank() function" /><published>2021-02-13T00:00:00+09:00</published><updated>2021-02-13T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/02/13/mysql-rank-function</id><content type="html" xml:base="https://blog.toshima.ru/2021/02/13/mysql-rank-function.html">&lt;p&gt;Since MySQL 8.0, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rank()&lt;/code&gt; window function is available.&lt;/p&gt;
 
 &lt;ul id=&quot;markdown-toc&quot;&gt;
   &lt;li&gt;&lt;a href=&quot;#table&quot; id=&quot;markdown-toc-table&quot;&gt;Table&lt;/a&gt;&lt;/li&gt;
@@ -605,66 +615,4 @@ owners.
 
 &lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ bundle exec rails db:reset
 $ mysql -u root DATABASE_NAME &amp;lt; ./dump.sql
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><category term="rails" /><summary type="html">Environment</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Installing MySQL 5.7 on CircleCI</title><link href="https://blog.toshima.ru/2016/06/15/mysql-5-7-on-circle-ci.html" rel="alternate" type="text/html" title="Installing MySQL 5.7 on CircleCI" /><published>2016-06-15T00:00:00+09:00</published><updated>2016-06-15T00:00:00+09:00</updated><id>https://blog.toshima.ru/2016/06/15/mysql-5-7-on-circle-ci</id><content type="html" xml:base="https://blog.toshima.ru/2016/06/15/mysql-5-7-on-circle-ci.html">&lt;h2 id=&quot;update-2&quot;&gt;[UPDATE 2]&lt;/h2&gt;
-
-&lt;p&gt;Current best approach is changing CircleCI &lt;strong&gt;Build Environment&lt;/strong&gt; to the latest version which is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ubuntu 14.04&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://circleci.com/docs/build-image-trusty/&quot;&gt;Ubuntu 14.04 (Trusty) - CircleCI&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;This build image has MySQL 5.7.x by default.&lt;/p&gt;
-
-&lt;h2 id=&quot;update&quot;&gt;[UPDATE]&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://s3.amazonaws.com/circle-downloads/install-mysql5.7-circleci.sh&quot;&gt;Original script&lt;/a&gt; currently doesn’t work because it refers to &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;mysql-5.7-dmr&lt;/code&gt;&lt;sup id=&quot;fnref:1&quot; role=&quot;doc-noteref&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot; rel=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt; which is outdated.&lt;/p&gt;
-
-&lt;p&gt;Please use &lt;a href=&quot;https://gist.github.com/toshimaru/06ffbf2e8ad7d4e3dab889fa27681835/&quot;&gt;my forked script&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;The raw source is: &lt;a href=&quot;https://gist.githubusercontent.com/toshimaru/06ffbf2e8ad7d4e3dab889fa27681835/raw/install-mysql5.7-circleci.sh&quot;&gt;https://gist.githubusercontent.com/toshimaru/06ffbf2e8ad7d4e3dab889fa27681835/raw/install-mysql5.7-circleci.sh&lt;/a&gt;&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;CircleCI doesn’t support MySQL 5.7 by default.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://discuss.circleci.com/users/kimh/activity&quot;&gt;kimh&lt;/a&gt;, CircleCI employee, created a script to install MySQL 5.7 on CircleCI.&lt;/p&gt;
-
-&lt;p&gt;To use this script, add below configuration to your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;circle.yml&lt;/code&gt;:&lt;/p&gt;
-
-&lt;div class=&quot;language-yml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;na&quot;&gt;dependencies&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;na&quot;&gt;pre&lt;/span&gt;&lt;span class=&quot;pi&quot;&gt;:&lt;/span&gt;
-    &lt;span class=&quot;pi&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;curl -sSL https://gist.githubusercontent.com/toshimaru/06ffbf2e8ad7d4e3dab889fa27681835/raw/install-mysql5.7-circleci.sh | sh&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;The output on CircleCI is:&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;(snip)
-..
-* MySQL Community Server 5.7.14 is started
-Setting up mysql-server (5.7.14-1ubuntu12.04) ...
-Setting up libmysqlclient20 (5.7.14-1ubuntu12.04) ...
-Setting up libmysqlclient-dev (5.7.14-1ubuntu12.04) ...
-Processing triggers for libc-bin ...
-ldconfig deferred processing now taking place
-+ echo Checking installed version.....
-Checking installed version.....
-+ mysql -D mysql -e SELECT version()
-version()
-5.7.14
-+ echo Done!!
-Done!!
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Then, you can use MySQL 5.7 on CircleCI container.&lt;/p&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See also&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://discuss.circleci.com/t/installing-mysql-5-7/1021&quot;&gt;Installing MySQL 5.7 - Build Environment - CircleCI Community Discussion&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;div class=&quot;footnotes&quot; role=&quot;doc-endnotes&quot;&gt;
-  &lt;ol&gt;
-    &lt;li id=&quot;fn:1&quot; role=&quot;doc-endnote&quot;&gt;
-      &lt;p&gt;DMR means development milestone release. ref. &lt;a href=&quot;https://dev.mysql.com/doc/mysql-development-cycle/en/development-milestone-releases.html&quot;&gt;MySQL :: MySQL Development Cycle :: 6 Development Milestone Releases&lt;/a&gt; &lt;a href=&quot;#fnref:1&quot; class=&quot;reversefootnote&quot; role=&quot;doc-backlink&quot;&gt;&amp;#8617;&lt;/a&gt;&lt;/p&gt;
-    &lt;/li&gt;
-  &lt;/ol&gt;
-&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="circleci" /><category term="mysql" /><category term="ci" /><summary type="html">[UPDATE 2]</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="mysql" /><category term="rails" /><summary type="html">Environment</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
