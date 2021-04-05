@@ -25,8 +25,8 @@
 <meta property="og:title" content="MySQL: How to get the size of tables" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="SELECT TABLE_NAME, TABLE_ROWS, AVG_ROW_LENGTH, floor((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024) AS &#39;ALL_DATA_LENGTH(MB)&#39;, floor((DATA_LENGTH) / 1024 / 1024) AS &#39;DATA_LENGTH(MB)&#39;, floor((INDEX_LENGTH) / 1024 / 1024) AS &#39;INDEX_LENGTH(MB)&#39; FROM information_schema.tables WHERE table_schema=database() ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC LIMIT 10;" />
-<meta property="og:description" content="SELECT TABLE_NAME, TABLE_ROWS, AVG_ROW_LENGTH, floor((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024) AS &#39;ALL_DATA_LENGTH(MB)&#39;, floor((DATA_LENGTH) / 1024 / 1024) AS &#39;DATA_LENGTH(MB)&#39;, floor((INDEX_LENGTH) / 1024 / 1024) AS &#39;INDEX_LENGTH(MB)&#39; FROM information_schema.tables WHERE table_schema=database() ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC LIMIT 10;" />
+<meta name="description" content="You can get the size of tables by using information_schema in MySQL." />
+<meta property="og:description" content="You can get the size of tables by using information_schema in MySQL." />
 <link rel="canonical" href="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html" />
 <meta property="og:url" content="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
@@ -39,7 +39,7 @@
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://blog.toshima.ru/android-chrome-512x512.png","headline":"MySQL: How to get the size of tables","dateModified":"2021-04-05T00:00:00+09:00","datePublished":"2021-04-05T00:00:00+09:00","description":"SELECT TABLE_NAME, TABLE_ROWS, AVG_ROW_LENGTH, floor((DATA_LENGTH + INDEX_LENGTH) / 1024 / 1024) AS &#39;ALL_DATA_LENGTH(MB)&#39;, floor((DATA_LENGTH) / 1024 / 1024) AS &#39;DATA_LENGTH(MB)&#39;, floor((INDEX_LENGTH) / 1024 / 1024) AS &#39;INDEX_LENGTH(MB)&#39; FROM information_schema.tables WHERE table_schema=database() ORDER BY (DATA_LENGTH + INDEX_LENGTH) DESC LIMIT 10;","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html"},"url":"https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html","author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","image":"https://blog.toshima.ru/android-chrome-512x512.png","description":"You can get the size of tables by using information_schema in MySQL.","headline":"MySQL: How to get the size of tables","dateModified":"2021-04-05T00:00:00+09:00","datePublished":"2021-04-05T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html"},"url":"https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html","author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -95,17 +95,58 @@
   </div>
 
   <div class="post-body">
-    <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">TABLE_NAME</span><span class="p">,</span>
+    <p>You can get the size of tables by using <code class="language-plaintext highlighter-rouge">information_schema</code> in MySQL.</p>
+
+<h2 id="query">Query</h2>
+
+<p>List top 10 biggest size of tables.</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">TABLE_NAME</span><span class="p">,</span>
        <span class="n">TABLE_ROWS</span><span class="p">,</span>
        <span class="n">AVG_ROW_LENGTH</span><span class="p">,</span>
-       <span class="n">floor</span><span class="p">((</span><span class="n">DATA_LENGTH</span> <span class="o">+</span> <span class="n">INDEX_LENGTH</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'ALL_DATA_LENGTH(MB)'</span><span class="p">,</span>
        <span class="n">floor</span><span class="p">((</span><span class="n">DATA_LENGTH</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'DATA_LENGTH(MB)'</span><span class="p">,</span>
-       <span class="n">floor</span><span class="p">((</span><span class="n">INDEX_LENGTH</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'INDEX_LENGTH(MB)'</span>
+       <span class="n">floor</span><span class="p">((</span><span class="n">INDEX_LENGTH</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'INDEX_LENGTH(MB)'</span><span class="p">,</span>
+       <span class="n">floor</span><span class="p">((</span><span class="n">DATA_LENGTH</span> <span class="o">+</span> <span class="n">INDEX_LENGTH</span><span class="p">)</span> <span class="o">/</span> <span class="mi">1024</span> <span class="o">/</span> <span class="mi">1024</span><span class="p">)</span> <span class="k">AS</span> <span class="s1">'ALL_DATA_LENGTH(MB)'</span>
 <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span>
 <span class="k">WHERE</span> <span class="n">table_schema</span><span class="o">=</span><span class="k">database</span><span class="p">()</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="p">(</span><span class="n">DATA_LENGTH</span> <span class="o">+</span> <span class="n">INDEX_LENGTH</span><span class="p">)</span> <span class="k">DESC</span>
 <span class="k">LIMIT</span> <span class="mi">10</span><span class="p">;</span>
 </code></pre></div></div>
+
+<table>
+  <thead>
+    <tr>
+      <th>column</th>
+      <th>description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TABLE_NAME</code></td>
+      <td>table name</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">TABLE_ROWS</code></td>
+      <td>table rows count</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">AVG_ROW_LENGTH</code></td>
+      <td>average row data length</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">DATA_LENGTH</code></td>
+      <td>table data length</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">INDEX_LENGTH</code></td>
+      <td>table index data length</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">ALL_DATA_LENGTH</code></td>
+      <td>table data + index data length</td>
+    </tr>
+  </tbody>
+</table>
 
   </div>
 
