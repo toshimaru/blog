@@ -39,7 +39,7 @@
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","image":"https://blog.toshima.ru/android-chrome-512x512.png","description":"resources routing","headline":"Rails resources vs resource Routing","dateModified":"2021-04-04T00:00:00+09:00","datePublished":"2021-04-04T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/04/04/rails-resource-vs-resources-routing.html"},"url":"https://blog.toshima.ru/2021/04/04/rails-resource-vs-resources-routing.html","author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","image":"https://blog.toshima.ru/android-chrome-512x512.png","description":"resources routing","headline":"Rails resources vs resource Routing","dateModified":"2021-04-08T00:00:00+09:00","datePublished":"2021-04-04T00:00:00+09:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/04/04/rails-resource-vs-resources-routing.html"},"url":"https://blog.toshima.ru/2021/04/04/rails-resource-vs-resources-routing.html","author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -83,7 +83,7 @@
   <div class="post-meta">
     <div class="post-date">
       <time>04 Apr 2021</time>
-      
+      (Updated on 08 Apr 2021)
     </div>
     <div class="post-tags">
       <ul class="tags">
@@ -164,6 +164,7 @@
 <h3 id="routing-definition-1">Routing definition</h3>
 
 <div class="language-rb highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">resource</span> <span class="ss">:geocoder</span>
+<span class="n">resolve</span><span class="p">(</span><span class="s1">'Geocoder'</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="ss">:geocoder</span><span class="p">]</span> <span class="p">}</span>
 </code></pre></div></div>
 
 <h3 id="routing-result-1">Routing result</h3>
@@ -216,6 +217,12 @@
     </tr>
   </tbody>
 </table>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+  <li><a href="https://guides.rubyonrails.org/routing.html">Rails Routing from the Outside In — Ruby on Rails Guides</a></li>
+</ul>
 
   </div>
 
