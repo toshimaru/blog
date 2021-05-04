@@ -1,5 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/git.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-05-02T18:38:12+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/git.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">How to specify Git SSH key for different hosts</title><link href="https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key.html" rel="alternate" type="text/html" title="How to specify Git SSH key for different hosts" /><published>2019-09-04T00:00:00+09:00</published><updated>2019-09-04T00:00:00+09:00</updated><id>https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key</id><content type="html" xml:base="https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key.html">&lt;p&gt;When you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt;, you might specify which SSH key to use. It’s not possible to add option to specify which SSH key to use, but it’s possible to tell git which SSH key to use with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ssh/config&lt;/code&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed/by_tag/git.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-05-04T15:48:00+09:00</updated><id>https://blog.toshima.ru/feed/by_tag/git.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">git diff with exit code 1</title><link href="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html" rel="alternate" type="text/html" title="git diff with exit code 1" /><published>2021-05-04T00:00:00+09:00</published><updated>2021-05-04T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code</id><content type="html" xml:base="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html">&lt;p&gt;If there’s a diff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git diff&lt;/code&gt;, I want the command to exit with an error.&lt;/p&gt;
+
+&lt;p&gt;That’s when to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--exit-code&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--exit-code&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;Make the program exit with codes similar to diff(1). That is, it exits with 1 if there were differences and 0 means no differences.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let’s try it.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git diff &lt;span class=&quot;nt&quot;&gt;--exit-code&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;diff --git a/_config.yml b/_config.yml
+index e5c6d1aa..a2b7826c 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -1,3 +1,4 @@
++
+ title: &quot;Toshimaru&apos;s Blog&quot;
+ url: &quot;https://blog.toshima.ru&quot;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt; description: &amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The exit code is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; (error).&lt;/p&gt;
+
+&lt;p&gt;If no diff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git diff&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git diff &lt;span class=&quot;nt&quot;&gt;--exit-code&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;0
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The exit code is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; (no error).&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="git" /><summary type="html">If there’s a diff in git diff, I want the command to exit with an error.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to specify Git SSH key for different hosts</title><link href="https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key.html" rel="alternate" type="text/html" title="How to specify Git SSH key for different hosts" /><published>2019-09-04T00:00:00+09:00</published><updated>2019-09-04T00:00:00+09:00</updated><id>https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key</id><content type="html" xml:base="https://blog.toshima.ru/2019/09/04/how-to-specify-git-ssh-key.html">&lt;p&gt;When you run &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git push&lt;/code&gt;, you might specify which SSH key to use. It’s not possible to add option to specify which SSH key to use, but it’s possible to tell git which SSH key to use with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.ssh/config&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Here is the example:&lt;/p&gt;
 

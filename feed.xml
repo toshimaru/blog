@@ -1,5 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-05-02T18:38:12+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">MySQL: How to get the size of tables</title><link href="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html" rel="alternate" type="text/html" title="MySQL: How to get the size of tables" /><published>2021-04-05T00:00:00+09:00</published><updated>2021-04-05T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/04/05/mysql-size-of-tables</id><content type="html" xml:base="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html">&lt;p&gt;You can get the size of tables by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;information_schema&lt;/code&gt; in MySQL.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-05-04T15:48:00+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">git diff with exit code 1</title><link href="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html" rel="alternate" type="text/html" title="git diff with exit code 1" /><published>2021-05-04T00:00:00+09:00</published><updated>2021-05-04T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code</id><content type="html" xml:base="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html">&lt;p&gt;If there’s a diff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git diff&lt;/code&gt;, I want the command to exit with an error.&lt;/p&gt;
+
+&lt;p&gt;That’s when to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--exit-code&lt;/code&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--exit-code&lt;/code&gt;&lt;/p&gt;
+
+  &lt;p&gt;Make the program exit with codes similar to diff(1). That is, it exits with 1 if there were differences and 0 means no differences.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Let’s try it.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git diff &lt;span class=&quot;nt&quot;&gt;--exit-code&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;diff --git a/_config.yml b/_config.yml
+index e5c6d1aa..a2b7826c 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -1,3 +1,4 @@
++
+ title: &quot;Toshimaru&apos;s Blog&quot;
+ url: &quot;https://blog.toshima.ru&quot;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt; description: &amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The exit code is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt; (error).&lt;/p&gt;
+
+&lt;p&gt;If no diff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git diff&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;git diff &lt;span class=&quot;nt&quot;&gt;--exit-code&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;
+&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$?&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;0
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The exit code is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt; (no error).&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="git" /><summary type="html">If there’s a diff in git diff, I want the command to exit with an error.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">MySQL: How to get the size of tables</title><link href="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html" rel="alternate" type="text/html" title="MySQL: How to get the size of tables" /><published>2021-04-05T00:00:00+09:00</published><updated>2021-04-05T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/04/05/mysql-size-of-tables</id><content type="html" xml:base="https://blog.toshima.ru/2021/04/05/mysql-size-of-tables.html">&lt;p&gt;You can get the size of tables by using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;information_schema&lt;/code&gt; in MySQL.&lt;/p&gt;
 
 &lt;h2 id=&quot;query&quot;&gt;Query&lt;/h2&gt;
 
@@ -597,112 +634,4 @@ In Gemfile:
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc2732&quot;&gt;RFC 2732 - Format for Literal IPv6 Addresses in URL’s&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="network" /><summary type="html">There’re two addresses for IPv6 loopback addresses.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">How to use lsof command</title><link href="https://blog.toshima.ru/2020/11/21/new-lsof-command.html" rel="alternate" type="text/html" title="How to use lsof command" /><published>2020-11-21T00:00:00+09:00</published><updated>2020-11-21T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/11/21/new-lsof-command</id><content type="html" xml:base="https://blog.toshima.ru/2020/11/21/new-lsof-command.html">&lt;h2 id=&quot;what-is-lsof-command&quot;&gt;What is lsof command?&lt;/h2&gt;
-
-&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsof&lt;/code&gt; command is used to list open files. The word &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;lsof&lt;/code&gt; is a combination of list (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ls&lt;/code&gt;) and open files (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;of&lt;/code&gt;).&lt;/p&gt;
-
-&lt;h2 id=&quot;list-open-files-by-pid&quot;&gt;list open files by pid&lt;/h2&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;pid&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Let’s list files after runnning irb as an example.&lt;/p&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;irb
-&lt;span class=&quot;gp&quot;&gt;irb(main):001:0&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;Process.pid
-&lt;span class=&quot;gp&quot;&gt;=&amp;gt;&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;16340
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 16340
-&lt;span class=&quot;go&quot;&gt;COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF                NODE NAME
-ruby    16340 toshimaru  cwd    DIR                1,4     2720              633342 /Users/toshimaru
-ruby    16340 toshimaru  txt    REG                1,4    13320          8621866282 /Users/toshimaru/.rbenv/versions/2.7.1/bin/ruby
-ruby    16340 toshimaru  txt    REG                1,4  4258012          8621866283 /Users/toshimaru/.rbenv/versions/2.7.1/lib/libruby.2.7.dylib
-ruby    16340 toshimaru  txt    REG                1,4   419040          8619930286 /usr/local/Cellar/gmp/6.2.0/lib/libgmp.10.dylib
-ruby    16340 toshimaru  txt    REG                1,4    17388          8621866350 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/enc/encdb.bundle
-ruby    16340 toshimaru  txt    REG                1,4    17020          8621866365 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/enc/trans/transdb.bundle
-ruby    16340 toshimaru  txt    REG                1,4    16416          8621866400 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/monitor.bundle
-ruby    16340 toshimaru  txt    REG                1,4   273648          8621866311 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/ripper.bundle
-ruby    16340 toshimaru  txt    REG                1,4    45420          8621866414 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/readline.bundle
-ruby    16340 toshimaru  txt    REG                1,4   239260          8620006484 /usr/local/Cellar/readline/8.0.4/lib/libreadline.8.0.dylib
-ruby    16340 toshimaru  txt    REG                1,4    36552          8621866309 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/io/console.bundle
-ruby    16340 toshimaru  txt    REG                1,4    50512          8621866306 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/pathname.bundle
-ruby    16340 toshimaru  txt    REG                1,4    33124          8621866295 /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0/x86_64-darwin19/etc.bundle
-ruby    16340 toshimaru  txt    REG                1,4  1568368 1152921500312682291 /usr/lib/dyld
-ruby    16340 toshimaru    0u   CHR               16,6   0t1027                5123 /dev/ttys006
-ruby    16340 toshimaru    1u   CHR               16,6   0t1027                5123 /dev/ttys006
-ruby    16340 toshimaru    2u   CHR               16,6   0t1027                5123 /dev/ttys006
-&lt;/span&gt;&lt;span class=&quot;gp&quot;&gt;ruby    16340 toshimaru    3   PIPE 0xe9b98e34a50c0958    16384                     -&amp;gt;&lt;/span&gt;0x5234dd6eed3ba038
-&lt;span class=&quot;gp&quot;&gt;ruby    16340 toshimaru    4   PIPE 0x5234dd6eed3ba038    16384                     -&amp;gt;&lt;/span&gt;0xe9b98e34a50c0958
-&lt;span class=&quot;gp&quot;&gt;ruby    16340 toshimaru    5   PIPE 0x25bac2bfb3b4d94d    16384                     -&amp;gt;&lt;/span&gt;0x33b50c39b0670301
-&lt;span class=&quot;gp&quot;&gt;ruby    16340 toshimaru    6   PIPE 0x33b50c39b0670301    16384                     -&amp;gt;&lt;/span&gt;0x25bac2bfb3b4d94d
-&lt;span class=&quot;gp&quot;&gt;ruby    16340 toshimaru    7   PIPE 0xbe80cf7b978688af    16384                     -&amp;gt;&lt;/span&gt;0x5fac99197a7632cb
-&lt;span class=&quot;gp&quot;&gt;ruby    16340 toshimaru    8   PIPE 0x5fac99197a7632cb    16384                     -&amp;gt;&lt;/span&gt;0xbe80cf7b978688af
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;FD
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cwd&lt;/code&gt;: current working directory&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;txt&lt;/code&gt;: text&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;1&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;2&lt;/code&gt;: stdin, stdout, stderr respectively (and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;u&lt;/code&gt; means read/write access)&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;TYPE
-    &lt;ul&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;DIR&lt;/code&gt;: directory&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;REG&lt;/code&gt;: regular file&lt;/li&gt;
-      &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;CHR&lt;/code&gt;: character special file&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;lsof-by-port&quot;&gt;lsof by port&lt;/h2&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;:&lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;port&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;Let’s see the result after runnning &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails server&lt;/code&gt; (port: 3000) as an example.&lt;/p&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-i&lt;/span&gt;:3000
-&lt;span class=&quot;go&quot;&gt;COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
-ruby    18077 toshimaru   14u  IPv4 0xc33ab1611224e4b5      0t0  TCP localhost:hbci (LISTEN)
-ruby    18077 toshimaru   15u  IPv6 0xc33ab160fc2911e5      0t0  TCP localhost:hbci (LISTEN)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;But, I prefer port number to port name. Add &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;-P&lt;/code&gt; option.&lt;/p&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;❯ lsof &lt;span class=&quot;nt&quot;&gt;-Pi&lt;/span&gt;:3000
-&lt;span class=&quot;go&quot;&gt;COMMAND   PID      USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
-ruby    18077 toshimaru   14u  IPv4 0xc33ab1611224e4b5      0t0  TCP localhost:3000 (LISTEN)
-ruby    18077 toshimaru   15u  IPv6 0xc33ab160fc2911e5      0t0  TCP localhost:3000 (LISTEN)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;lsof-by-file&quot;&gt;lsof by file&lt;/h2&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;filepath&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof log/development.log
-&lt;span class=&quot;go&quot;&gt;COMMAND   PID      USER   FD   TYPE DEVICE SIZE/OFF       NODE NAME
-ruby    18077 toshimaru   10w   REG    1,4 20287686 8591532843 log/development.log
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;lsof-by-process-name&quot;&gt;lsof by process name&lt;/h2&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;process_name&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;lsof &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; ruby
-&lt;span class=&quot;go&quot;&gt;COMMAND   PID      USER   FD     TYPE             DEVICE SIZE/OFF                NODE NAME
-ruby    18077 toshimaru  cwd      DIR                1,4      992          8591531532 /Users/toshimaru/src/github.com/toshimaru/RailsTwitterClone
-ruby    18077 toshimaru  txt      REG                1,4    13320          8621866282 /Users/toshimaru/.rbenv/versions/2.7.1/bin/ruby
-(...snip...)
-&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/lsof-command-in-linux-with-examples/#:~:text=lsof%20command%20stands%20for%20List,open%20files%20in%20output%20console.&quot;&gt;lsof command in Linux with Examples - GeeksforGeeks&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://catonmat.net/unix-utilities-lsof&quot;&gt;Lsof – A Unix Utility You Should Know About&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="linux" /><summary type="html">What is lsof command?</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="network" /><summary type="html">There’re two addresses for IPv6 loopback addresses.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

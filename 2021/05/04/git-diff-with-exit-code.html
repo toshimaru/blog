@@ -20,26 +20,26 @@
 
     </style>
     <!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Toshimaru’s Blog | Where there’s a will, there’s a way.</title>
+<title>git diff with exit code 1 | Toshimaru’s Blog</title>
 <meta name="generator" content="Jekyll v4.2.0" />
-<meta property="og:title" content="Toshimaru’s Blog" />
+<meta property="og:title" content="git diff with exit code 1" />
 <meta name="author" content="toshimaru" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Where there’s a will, there’s a way." />
-<meta property="og:description" content="Where there’s a will, there’s a way." />
-<link rel="canonical" href="https://blog.toshima.ru/2021/" />
-<meta property="og:url" content="https://blog.toshima.ru/2021/" />
+<meta name="description" content="If there’s a diff in git diff, I want the command to exit with an error." />
+<meta property="og:description" content="If there’s a diff in git diff, I want the command to exit with an error." />
+<link rel="canonical" href="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html" />
+<meta property="og:url" content="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html" />
 <meta property="og:site_name" content="Toshimaru’s Blog" />
 <meta property="og:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-01-01T00:00:00+09:00" />
+<meta property="article:published_time" content="2021-05-04T00:00:00+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:image" content="https://blog.toshima.ru/android-chrome-512x512.png" />
-<meta property="twitter:title" content="Toshimaru’s Blog" />
+<meta property="twitter:title" content="git diff with exit code 1" />
 <meta name="twitter:site" content="@toshimaru_e" />
 <meta name="twitter:creator" content="@toshimaru_e" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/"},"description":"Where there’s a will, there’s a way.","image":"https://blog.toshima.ru/android-chrome-512x512.png","headline":"Toshimaru’s Blog","dateModified":"2021-01-01T00:00:00+09:00","datePublished":"2021-01-01T00:00:00+09:00","url":"https://blog.toshima.ru/2021/","author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html"},"description":"If there’s a diff in git diff, I want the command to exit with an error.","image":"https://blog.toshima.ru/android-chrome-512x512.png","headline":"git diff with exit code 1","dateModified":"2021-05-04T00:00:00+09:00","datePublished":"2021-05-04T00:00:00+09:00","url":"https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html","author":{"@type":"Person","name":"toshimaru"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
     <link type="application/atom+xml" rel="alternate" href="https://blog.toshima.ru/feed.xml" title="Toshimaru&apos;s Blog" />
@@ -78,73 +78,90 @@
       <header class="masthead">
   <h1 class="masthead-title--small"><a href="/">Toshimaru's Blog</a></h1>
 </header>
-<div class="content page">
-  <h1 class="page-title"></h1>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/05/04/git-diff-with-exit-code.html">git diff with exit code 1</a>
-    </h2>
-    <div class="list-post-date">
+<article class="content post">
+  <h1 class="post-title">git diff with exit code 1</h1>
+  <div class="post-meta">
+    <div class="post-date">
       <time>04 May 2021</time>
+      
+    </div>
+    <div class="post-tags">
+      <ul class="tags">
+        
+          <li><a href="/tag/git" class="tag">git</a></li>
+        
+      </ul>
     </div>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/04/05/mysql-size-of-tables.html">MySQL: How to get the size of tables</a>
-    </h2>
-    <div class="list-post-date">
-      <time>05 Apr 2021</time>
-    </div>
+
+  <div class="post-body">
+    <p>If there’s a diff in <code class="language-plaintext highlighter-rouge">git diff</code>, I want the command to exit with an error.</p>
+
+<p>That’s when to use <code class="language-plaintext highlighter-rouge">--exit-code</code>.</p>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">--exit-code</code></p>
+
+  <p>Make the program exit with codes similar to diff(1). That is, it exits with 1 if there were differences and 0 means no differences.</p>
+</blockquote>
+
+<p>Let’s try it.</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git diff <span class="nt">--exit-code</span>
+<span class="go">diff --git a/_config.yml b/_config.yml
+index e5c6d1aa..a2b7826c 100644
+--- a/_config.yml
++++ b/_config.yml
+@@ -1,3 +1,4 @@
++
+ title: "Toshimaru's Blog"
+ url: "https://blog.toshima.ru"
+</span><span class="gp"> description: &gt;</span><span class="w">
+</span><span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="nv">$?</span>
+<span class="go">1
+</span></code></pre></div></div>
+
+<p>The exit code is <code class="language-plaintext highlighter-rouge">1</code> (error).</p>
+
+<p>If no diff in <code class="language-plaintext highlighter-rouge">git diff</code>:</p>
+
+<div class="language-console highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">$</span><span class="w"> </span>git diff <span class="nt">--exit-code</span>
+<span class="go">
+</span><span class="gp">$</span><span class="w"> </span><span class="nb">echo</span> <span class="nv">$?</span>
+<span class="go">0
+</span></code></pre></div></div>
+
+<p>The exit code is <code class="language-plaintext highlighter-rouge">0</code> (no error).</p>
+
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/04/04/rails-resource-vs-resources-routing.html">Rails resources vs resource Routing</a>
-    </h2>
-    <div class="list-post-date">
-      <time>04 Apr 2021</time>
-    </div>
+
+  <div class="social-share">
+    <amp-social-share type="twitter"></amp-social-share>
+    <amp-social-share type="facebook"></amp-social-share>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/02/14/install-multiple-gems-with-version.html">How to install multiple gems with specific version</a>
-    </h2>
-    <div class="list-post-date">
-      <time>14 Feb 2021</time>
-    </div>
+
+  <div class="post-ad">
+    <amp-ad width="100vw" height=320 type="adsense" data-ad-client="ca-pub-8616720383995770" data-ad-slot="4570107466" data-auto-format="rspv"
+      data-full-width>
+      <div overflow></div>
+    </amp-ad>
   </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/02/13/mysql-rank-function.html">MySQL rank() function</a>
-    </h2>
-    <div class="list-post-date">
-      <time>13 Feb 2021</time>
+
+  <amp-iframe width=600 height=140
+            layout="responsive"
+            sandbox="allow-scripts allow-same-origin allow-modals allow-popups allow-forms"
+            resizable
+            src="https://disqus.toshima.ru/blog-toshima-ru.html?id=/2021/05/04/git-diff-with-exit-code&url=https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html&title=git%20diff%20with%20exit%20code%201">
+    <div overflow
+         tabindex=0
+         role=button
+         aria-label="Load more"
+         style="display:block;font-size:12px;font-weight:500;font-family:Helvetica Neue, arial, sans-serif;text-align:center;line-height:1.1;padding:12px 16px;border-radius:4px;background:rgba(29,47,58,0.6);color:rgb(255,255,255)">
+        Load more
     </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/01/26/ruby-remove-line-breaks-from-string.html">Remove line breaks from String in Ruby</a>
-    </h2>
-    <div class="list-post-date">
-      <time>26 Jan 2021</time>
-    </div>
-  </div>
-  
-  <div class="list-item">
-    <h2 class="list-post-title">
-      <a href="/2021/01/13/macos-ftp-command.html">Install ftp command on macOS with brew</a>
-    </h2>
-    <div class="list-post-date">
-      <time>13 Jan 2021</time>
-    </div>
-  </div>
-  
-</div>
+  </amp-iframe>
+</article>
 
     </div>
     <footer>
