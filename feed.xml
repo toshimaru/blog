@@ -1,5 +1,30 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-05-05T10:43:37+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">git diff with exit code 1</title><link href="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html" rel="alternate" type="text/html" title="git diff with exit code 1" /><published>2021-05-04T00:00:00+09:00</published><updated>2021-05-04T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code</id><content type="html" xml:base="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html">&lt;p&gt;If there’s a diff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git diff&lt;/code&gt;, I want the command to exit with an error.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-06-01T09:16:29+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">Creating Rails project with a specific version</title><link href="https://blog.toshima.ru/2021/06/01/rails-new-with-version.html" rel="alternate" type="text/html" title="Creating Rails project with a specific version" /><published>2021-06-01T00:00:00+09:00</published><updated>2021-06-01T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/06/01/rails-new-with-version</id><content type="html" xml:base="https://blog.toshima.ru/2021/06/01/rails-new-with-version.html">&lt;p&gt;If you have some Rails versions installed, you may create new Rails project with a specific version.&lt;/p&gt;
+
+&lt;h2 id=&quot;rails-new-command-with-version&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails new&lt;/code&gt; command with version&lt;/h2&gt;
+
+&lt;p&gt;You can do it with the following command.&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;rails _x.y.z_ new appname
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem list | &lt;span class=&quot;nb&quot;&gt;grep &lt;/span&gt;rails
+&lt;span class=&quot;c&quot;&gt;...
+&lt;/span&gt;&lt;span class=&quot;go&quot;&gt;rails (6.1.3, 6.0.3, 5.2.3 ...)
+&lt;/span&gt;&lt;span class=&quot;c&quot;&gt;...
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# Create Rails 6.1 project&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails _6.1.3_ new rails6_1
+
+&lt;span class=&quot;c&quot;&gt;# Create Rails 6.0 project&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails _6.0.3_ new rails6_0
+
+&lt;span class=&quot;c&quot;&gt;# Create Rails 5.2 project&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rails _5.2.3_ new rails5.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>toshimaru</name></author><category term="rails" /><summary type="html">If you have some Rails versions installed, you may create new Rails project with a specific version.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">git diff with exit code 1</title><link href="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html" rel="alternate" type="text/html" title="git diff with exit code 1" /><published>2021-05-04T00:00:00+09:00</published><updated>2021-05-04T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code</id><content type="html" xml:base="https://blog.toshima.ru/2021/05/04/git-diff-with-exit-code.html">&lt;p&gt;If there’s a diff in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;git diff&lt;/code&gt;, I want the command to exit with an error.&lt;/p&gt;
 
 &lt;p&gt;That’s when to use &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--exit-code&lt;/code&gt;.&lt;/p&gt;
 
@@ -616,22 +641,4 @@ In Gemfile:
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://github.com/ffi/ffi/issues/791&quot;&gt;dyld: Symbol not found: _ffi_prep_closure_loc on Macos 10.14 · Issue #791 · ffi/ffi&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://medium.com/@leoliang.climber/missing-ffi-prep-closure-error-for-ffi-1-13-1-gem-70f800a48090&quot;&gt;Missing ffi_prep_closure for ffi-1.13.1 gem | by Jialiang Liang | Medium&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mac" /><category term="gem" /><summary type="html">Issue</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">IPv6 Loopback Address</title><link href="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html" rel="alternate" type="text/html" title="IPv6 Loopback Address" /><published>2020-11-22T00:00:00+09:00</published><updated>2020-11-22T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/11/22/ipv6-localhost</id><content type="html" xml:base="https://blog.toshima.ru/2020/11/22/ipv6-localhost.html">&lt;p&gt;There’re two addresses for IPv6 loopback addresses.&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::1&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;::&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;If you want to access the addresses from your browser, the URL is:&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://[::1]/&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;http://[::]/&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://tools.ietf.org/html/rfc2732&quot;&gt;RFC 2732 - Format for Literal IPv6 Addresses in URL’s&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="network" /><summary type="html">There’re two addresses for IPv6 loopback addresses.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mac" /><category term="gem" /><summary type="html">Issue</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
