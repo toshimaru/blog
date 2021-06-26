@@ -1,5 +1,57 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-06-01T09:16:29+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
-</subtitle><author><name>toshimaru</name></author><entry><title type="html">Creating Rails project with a specific version</title><link href="https://blog.toshima.ru/2021/06/01/rails-new-with-version.html" rel="alternate" type="text/html" title="Creating Rails project with a specific version" /><published>2021-06-01T00:00:00+09:00</published><updated>2021-06-01T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/06/01/rails-new-with-version</id><content type="html" xml:base="https://blog.toshima.ru/2021/06/01/rails-new-with-version.html">&lt;p&gt;If you have some Rails versions installed, you may create new Rails project with a specific version.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="https://blog.toshima.ru/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.toshima.ru/" rel="alternate" type="text/html" /><updated>2021-06-26T22:05:38+09:00</updated><id>https://blog.toshima.ru/feed.xml</id><title type="html">Toshimaru’s Blog</title><subtitle>Where there&apos;s a will, there&apos;s a way.
+</subtitle><author><name>toshimaru</name></author><entry><title type="html">[JavaScript]Shorthand Property Name and Shorthand Method Name</title><link href="https://blog.toshima.ru/2021/06/26/js-shorthand-property.html" rel="alternate" type="text/html" title="[JavaScript]Shorthand Property Name and Shorthand Method Name" /><published>2021-06-26T00:00:00+09:00</published><updated>2021-06-26T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/06/26/js-shorthand-property</id><content type="html" xml:base="https://blog.toshima.ru/2021/06/26/js-shorthand-property.html">&lt;h2 id=&quot;es6-shorthand-property-name&quot;&gt;ES6 Shorthand Property Name&lt;/h2&gt;
+
+&lt;p&gt;You can simplify the following code with ES6 shorthand property.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Toshimaru&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//  { id: 1, name: &apos;Toshimaru&apos; }&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;Toshimaru&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&apos;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;name&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;//  { id: 1, name: &apos;Toshimaru&apos; }&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;es6-shorthand-method-name&quot;&gt;ES6 Shorthand Method Name&lt;/h2&gt;
+
+&lt;p&gt;ES2015 introduces shorthand method names as well as shorthand property name.&lt;/p&gt;
+
+&lt;p&gt;You can simplify the following code with ES6 shorthand method name.&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;na&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// hello&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;say&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;hello&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;see-also&quot;&gt;See Also&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;/2017/03/24/es6-array-merge.html&quot;&gt;Merge arrays in ES6 way | Toshimaru’s Blog&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;reference&quot;&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ui.dev/shorthand-properties/&quot;&gt;Shorthand Property and Method Names in JavaScript | ES6 - ui.dev&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Object_initializer&quot;&gt;Object initializer - JavaScript | MDN&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="javascript" /><summary type="html">ES6 Shorthand Property Name</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Creating Rails project with a specific version</title><link href="https://blog.toshima.ru/2021/06/01/rails-new-with-version.html" rel="alternate" type="text/html" title="Creating Rails project with a specific version" /><published>2021-06-01T00:00:00+09:00</published><updated>2021-06-01T00:00:00+09:00</updated><id>https://blog.toshima.ru/2021/06/01/rails-new-with-version</id><content type="html" xml:base="https://blog.toshima.ru/2021/06/01/rails-new-with-version.html">&lt;p&gt;If you have some Rails versions installed, you may create new Rails project with a specific version.&lt;/p&gt;
 
 &lt;h2 id=&quot;rails-new-command-with-version&quot;&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;rails new&lt;/code&gt; command with version&lt;/h2&gt;
 
@@ -570,75 +622,4 @@ disconnect	less		newer		rate		status
 
 &lt;p&gt;ref. &lt;a href=&quot;https://discussions.apple.com/thread/251233423?answerId=252366191022#252366191022&quot;&gt;Your computer was restarted because of a … - Apple Community&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Disabling auto graphic switching solves the issue.&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="mac" /><summary type="html">Prerequisites</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">ffi ffi_prep_closure BuildError on macOS</title><link href="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html" rel="alternate" type="text/html" title="ffi ffi_prep_closure BuildError on macOS" /><published>2020-12-29T00:00:00+09:00</published><updated>2020-12-29T00:00:00+09:00</updated><id>https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos</id><content type="html" xml:base="https://blog.toshima.ru/2020/12/29/new-ffi-build-error-macos.html">&lt;h2 id=&quot;issue&quot;&gt;Issue&lt;/h2&gt;
-
-&lt;p&gt;I encountered &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ffi&lt;/code&gt; gem build error while running &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;bundle install&lt;/code&gt;&lt;/p&gt;
-
-&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Gem::Ext::BuildError: ERROR: Failed to build gem native extension.
-
-    current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
-/Users/toshimaru/.rbenv/versions/2.7.1/bin/ruby -I /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/2.7.0 -r
-./siteconf20201228-73606-f28m46.rb extconf.rb
-checking for ffi_prep_closure_loc() in -lffi... yes
-checking for ffi_prep_cif_var()... yes
-checking for ffi_raw_call()... yes
-checking for ffi_prep_raw_closure()... yes
-creating extconf.h
-creating Makefile
-
-current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
-make &quot;DESTDIR=&quot; clean
-
-current directory: /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2/ext/ffi_c
-make &quot;DESTDIR=&quot;
-compiling AbstractMemory.c
-compiling ArrayType.c
-compiling Buffer.c
-compiling Call.c
-compiling ClosurePool.c
-compiling DynamicLibrary.c
-compiling Function.c
-Function.c:847:17: error: implicit declaration of function &apos;ffi_prep_closure_loc&apos; is invalid in C99
-[-Werror,-Wimplicit-function-declaration]
-    ffiStatus = ffi_prep_closure_loc(closure-&amp;gt;pcl, &amp;amp;fnInfo-&amp;gt;ffi_cif, callback_invoke, closure, code);
-                ^
-Function.c:847:17: note: did you mean &apos;ffi_prep_closure&apos;?
-/Library/Developer/CommandLineTools/SDKs/MacOSX10.14.sdk/usr/include/ffi/ffi.h:269:1: note: &apos;ffi_prep_closure&apos; declared here
-ffi_prep_closure(
-^
-1 error generated.
-make: *** [Function.o] Error 1
-
-make failed, exit code 2
-
-Gem files will remain installed in /Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/ffi-1.14.2 for
-inspection.
-Results logged to
-/Users/toshimaru/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/extensions/x86_64-darwin-18/2.7.0/ffi-1.14.2/gem_make.out
-
-An error occurred while installing ffi (1.14.2), and Bundler cannot continue.
-Make sure that `gem install ffi -v &apos;1.14.2&apos; --source &apos;https://rubygems.org/&apos;` succeeds before bundling.
-
-In Gemfile:
-  bootstrap-sass was resolved to 3.4.1, which depends on
-    sassc was resolved to 2.4.0, which depends on
-      ffi
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;solution&quot;&gt;Solution&lt;/h2&gt;
-
-&lt;p&gt;Install &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ffi&lt;/code&gt; with opttion &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;--disable-system-libffi&lt;/code&gt;.&lt;/p&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ffi &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-system-libffi&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;div class=&quot;language-console highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;#&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;x.x.x is version
-&lt;span class=&quot;gp&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;gem &lt;span class=&quot;nb&quot;&gt;install &lt;/span&gt;ffi:x.x.x &lt;span class=&quot;nt&quot;&gt;--&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--disable-system-libffi&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;h2 id=&quot;references&quot;&gt;References&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://github.com/ffi/ffi/issues/791&quot;&gt;dyld: Symbol not found: _ffi_prep_closure_loc on Macos 10.14 · Issue #791 · ffi/ffi&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://medium.com/@leoliang.climber/missing-ffi-prep-closure-error-for-ffi-1-13-1-gem-70f800a48090&quot;&gt;Missing ffi_prep_closure for ffi-1.13.1 gem | by Jialiang Liang | Medium&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>toshimaru</name></author><category term="mac" /><category term="gem" /><summary type="html">Issue</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+&lt;p&gt;Disabling auto graphic switching solves the issue.&lt;/p&gt;</content><author><name>toshimaru</name></author><category term="mac" /><summary type="html">Prerequisites</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://blog.toshima.ru/android-chrome-512x512.png" /><media:content medium="image" url="https://blog.toshima.ru/android-chrome-512x512.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
